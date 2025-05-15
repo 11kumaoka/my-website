@@ -1,33 +1,124 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TKumaHomePage</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TKumaHome</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+      overflow-x: hidden;
+    }
+    .sidebar {
+      height: 100vh;
+      position: fixed;
+      top: 300px;
+      left: 0;
+      width: 220px;
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-right: 1px solid #dee2e6;
+    }
+    .hero {
+      background-color: #6a9e00;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .section-title {
+      border-bottom: 2px solid #007bff;
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding-bottom: 0.3rem;
+    }
+    .container.my-5 {
+        margin-left: 220px;
+        padding: 2rem;
+    }
+    </style>
+
+
 </head>
+
+
 <body>
+<!-- <body data-bs-spy="scroll" data-bs-target="#sidebarMenu" data-bs-offset="100" tabindex="0"></body> -->
+  <!-- Header -->
+  <header class="hero">
+    <h1>熊岡 卓哉 (Takuya Kumaoka)のホームページ<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
 
-  <!-- ナビゲーションバー -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    </head>
+    <body>
+        
+    </body>
+    </html></h1>
+    <p class="lead">物理学の研究をやっている人</p>
+    <p>Quark-Gluon Plasma / Jet Quenching / Electron-Ion Collider</p>
+  </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">研究紹介</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">自己紹介</a></li>
-          <li class="nav-item"><a class="nav-link" href="#research">研究</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">連絡先</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+        <a class="navbar-brand" href="/">研究サイト</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- メインコンテンツ -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">ホーム</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about/">自己紹介</a></li>
+            <li class="nav-item"><a class="nav-link" href="/research/">研究</a></li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+
+  <!-- side bar -->
+  <div class="sidebar">
+    <!-- トグルボタン -->
+    <!-- <button class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar">
+    メニュー
+    </button> -->
+
+    <!-- Offcanvas Sidebar -->
+    <!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">メニュー</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro">自己紹介</a></li>
+        <li class="nav-item"><a class="nav-link" href="#research">研究</a></li>
+        </ul>
+    </div>
+    </div> -->
+    <body data-bs-spy="scroll" data-bs-target="#sidebarMenu" data-bs-offset="100" tabindex="0"></body>
+    <h4>メニュー</h4>
+    <ul class="nav flex-column">
+      <li class="nav-item"><a href="#intro" class="nav-link">自己紹介</a></li>
+      <li class="nav-item"><a href="#research" class="nav-link">研究内容</a></li>
+      <li class="nav-item"><a href="#publications" class="nav-link">論文</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link">連絡先</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
   <div class="container my-5">
 
     <div id="about" class="mb-5">
       <h2>自己紹介</h2>
-      <p>東京大学のポスドク研究員として、クォーク・グルーオン・プラズマの研究をしています。</p>
+      <p>高エネルギー物理学実験を主に行ってます。</p>
         <a href="/selfIntro/">経歴</a>
     </div>
 
@@ -36,14 +127,20 @@
       <ul class="list-group">
         <li class="list-group-item">RAA測定とジェットクエンチング</li>
         <li class="list-group-item">EICのストリーミングデータ再構成</li>
+
+        <li class="list-group-item">hoge1</li>
+        <li class="list-group-item">hoge1</li>
+        <li class="list-group-item">hoge1</li>
+        <li class="list-group-item">hoge1</li>
+        
       </ul>
     </div>
 
   </div>
 
-  <!-- フッター -->
+  <!-- Footer -->
   <footer class="text-center py-4 bg-light">
-    © 2025 K. Taku
+    © 2025 Takuya Kumaoka
   </footer>
 
   <!-- Bootstrap JS -->
