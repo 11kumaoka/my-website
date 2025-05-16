@@ -1,0 +1,130 @@
+
+body {
+    overflow-x: hidden;
+    background-color: #fffade;
+    /* background-color: #fdfdfc; */
+    /* background-color: #f5f5eb; */
+    color: #2a2a2a;
+}
+.sidebar {
+  height: calc(100vh - 60px);
+  position: fixed;
+  top: 300px;
+  left: 0;
+  width: 220px;
+  background-color: #f5f5eb;
+  padding: 1rem;
+  border-right: 3px solid #8b6100;
+  overflow-y: auto;
+}
+
+.container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  border: 1px solid #dadada;
+}
+
+h1{
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    text-shadow: 0.5px 0.5px 1.2px rgba(0, 0, 0, 0.4);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff3c0;
+}
+h2, h3 {
+    font-family: "Yu Gothic UI", serif;
+    font-weight: 400;
+    color: #5c8b1a; 
+}
+
+/* ---------------------------
+  ナビゲーションバー
+---------------------------- */
+nav {
+  background-color: #0053c0d1;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #ffffff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------
+  リンク
+---------------------------- */
+a {
+  color: #0066cc;
+}
+a:hover {
+  color: #003399;
+}
+
+/* ---------------------------
+  ボタン風リンク
+---------------------------- */
+.button {
+  display: inline-block;
+  background-color: #2e5e4e;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #163b6b;
+}
+
+/* ---------------------------
+  画像（中央揃え＋丸く）
+---------------------------- */
+img.profile {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  max-width: 150px;
+  border: 3px solid #1a4c8b;
+}
+
+
+.hero {
+  background-color: #3f5c00;
+  color: #fffdc7;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+}
+.section-title {
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+}
+.container.my-5 {
+  margin-left: 240px;
+  padding: 2rem;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .container.my-5 {
+    margin-left: 0;
+  }
+}
