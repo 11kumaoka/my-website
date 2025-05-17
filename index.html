@@ -38,50 +38,72 @@
     </div>
   </nav>
 
-  <!-- サイドバー -->
-  <div class="sidebar" id="sidebarMenu">
-    <img src="images/KumaIcon6.png"  class="img-fluid rounded-circle"  alt="KumaIcon6" width="200" />
-    <h4>メニュー</h4>
-    <ul class="nav flex-column">
-      <li class="nav-item"><a href="#career" class="nav-link">自己紹介</a></li>
-      <li class="nav-item"><a href="#research" class="nav-link">研究内容</a></li>
-      <li class="nav-item"><a href="#publications" class="nav-link">論文</a></li>
-    </ul>
-  </div>
-
-  <!-- 本文 -->
-  <div class="container my-5">
-    <p>注1) このページは自身のホームページの勉強が主な目的で見やすさは考慮していません。</p>
-    <p>注2) 現在作成中であり中身がないことはご了承ください。</p>
-    <section id="career" class="mb-5">
-      <h2 class="section-title">自己紹介</h2>
-      <p>高エネルギー物理学実験を主に行っています。</p>
-      <!-- <a href="/my-website/career/">正しいリンク</a> -->
-      <a href="/my-website/career/">→ 詳しい経歴はこちら</a>
-    </section>
-
-    <section id="research" class="mb-5">
-      <h2 class="section-title">研究内容</h2>
-      <ul class="list-group">
-        <li class="list-group-item">化学</li>
-        <li class="list-group-item">グルーオン飽和の現象論</li>
-        <li class="list-group-item">ILC-ILDのECalの性能評価</li>
-        <li class="list-group-item">LHC-ATLASのNSWのミューオンソフトウェアトリガーの開発</li>
-        <li class="list-group-item">LHC-ALICEのFoCalのトリガーおよびプロトタイプの性能評価</li>
-        <li class="list-group-item">LHC-ALICEのジェットを使ったQGPの研究</li>
-        <li class="list-group-item">RHIC-sPHENIXのシリコン-カロリメータトラッキングの開発</li>
-        <li class="list-group-item">EIC-ePICのストリーミングリードアウトの開発</li>
-      </ul>
-    </section>
-
-    <section id="publications" class="mb-5">
-      <h2 class="section-title">論文</h2>
-      <ul id="paperList" class="list-group"></ul>
-    </section>
+    <!-- サイドバー -->
+    <div class="sidebar" id="sidebarMenu">
+        <img src="images/KumaIcon6.png"  class="img-fluid rounded-circle"  alt="KumaIcon6" width="200" />
+        <h4>メニュー</h4>
+        <ul class="nav flex-column">
+        <li class="nav-item"><a href="#career" class="nav-link">自己紹介</a></li>
+        <li class="nav-item"><a href="#research" class="nav-link">研究内容</a></li>
+        <li class="nav-item"><a href="#publications" class="nav-link">論文</a></li>
+        </ul>
+    </div>
 
 
-    <a href="posts/post1.html">記事1を読む</a>
-  </div>
+
+    <!-- 本文 -->
+    <div class="container my-5">
+        <p>注1) このページは自身のホームページの勉強が主な目的で見やすさは一切考慮していません。</p>
+        <p>注2) 現在作成中であり中身がないことはご了承ください。</p>
+    </div>
+
+
+
+    <main class="container">
+        <section class="row image-left">
+            <div class="image image-overlay-container">
+                <img src="images/Hydrangea.jpeg" alt="RAA測定">
+                <div class="overlay-text">自己紹介</div>
+            </div>
+            <div class="text">                
+                <p>高エネルギー物理学実験を主に行っています。</p>
+                <a href="/my-website/career/">→ 詳しい経歴はこちら</a>
+            </div>
+        </section>
+
+        <section class="row image-right">
+            <div class="text">   
+                <ul>EIC-ePICのストリーミングリードアウトの開発</ul>
+                <ul>RHIC-sPHENIXのシリコン-カロリメータトラッキングの開発</ul>                    
+                <ul>LHC-ALICEのジェットを使ったQGPの研究</ul>
+                <ul>LHC-ALICEのFoCalのトリガーおよびプロトタイプの性能評価</ul>
+                <ul>LHC-ATLASのNSWのミューオンソフトウェアトリガーの開発</ul>
+                <ul>ILC-ILDのECalの性能評価</ul>
+                <ul>グルーオン飽和の現象論</ul>
+                <ul>化学</ul>
+            </div>
+            <div class="image image-overlay-container">
+                <img src="images/Hydrangea.jpeg" alt="ストリーミング再構成イメージ">
+                <div class="overlay-text">研究内容</div>
+            </div>
+        </section>
+
+        <section class="row image-left">
+            <div class="image image-overlay-container">
+                <img src="images/Hydrangea.jpeg" alt="RAA測定">
+                <div class="overlay-text">コンピューティング</div>
+            </div>
+            <div class="text">
+                <ul>PCの環境設定</ul>         
+                <ul><a href="/my-website/subPages/computing/">ROOTの使い方</a></ul>
+                <ul>プログラミングの基礎内容</ul>  
+                <ul>LaTeXの使い方</ul>  
+                <ul>Gitの基礎の基礎の基礎</ul>
+                <ul>Dockerの基礎の基礎の基礎</ul>
+                <ul>Kubernetesの基礎の基礎の基礎</ul>
+            </div>
+        </section>
+    </main>
 
   <!-- フッター -->
   <footer class="text-center py-4 bg-light">

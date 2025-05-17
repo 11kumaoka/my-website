@@ -19,14 +19,81 @@ body {
 }
 
 .container {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1rem;
   background-color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
   border-radius: 8px;
   border: 1px solid #dadada;
 }
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.image-left .image {
+  order: 0;
+}
+.image-left .text {
+  order: 1;
+}
+.image-right .text {
+  order: 0;
+}
+.image-right .image {
+  order: 1;
+}
+
+.row .text, .row .image {
+  flex: 1 1 50%;
+  padding: 1rem;
+}
+
+.row .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* == s == Setting of images　==== */
+.image-overlay-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-overlay-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease; 
+}
+
+.image-overlay-container .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 6px;
+  pointer-events: none; /* Do not let the text be clickable */
+}
+
+/* Change when hovering */
+.image-overlay-container:hover img {
+  filter: brightness(70%); /* become dark */
+}
+
+/* == e == イメージ設定　==== */
 
 h1{
     font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
