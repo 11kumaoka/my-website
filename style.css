@@ -37,6 +37,34 @@ body {
     overflow-y: auto;
 }
 
+/*　== s == Main Container */
+.container {
+    max-width: 1200px;
+    margin-left: 240px;
+    margin-right: 10px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
+    border-radius: 8px;
+    border: 1px solid #dadada;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .container {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 0.8rem;
+  }
+}
+/*　== e == Main Container */
 
 .row {
   display: flex;
@@ -186,30 +214,28 @@ a:hover {
 
 
 
+/* List style */
+.tag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-family: "Yu Gothic", sans-serif;
+}
 
-.container {
-    max-width: 1200px;
-    margin-left: 240px;
-    margin-right: 10px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 1.5rem;
-    background-color: #ffffff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
-    border-radius: 8px;
-    border: 1px solid #dadada;
+.tag-list .row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.4rem;
 }
-@media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
-  .container {
-    margin-left: 0;
-    padding: 1rem;
-  }
+
+.tag {
+  flex: 0 0 100px;  /* 固定幅：左カラム */
+  font-weight: bold;
+  color: #2e5e4e;
+  font-family: monospace;
 }
-@media (max-width: 480px) {
-  .container {
-    padding: 0.8rem;
-  }
+
+.desc {
+  flex: 1;
+  color: #333;
 }
