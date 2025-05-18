@@ -43,7 +43,6 @@ body {
     margin-left: 240px;
     margin-right: 10px;
     width: 90%;
-    margin: 0 auto;
     padding: 1.5rem;
     background-color: #ffffff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
@@ -218,14 +217,15 @@ a:hover {
 .tag-list {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.1rem;
   font-family: "Yu Gothic", sans-serif;
 }
 
 .tag-list .row {
   display: flex;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 0.4rem;
+  padding: 2px 0; /* 上下の余白を小さく */
+  line-height: 1.1; /* 行間を狭く */
 }
 
 .tag {
