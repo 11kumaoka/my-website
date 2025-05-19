@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Computing | Create Home Pages | TKuma Home</title>
+  <link rel="stylesheet" href="/my-website/style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>TKumaの研究サイト</h1>
+    <p>高エネルギー物理学・EIC・QGP</p>
+  </header>
+
+
+  <main class="container">
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb">
+      <a href="/my-website/index.html">ホーム</a> &gt;
+      <span>EIC Physics</span>
+    </nav>
+
+    <section class="container">
+        <h2>よく聞く単語</h2>
+        <div class="tag-list">
+            <div class="row"><div class="tag">&lt;DVCS（Deeply Virtual Compton Scattering）&gt;</div>
+                <div class="desc">
+                    高エネルギー電子が陽子と衝突し、仮想光子（$\gamma^*$）が陽子と相互作用して、実光子（$\gamma$）を放出して散乱する過程。
+                    e + p \rightarrow e’ + p’ + \gamma
+                    中間状態に**仮想光子（$Q^2 \gg 0$）**が入るため、深部非弾性散乱（DIS）と似ている。
+	                生成されるのは実光子のみ（メソンなどは出ない）。
+	                GPDの研究における最もシンプルなexclusive過程。
+                </div>
+            </div>
+            <div class="row"><div class="tag">&lt; DVMP（Deeply Virtual Meson Production）&gt;</div>
+                <div class="desc">
+                    DVMPは、仮想光子が陽子と相互作用し、メソンを生成する反応：
+                    e + p \rightarrow e’ + p’ + M
+                    $M$ はメソンであり、生成されるメソンの種類により、感度のあるGPDのflavorやspin成分が異なる。
+                    電子からの仮想光子がメソンに変換される過程。
+	                生成されるのが実光子ではなく、特定のメソン（π, ρ, ϕなど）。
+	                横偏極陽子を使えば、横向きのGPD（transverse GPD）への感度も高い。
+                </div>
+            </div>
+        </div>
+        
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Takuya Kumaoka
+  </footer>
+</body>
+</html>
