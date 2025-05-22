@@ -15,11 +15,22 @@
     pre {
       background: #222;
       color: #b6ff01;
-      padding: 1rem;
+      padding: 0.1rem;
+      padding-left: 0.5rem;
       overflow-x: auto;
     }
-    h2, h3, h4 {
-      color: #2e5e4e;
+    h2{
+      padding-left: 0.2rem;
+      color: rgb(25, 149, 0);
+      background-color: #ffea63;
+    }
+    h3{
+      padding-left: 0.3rem;
+      color: #42bc00;
+    }
+    h4 {
+      padding-left: 0.4rem;
+      color: #005c11;
     }
     img {
       max-width: 100%;
@@ -42,6 +53,11 @@
   hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
  </summary> -->
 
+ <!-- パンくずリスト -->
+<nav class="breadcrumb">
+  <a href="/my-website/index.html">ホーム</a> &gt;
+  <span>EIC Physics</span>
+</nav>
 
 
 <p>
@@ -50,218 +66,219 @@
   リンクに飛んだら下の画面の"..."の部分を開き，自分の読み込ませたいroot fileを選択する．
   （MonALISAを使っている人にはおなじみかもしれません）
 </p>
-<img alt="js.png" height="192" hspace="0.5" src="%ATTACHURL%/js.png" title="js.png" vspace="0.5" width="245" />
+<img alt="js.png" height="192" hspace="0.5" src="js.png" title="js.png" vspace="0.5" width="245" />
 
 <h2> ヒストグラム </h2>
 <h3> ヒストグラム作成 </h3>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TH1F *h1D = new TH1F("name","title", nBins, minX, maxX) ("name","title", nBins, minX, maxX); //char, char, int, float 
+
+<pre>
+TH1F *h1D = new TH1F("name","title", nBins, minX, maxX) ("name","title", nBins, minX, maxX); //char, char, int, float 
 </pre>
 
 xbin にwの重み付けfill
-<pre style="color: #b6ff01; background-color: #222222;">
-  h1D->Fill(x,w); 
+<pre>
+h1D->Fill(x,w); 
 </pre>
 
 詳しい色や形状、引数等はひとまず参照pageをみてください.
-<pre style="color: #b6ff01; background-color: #222222;">
-  TH2F *h2D = new TH2F("name","title", nBinsX, minX, maxX, nBinsY, minY, maxY); //char, char, int, float, float,  int, float, float
-  h2D->Fill(x,y);
+<pre>
+TH2F *h2D = new TH2F("name","title", nBinsX, minX, maxX, nBinsY, minY, maxY); //char, char, int, float, float,  int, float, float
+h2D->Fill(x,y);
 </pre>
 
 平面プロットのカラー付棒が立っている奴は"lego2z"
-<pre style="color: #b6ff01; background-color: #222222;">
-  h2D->Draw("colz");
+<pre>
+h2D->Draw("colz");
 </pre>
 
 //綺麗な虹色 kLainbowは薄汚い暗い虹色
-<pre style="color: #b6ff01; background-color: #222222;">
-  gStyle->SetPalette(1);
+<pre>
+gStyle->SetPalette(1);
 </pre>
 
 <h4> 配列オブジェクト (ヒストグラムに関わらずROOTのオブジェクトは配列化できるものが多い) </h4>
 
 loopでhistNameが変わっていることが大切 (h%dの部分でloopの数字を名前に入れ，histごとに名前を変えている)
-<pre style="color: #b6ff01; background-color: #222222;">
-  TH1F *hList[n];
-  for(int nHist = 0; nHist < n; nHist++) hList[nHist] = TH1F(Form("h%d", nHist),"", nBins[nHist], minX[nHist],maxX[nHist]);
+<pre>
+TH1F *hList[n];
+for(int nHist = 0; nHist < n; nHist++) hList[nHist] = TH1F(Form("h%d", nHist),"", nBins[nHist], minX[nHist],maxX[nHist]);
 </pre>
 
-<h4>  多次元ヒストグラム( [[https://root.cern.ch/doc/master/classTHnSparse.html][THnSparse]]) </h4>
+<h4>  多次元ヒストグラム( <a href="https://root.cern.ch/doc/master/classTHnSparse.html">THnSparse</a> ) </h4>
 
 オブジェクトのbin数は, (bin_axial1)*(bin_axial2)*(bin_axial3)* ...となっていくためサイズが大きくなり、注意が必要.~
 <br>下は4次元の例: nbinsEachHistは各hist(各軸)のbin数, minEachHist各hist(各軸)のmin値, maxEachHist各hist(各軸)のmax値~
 <br>Fillも配列で突っ込む~
-<pre style="color: #b6ff01; background-color: #222222;">
-  Int_t nbinsEachHist[4]  = {100, 2, 30, 50};
-  Double_t minEachHist[4] = {0,-0.5, -0.3, 0};
-  Double_t maxEachHist[4] = {50,1.5, 5.0, 100};
-  THnSparse* hN = new THnSparseD("histname", "title", 4, nbinsEachHist, minEachHist, maxEachHist);
-  hN->Sumw2();//error bar
+<pre>
+Int_t nbinsEachHist[4]  = {100, 2, 30, 50};
+Double_t minEachHist[4] = {0,-0.5, -0.3, 0};
+Double_t maxEachHist[4] = {50,1.5, 5.0, 100};
+THnSparse* hN = new THnSparseD("histname", "title", 4, nbinsEachHist, minEachHist, maxEachHist);
+hN->Sumw2();//error bar
 
-  Double_t xN[4] = {11, 1.2, -0.1, 40};
-  hN->Fill(xN, 1.);
+Double_t xN[4] = {11, 1.2, -0.1, 40};
+hN->Fill(xN, 1.);
 
-  hN->GetAxis(3)->SetRangeUser(zMin[nZRange], zMax[nZRange]);
-  h1 = hN->Projection(0, "h1 Name"); 
-  h2 = hN->Projection(1, 4, "h1 Name");
+hN->GetAxis(3)->SetRangeUser(zMin[nZRange], zMax[nZRange]);
+h1 = hN->Projection(0, "h1 Name"); 
+h2 = hN->Projection(1, 4, "h1 Name");
 </pre>
 
 <h4> ヒストグラムのコピー (当然だがポインタは新しくできるため、心配せずヒストグラムを編集できる) </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TH1F *hnew = (TH1F*)h->Clone(); hnew->SetName("hnew");
+<pre>
+TH1F *hnew = (TH1F*)h->Clone(); hnew->SetName("hnew");
 </pre>
 
 <h4> 不均一bin幅 </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  double xBinsW[] = {0,4,5,10};
-  TH1F *h = new TH1F("hist","",3,xBinsW);
-  h->Scale(1., "width");
+<pre>
+double xBinsW[] = {0,4,5,10};
+TH1F *h = new TH1F("hist","",3,xBinsW);
+h->Scale(1., "width");
 </pre>
 
 <h4> ヒストグラムの演算 </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  hist->Add(h1,x);//各binの値=現在の値+x*h1の値
-  hist->Add(h1,h2,x,y);//各binの値=x*h1の値+y*h2の値
-  hist->Divide(h1,x);//各binの値=現在の値/(x*h1の値)
-  hist->Divide(h1,h2,x,y);//各binの値=(x*h1の値)/(y*h2の値)
-  hist->Multiply(h1,x);//各binの値=現在の値*x*h1の値
-  hist->Multiply(h1,h2,x,y);//各binの値=x*h1の値*y*h2の値
-  hist->Scale(x);//各binの値=x*現在の値
-  Double_t tot=h1->Integral(); //面積で規格化
- h1->Scale(1. /tot);
+<pre>
+hist->Add(h1,x);//各binの値=現在の値+x*h1の値
+hist->Add(h1,h2,x,y);//各binの値=x*h1の値+y*h2の値
+hist->Divide(h1,x);//各binの値=現在の値/(x*h1の値)
+hist->Divide(h1,h2,x,y);//各binの値=(x*h1の値)/(y*h2の値)
+hist->Multiply(h1,x);//各binの値=現在の値*x*h1の値
+hist->Multiply(h1,h2,x,y);//各binの値=x*h1の値*y*h2の値
+hist->Scale(x);//各binの値=x*現在の値
+Double_t tot=h1->Integral(); //面積で規格化
+h1->Scale(1. /tot);
 </pre>
 
 <h4> Efficiency </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  h->Divide(hNume, hDeno, 1.0, 1.0, "b") //efficiencyのerrorはバイナリであるため注意(option "b")
-  TEfficiency *heff = new TEfficiency(hNume, hDeno); //値が1を超える場合は計算できない
-  heff->Draw("AP"); //点と軸表示
+<pre>
+h->Divide(hNume, hDeno, 1.0, 1.0, "b") //efficiencyのerrorはバイナリであるため注意(option "b")
+TEfficiency *heff = new TEfficiency(hNume, hDeno); //値が1を超える場合は計算できない
+heff->Draw("AP"); //点と軸表示
 </pre>
 
 <h4> Bin </h4>
-<pre style="color: #b6ff01; background-color: #222222;"> 
-  //get a number of bin for the axis value.
-  //take care the number of bin starts 1 not 0
-  h->FindBin(val); 
-  h->FindFixBin(val);
-  h->GetBinContent(binNumber); //get the entry of the certain bin
-  Double_t xCenterValue = h1->GetXaxis()->GetBinCenter(i);　//binのxの中心値を取得　　
-  h->Rebin(n) //n binを1 binにまとめる。　bin数は1/nになる
-  double xBinsW[] = {0,4,5,10};
-  TH1F *h_rebin = hist->Rebin(4,"h_rebin",xBinsW); //recreate the bin width you want to set
+<pre> 
+//get a number of bin for the axis value.
+//take care the number of bin starts 1 not 0
+h->FindBin(val); 
+h->FindFixBin(val);
+h->GetBinContent(binNumber); //get the entry of the certain bin
+Double_t xCenterValue = h1->GetXaxis()->GetBinCenter(i);　//binのxの中心値を取得　　
+h->Rebin(n) //n binを1 binにまとめる。　bin数は1/nになる
+double xBinsW[] = {0,4,5,10};
+TH1F *h_rebin = hist->Rebin(4,"h_rebin",xBinsW); //recreate the bin width you want to set
 </pre>
 
 <h4> ブランチの中身の確認 </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  f = ROOT.TFile("hoge.root", "READ")
-  branch = f.findObject("branchName")
-  for key in branch:
-    name = key.GetName()
-    print(name)
+<pre>
+f = ROOT.TFile("hoge.root", "READ")
+branch = f.findObject("branchName")
+for key in branch:
+  name = key.GetName()
+  print(name)
 </pre>
 
 <h4> 軸 </h4>
 
 軸情報へのアクセス
-<pre style="color: #b6ff01; background-color: #222222;">
-  h->GetXaxis(); //X, Y, Z
-  h->GetAxis(3); //multi demension
-  h->GetXaxis()->SetRange(IBinNum, EBinNum);//bin番号を引数にする
-  h->GetXaxis()->SetRangeUser(IVal, EVal);//user座標を引数にする
-  //文字は#を使うとLaTeX表記できる ex) #it{p}_{T}, #alpha, #frac{1}{N}
-  //スライドで後から誤魔化す場合はHelveticaで書くといいらしい...　少し違う気もしますが
-  h->SetTitle("hTitle"); //ヒストグラムのタイトル
-  h->GetXaxis()->SetTitle("title_of_xaxis");    // 1次元ヒストグラム以外の場合
-  gPad->SetLogy(); //y軸をlog
-  //Axis labeling: Take care for the number start from 1 not 0
-  h->GetXaxis()->SetBinLabel(1,"A");
-  h->GetXaxis()->SetBinLabel(2,"B");
-  h->GetXaxis()->SetBinLabel(3,"C");
-  h->GetXaxis()->SetBinLabel(4,"D");
-  h->GetYaxis()->SetTitleSize(25);
-  h->GetYaxis()->SetTitleFont(43);
-  h->GetYaxis()->SetTitleOffset(1.55);
+<pre>
+h->GetXaxis(); //X, Y, Z
+h->GetAxis(3); //multi demension
+h->GetXaxis()->SetRange(IBinNum, EBinNum);//bin番号を引数にする
+h->GetXaxis()->SetRangeUser(IVal, EVal);//user座標を引数にする
+//文字は#を使うとLaTeX表記できる ex) #it{p}_{T}, #alpha, #frac{1}{N}
+//スライドで後から誤魔化す場合はHelveticaで書くといいらしい...　少し違う気もしますが
+h->SetTitle("hTitle"); //ヒストグラムのタイトル
+h->GetXaxis()->SetTitle("title_of_xaxis");    // 1次元ヒストグラム以外の場合
+gPad->SetLogy(); //y軸をlog
+//Axis labeling: Take care for the number start from 1 not 0
+h->GetXaxis()->SetBinLabel(1,"A");
+h->GetXaxis()->SetBinLabel(2,"B");
+h->GetXaxis()->SetBinLabel(3,"C");
+h->GetXaxis()->SetBinLabel(4,"D");
+h->GetYaxis()->SetTitleSize(25);
+h->GetYaxis()->SetTitleFont(43);
+h->GetYaxis()->SetTitleOffset(1.55);
 </pre>
 
 <h3> histogramのbin情報のスキャン </h3>
-<pre style="color: #b6ff01; background-color: #222222;">
-  for bin in range(1, h.GetNbinsX() + 1):
-    error = h.GetBinError(bin)
-    content = h.GetBinContent(bin)
+<pre>
+for bin in range(1, h.GetNbinsX() + 1):
+  error = h.GetBinError(bin)
+  content = h.GetBinContent(bin)
 </pre>
 
 グラフ中に線を引くTLine
-<pre style="color: #b6ff01; background-color: #222222;">
-  TH1D* h1 = new TH1D("h1", "h1", 200, -50, 150);
-  TLine* l1 = new TLine(0,0.2, 0, 1.5);
-  TLine* l2 = new TLine(-40, 0.5, 200, 0.5);
-  h1->Draw();
-  l1->Draw();
-  l2->Draw("same");
+<pre>
+TH1D* h1 = new TH1D("h1", "h1", 200, -50, 150);
+TLine* l1 = new TLine(0,0.2, 0, 1.5);
+TLine* l2 = new TLine(-40, 0.5, 200, 0.5);
+h1->Draw();
+l1->Draw();
+l2->Draw("same");
 </pre>
 
-<img alt="TLineEx.png" height="248" src="%ATTACHURL%/TLineEx.png" width="239" />
+<img alt="TLineEx.png" height="248" src="TLineEx.png" width="239" />
 
 厄介なのが線の定義がグラフの定義の範囲を超えると線がそのまま突き抜ける．
 <br>１次元のヒストグラムの場合縦軸の範囲が非常に難しい.
 
 <h3>  C++の文字の扱い </h3></span>
-<pre style="color: #b6ff01; background-color: #222222;">
-  int intX = (int) floatX; //float->int
+<pre>
+int intX = (int) floatX; //float->int
 </pre>
 
 \nは改行;
-<pre style="color: #b6ff01; background-color: #222222;">
-  leg->AddEntry(h3[i],cid,"l"); 
+<pre>
+leg->AddEntry(h3[i],cid,"l"); 
 </pre>
 
 %3dは3文字幅を指定。%02dで08などと頭にゼロをつけてくれる。~
 <br>文字は%sで受けlongは%ldで。
-<pre style="color: #b6ff01; background-color: #222222;">
-  Form("x = %d", x); // the value of x into %d as string
-  char src[100] = "10 123.456 ABC";
-  int i;
-  float f;
-  char s[100];
-  sscanf( src, "%d %f %s", &i, &f, &s ); //char to value
-  std::cout << src << " --(sscanf)---> "<< i <<" "<< f <<" "<< s << std::endl; // result 10 123.456 ABC --(sscanf)---> 10 123.456 ABC
+<pre>
+Form("x = %d", x); // the value of x into %d as string
+char src[100] = "10 123.456 ABC";
+int i;
+float f;
+char s[100];
+sscanf( src, "%d %f %s", &i, &f, &s ); //char to value
+std::cout << src << " --(sscanf)---> "<< i <<" "<< f <<" "<< s << std::endl; // result 10 123.456 ABC --(sscanf)---> 10 123.456 ABC
 </pre>
 
 <h3>  canvas / legend </h3>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TCanvas *c1 = new TCanvas("name","title",width,height);
-  canvas->Divide(n,m); //n行,m列にcanvasを分割する
-  canvas->cd(i); //i番目の区画に移動する
-  hList[i]->Draw();
-  //TLegend(x1,y1,x2,y2,"title")、位置はNDCで指定する（０−１の間の値）
-  //最後の引数の"title"はlegendに表示にされるタイトル、邪魔な場合はいれなくてもいい
-  TLegend *leg = new TLegend(0.1,0.7,0.48,0.9);
-  //第一引数はポインタ、第二引数は項目名、第三引数で表示したいattributeを指定
-  leg->AddEntry(h,"histogram","f");
-  leg->Draw();
+<pre>
+TCanvas *c1 = new TCanvas("name","title",width,height);
+canvas->Divide(n,m); //n行,m列にcanvasを分割する
+canvas->cd(i); //i番目の区画に移動する
+hList[i]->Draw();
+//TLegend(x1,y1,x2,y2,"title")、位置はNDCで指定する（０−１の間の値）
+//最後の引数の"title"はlegendに表示にされるタイトル、邪魔な場合はいれなくてもいい
+TLegend *leg = new TLegend(0.1,0.7,0.48,0.9);
+//第一引数はポインタ、第二引数は項目名、第三引数で表示したいattributeを指定
+leg->AddEntry(h,"histogram","f");
+leg->Draw();
 </pre>
 
 <h2> 関数 </h2>
 <h3> 関数作成 </h3>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TF1 ff = new TF1("ff", "ff", "(x<10)*(a + b * x) + (x>10)*c", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant
-  TF1 ff = new TF1("ff", "ff", "(x<10)*([0] + [1]*x) + (x>10)*[2]", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant
+<pre>
+TF1 ff = new TF1("ff", "ff", "(x<10)*(a + b * x) + (x>10)*c", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant
+TF1 ff = new TF1("ff", "ff", "(x<10)*([0] + [1]*x) + (x>10)*[2]", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant
 </pre>
 
 <h4> フィット </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  ff->SetParameter(0, a); //[0]にaを代入する
-  ff->SetParameters(a, b, c); //[0]にa, [1]にb, [2]にcをいっぺんに代入する
-  h->Fit("ff", "", "", 5.0, 100.0);
-  Double_t p0 = ff->GetParameter(0);//0番目のパラメータ
-  Double_t p0e = ff->GetParError(0);//0番目のパラメータのエラー
-  Double_t chi2 = ff->GetChisquare();//χ二乗値
-  Int_t Ndof = ff->GetNDF();//自由度の数（フィット点の数 - パラメータ数）
-  Double_t retunVal = ff->Eval(1.0); //the ff value at x=1
+<pre>
+ff->SetParameter(0, a); //[0]にaを代入する
+ff->SetParameters(a, b, c); //[0]にa, [1]にb, [2]にcをいっぺんに代入する
+h->Fit("ff", "", "", 5.0, 100.0);
+Double_t p0 = ff->GetParameter(0);//0番目のパラメータ
+Double_t p0e = ff->GetParError(0);//0番目のパラメータのエラー
+Double_t chi2 = ff->GetChisquare();//χ二乗値
+Int_t Ndof = ff->GetNDF();//自由度の数（フィット点の数 - パラメータ数）
+Double_t retunVal = ff->Eval(1.0); //the ff value at x=1
 </pre>
 
-https://lambda.phys.tohoku.ac.jp/~nagao/seminar/downloads/ROOTManual/05.FittingHistgram.pdf
+<a href="https://lambda.phys.tohoku.ac.jp/~nagao/seminar/downloads/ROOTManual/05.FittingHistgram.pdf">ヒストグラムのフィッティング</a>
 
 <h4> オプション </h4>
 
@@ -286,136 +303,138 @@ TH1::Fitの第２引数は下に引用したフィッティングのオプショ
 <br>-"F" polNでフィッティングを行う場合、Minuitフィッターに切り替える。（既定の設定では、polN関数は線形フィッターでフィッティングされる）
 
 <h2> プロットの見た目</h2>
-<pre style="color: #b6ff01; background-color: #222222;">
-  h->SetLineColor(1);
-  h->SetMarkerColor(1);
-  h->SetMarkerStyle(22);
-  h->SetMarkerSize(1.5); 
-  d->SetLineWidth(5); 
-  d->SetLineStyle(2); //[1=line,2=broken,3=dotted,4=broken-dot,5=long-broken-dot]
-  h->SetFillColorAlpha(kGreen, 0.5); //kGreen, 50% Clear
-  h->SetFillStyle(3005);  
+<pre>
+h->SetLineColor(1);
+h->SetMarkerColor(1);
+h->SetMarkerStyle(22);
+h->SetMarkerSize(1.5); 
+d->SetLineWidth(5); 
+d->SetLineStyle(2); //[1=line,2=broken,3=dotted,4=broken-dot,5=long-broken-dot]
+h->SetFillColorAlpha(kGreen, 0.5); //kGreen, 50% Clear
+h->SetFillStyle(3005);  
 </pre>
 
 <h4>  RooT Color </h4>
-<pre style="color: #b6ff01; background-color: #222222;">%CODE{ lang="cpp" num="1" numstep="1" </summary>
+<pre>
+%CODE{ lang="cpp" num="1" numstep="1" </summary>
 enum EColor { kWhite =0, kBlack =1, kGray=920, kRed =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432, kOrange=800, kSpring=820, kTeal=840, kAzure =860, kViolet =880, kPink=900 };
 </pre>
 
-<img alt="ColorReference.png" height="325" src="%ATTACHURL%/ColorReference.png" title="ColorReference.png" width="346" /><img alt="StyleSetting.png" height="318" src="%ATTACHURL%/StyleSetting.png" title="StyleSetting.png" width="666" />
+<img alt="ColorReference.png" height="325" src="ColorReference.png" title="ColorReference.png" width="346" /><img alt="StyleSetting.png" height="318" src="StyleSetting.png" title="StyleSetting.png" width="666" />
 
 ''カラー/マーカーを配列にしとくと便利かも.　既定のカラー(EColor変数:kRedなど)は下にあるように元々は値が入っている。この値を図を参照に+/-して色を決めておく.''
-<pre style="color: #b6ff01; background-color: #222222;">
-  //[kBrack, kRed, kBlue, kGreen+3, kOrange+8, kAzure+10, kSpring+4, kViolet+1, kPink+9, kSpring-9, kOrange+8, kAzure+1, kTeal+4]
-  int lFillColor[14] = [1, 632, 600, 416+3, 800+8, 860+10, 900+10, 820+4, 880+1, 900+9, 820-9, 800+1, 860+1, 840+4];
-  int [MarkerStyleList][MarkerStyleList] [10] = [20, 21, 22, 23, 34, 29, 33, 31, 24, 24, 26, 32];
-  hList[histNum]->SetMarkerColor( [FillColorList][FillColorList].at(histNum));
-  hList[histNum]->SetMarkerStyle( [MarkerStyleList][MarkerStyleList].at(histNum));
-  </pre>
+<pre>
+//[kBrack, kRed, kBlue, kGreen+3, kOrange+8, kAzure+10, kSpring+4, kViolet+1, kPink+9, kSpring-9, kOrange+8, kAzure+1, kTeal+4]
+int lFillColor[14] = [1, 632, 600, 416+3, 800+8, 860+10, 900+10, 820+4, 880+1, 900+9, 820-9, 800+1, 860+1, 840+4];
+int [MarkerStyleList][MarkerStyleList] [10] = [20, 21, 22, 23, 34, 29, 33, 31, 24, 24, 26, 32];
+hList[histNum]->SetMarkerColor( [FillColorList][FillColorList].at(histNum));
+hList[histNum]->SetMarkerStyle( [MarkerStyleList][MarkerStyleList].at(histNum));
+</pre>
 
 <h2>  ROOT file I/O </h2>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TFile *file = new TFile("hoge.root","option"); //option : READ, UPDATE, NEW/CREATE, RECREATE
-  TH1F* h = (TH1F*)file->Get("hist");//Getで得られるのはTObject型なのでキャストしている。
-  TH1F *h = (TH1F*)gROOT->FindObject("hist");
-  obj->SaveAs("hoge.root");
-  obj->Write();
-  file->Write();
+<pre>
+TFile *file = new TFile("hoge.root","option"); //option : READ, UPDATE, NEW/CREATE, RECREATE
+TH1F* h = (TH1F*)file->Get("hist");//Getで得られるのはTObject型なのでキャストしている。
+TH1F *h = (TH1F*)gROOT->FindObject("hist");
+obj->SaveAs("hoge.root");
+obj->Write();
+file->Write();
 </pre>
 
 <h3> TTree </h3>
 <h4> TTree Read </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TFile *file = new TFile("file.root","recreate"); //create root file
-  TTree *tree = new TTree("objectName","titleName");
+<pre>
+TFile *file = new TFile("file.root","recreate"); //create root file
+TTree *tree = new TTree("objectName","titleName");
  
-  Int_t a;
-  Double_t b;
-  tree->Branch("val1", &a);
-  tree->Branch("val2", &b);
+Int_t a;
+Double_t b;
+tree->Branch("val1", &a);
+tree->Branch("val2", &b);
 
-  //Event loot #######
-  a = 3; b = 1.22;
-  tree->Fill();
-  a = 1; b = 2.4; c=1.33;
-  tree->Fill();
-  //Event loot #######
+//Event loot #######
+a = 3; b = 1.22;
+tree->Fill();
+a = 1; b = 2.4; c=1.33;
+tree->Fill();
+//Event loot #######
   
-  tree->Write();
+tree->Write();
 </pre>
 
 <h4>  TTree Creation </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TFile *file = new TFile("hoge.root","recreate"); //TTree?????root?????????????
-  TTree *tree = new TTree("tree","tree");
+<pre>
+TFile *file = new TFile("hoge.root","recreate"); //TTree?????root?????????????
+TTree *tree = new TTree("tree","tree");
 </pre>
 
 <h4>  Branch Creation </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  Int_t a; //Branchに間接的に値を代入するための変数をあらかじめ宣言する (tempraly variable)
-  Double_t b;
-  tree->Branch("val1", &a);
-  tree->Branch("val2", &b);
+<pre>
+Int_t a; //Branchに間接的に値を代入するための変数をあらかじめ宣言する (tempraly variable)
+Double_t b;
+tree->Branch("val1", &a);
+tree->Branch("val2", &b);
 </pre>
 
 <h4> TList/TObject </h4>
-<pre style="color: #b6ff01; background-color: #222222;">
-  TList *l = new TList();
-  l->Add(obj);
-  l->At(num); //return TObject*
-  l->FindObject("name");
-  l->Write("name",1);
+<pre>
+TList *l = new TList();
+l->Add(obj);
+l->At(num); //return TObject*
+l->FindObject("name");
+l->Write("name",1);
 </pre>
 
 <h2> よく見るプロット(gap なし/あり) </h2>
 
--横割りRatioプロット(macroなのでratioPlot.Cを作り中身を貼り付ければ, root ratioPlot.Cで走ります): [[%ATTACHURL%/ratioPlot.C][ratioPlot.C]] %ICON{download</summary>
+<br> - 横割りRatioプロット(macroなのでratioPlot.Cを作り中身を貼り付ければ, root ratioPlot.Cで走ります): [[ratioPlot.C][ratioPlot.C]]
+<main class="image-row">
+  <img alt="ratioPlot_nogap.png" height="311" src="ratioPlot_nogap.png" title="ratioPlot_nogap.png" width="320" />
+  <img alt="ratioPlot_withgap.png" height="311" src="ratioPlot_withgap.png" title="ratioPlot_withgap.png" width="320" />
+</main>
 
-<img alt="ratioPlot_nogap.png" height="311" src="%ATTACHURL%/ratioPlot_nogap.png" title="ratioPlot_nogap.png" width="320" /><img alt="ratioPlot_withgap.png" height="311" src="%ATTACHURL%/ratioPlot_withgap.png" title="ratioPlot_withgap.png" width="320" /><br><br>
+<br> - Error Band Plot Macro : [[errBandPlot.C][errBandPlot.C]]
+<br><img alt="errBandPlot.png" height="283" src="errBandPlot.png" title="errBandPlot.png" width="373" />
 
--Error Band Plot Macro : [[%ATTACHURL%/errBandPlot.C][errBandPlot.C]] %ICON{download</summary>
-
-<img alt="errBandPlot.png" height="283" src="%ATTACHURL%/errBandPlot.png" title="errBandPlot.png" width="373" />
-
--double Fit Function to sub background: Macro [[%ATTACHURL%/estimateBackground.C][estimateBackground.C]] %ICON{download</summary>
-
-<img alt="sigPeakSubBkg.png" height="301" src="%ATTACHURL%/sigPeakSubBkg.png" title="sigPeakSubBkg.png" width="371" /><br><br>
+<br> - double Fit Function to sub background: Macro [[estimateBackground.C][estimateBackground.C]]
+<br><img alt="sigPeakSubBkg.png" height="301" src="sigPeakSubBkg.png" title="sigPeakSubBkg.png" width="371" />
 
 <h2> root fileを読み込み解析する (Make Class) </h2>
 
 自分で解析コードを書いた方が早い方はいらないですが，
 <br>初めの内はrootのMakeClassを使うと便利だと思います．
-<br>1) 解析対象のroot fileを一度rootで開く
-<br> root -l hoge.root
-<br>2) tree名を確認する.
-<br> .ls()
-<br>3) 解析対象としたいtree(ex. hogeTree)に対しMakeClassを行う
-<br> hogeTree->MakeClass("hogeOutput");
-<br>4) rootを抜け出してみるとroot fileを開いたディレクトリに
+1) 解析対象のroot fileを一度rootで開く
+<pre>root -l hoge.root</pre>
+2) tree名を確認する.
+<pre>.ls()</pre>
+3) 解析対象としたいtree(ex. hogeTree)に対しMakeClassを行う
+<pre>hogeTree->MakeClass("hogeOutput");</pre>
+4) rootを抜け出してみるとroot fileを開いたディレクトリに
 <br>hogeOutput.CとhogeOutput.hが出来上がっているはず.
-<br>5) hogeOutput.hにhoge.root内の変数，オブジェクト名等が定義されているため，<br>hogeOutput.CのLoop()内にそれらの変数を用いて解析コードを書き加えていく.
+<br>5) hogeOutput.hにhoge.root内の変数，オブジェクト名等が定義されているため，
+<br>hogeOutput.CのLoop()内にそれらの変数を用いて解析コードを書き加えていく.
 
 その後の解析
 <br> In a ROOT session, you can do:
-<pre style="color: #b6ff01; background-color: #222222;">
-  root> .L anaMain.C
-  root> anaMain t
-  root> t.GetEntry(12); // Fill t data members with entry number 12
-  root> t.Show(); // Show values of entry 12
-  root> t.Show(16); // Read and show values of entry 16
-  root> t.Loop(); // Loop on all entries
-  root> tree->Draw("valX", "valY > 10 && valZ < 20");
-  root> tree->Draw("valX:valY", "event = 1", "colz"); //2D hist, cut: event  2, opt = colz
+<pre>
+root> .L anaMain.C
+root> anaMain t
+root> t.GetEntry(12); // Fill t data members with entry number 12
+root> t.Show(); // Show values of entry 12
+root> t.Show(16); // Read and show values of entry 16
+root> t.Loop(); // Loop on all entries
+root> tree->Draw("valX", "valY > 10 && valZ < 20");
+root> tree->Draw("valX:valY", "event = 1", "colz"); //2D hist, cut: event  2, opt = colz
 </pre>
 
 対話形式で動かす際に，上記の方法でDrawをすると扱いづらいbin幅になるので， 詳しくみたい場合には自身で先にヒストグラムを作り， 下記の第一引数のような形で引数>>ヒストグラムのように書くと良い.
-<pre style="color: #b6ff01; background-color: #222222;">
-  TH2F *h = new TH2F("h", "h", 100, 0, 100, 100, 0, 100);
-  eventTree->Draw("x:y>>h", "layer==1&&z<10", "colz");
+<pre>
+TH2F *h = new TH2F("h", "h", 100, 0, 100, 100, 0, 100);
+eventTree->Draw("x:y>>h", "layer==1&&z<10", "colz");
 </pre>
 
 Scanで各変数の中身を確認することができる．第一引数をダブルクォーテーションで囲い， 各変数をコロンで分けることで，複数の変数を表示することができる． 第二引数は条件．
-<pre style="color: #b6ff01; background-color: #222222;">root> eventTree->Scan("iEvent:row:col:layer:depEn:particleNumber:pdgCode","col<100&&row<100")
+<pre>root> eventTree->Scan("iEvent:row:col:layer:depEn:particleNumber:pdgCode","col<100&&row<100")
 ************************************************************************************************
 *    Row   *    iEvent *       row *       col *     layer *     depEn * particleN *   pdgCode *
 ************************************************************************************************
@@ -425,14 +444,16 @@ Scanで各変数の中身を確認することができる．第一引数をダ�
 *        3 *         0 *        75 *        30 *         0 * 50277.410 *        85 *        22 *
 </pre>
 
-これらのコードはマクロようなので，コンパイルして動かすには少し"include"や"define"などの部分をCとhで書き換える必要がある． 書き換えたファイル( [[%ATTACHURL%/anaMain.h][anaMain.h]] %ICON{download</summary>, [[%ATTACHURL%/anaMain.C][anaMain.C]] %ICON{download</summary>)とcompileすべきmain関数を含んだファイル [[%ATTACHURL%/compile.C][compile.C]] %ICON{download</summary>を添付する． またrootのコードをコンパイルすためにはg++は以下のオプションがいる．
-<pre style="color: #b6ff01; background-color: #222222;">$ g++ $1 -o Run `root-config --cflags --libs`
+これらのコードはマクロようなので，コンパイルして動かすには少し"include"や"define"などの部分をCとhで書き換える必要がある． 書き換えたファイル( [[anaMain.h][anaMain.h]] %ICON{download</summary>, [[anaMain.C][anaMain.C]] %ICON{download</summary>)とcompileすべきmain関数を含んだファイル [[compile.C][compile.C]] %ICON{download</summary>を添付する． またrootのコードをコンパイルすためにはg++は以下のオプションがいる．
+<pre>
+$ g++ $1 -o Run `root-config --cflags --libs`
 $ ./Run
 </pre>
 
 自分はオプションを覚えていられないので，以下を.zshrcに貼り, rpp compile.Cでコンパイルから実行までを行なっている．
-<pre style="color: #b6ff01; background-color: #222222;">function rpp(){
-    g++ $1 -o Run `root-config --cflags --libs` && ./Run
+<pre>
+function rpp(){
+  g++ $1 -o Run `root-config --cflags --libs` && ./Run
 }
 </pre>
 
@@ -448,24 +469,23 @@ $ ./Run
 <br>&ref(./ALICEClipping.png,35%);&ref(./ALICE.png,35%);
 
 -TDatabasePDG
-<pre style="color: #b6ff01; background-color: #222222;">
-  TDatabasePDG *pdg = new TDatabasePDG();
-  TParticlePDG *particle = pdg->GetParticle(id); //pdgIdについてはhttp://pdg.lbl.gov/2004/reviews/montecarlorpp.pdf
-  particle->GetName(); //?????
-  particle->Mass(); //??
-  particle->Spin(); //???
-  particle->Lifetime(); //??
+<pre>
+TDatabasePDG *pdg = new TDatabasePDG();
+TParticlePDG *particle = pdg->GetParticle(id); //pdgIdについてはhttp://pdg.lbl.gov/2004/reviews/montecarlorpp.pdf
+particle->GetName();
+particle->Mass();
+particle->Spin();
+particle->Lifetime();
 </pre>
 
 <h2> 便利なGUI </h2>
 
 グラフのいろんなところを右クリックで色々いじれます。(以下の画像は [[ã“ã®ãƒšãƒ¼ã‚¸][https://atlas.kek.jp/comp/ROOT-commands.html]]から拝借)
 
-<img alt="getROOTmethods.png" height="449" src="%ATTACHURL%/getROOTmethods.png" title="getROOTmethods.png" width="634" /><br><br>
+<img alt="getROOTmethods.png" height="449" src="getROOTmethods.png" title="getROOTmethods.png" width="634" /><br><br>
 
----------------------------------------------------------------------
 
-<img alt="EditTab.png" height="79" src="%ATTACHURL%/EditTab.png" title="EditTab.png" width="576" />
+<img alt="EditTab.png" height="79" src="EditTab.png" title="EditTab.png" width="576" />
 <br>-<b>''View Tab->Editor''</b>: 一番使う
 <br>binの設定rebinしたり、グラフの色を変えたり、軸の名前を変えたり、三次元を二次元に投影したり色々できる。
 <br>"Vie"Tabの"Editor"を押すと左の"Files"タブの隣に"Pad Editor"タブができている。
@@ -473,45 +493,36 @@ $ ./Run
 <br>軸をクリックすれば軸の設定等ができ、クリックした場所の設定変更がGUIで行える。
 <br>時間がない時は有効!
 
-<b>-''Edit Tab->Style Tab'':
-
-</b>　Editorより詳細な設定ができる
+<br><b>-''Edit Tab->Style Tab'':</b>Editorより詳細な設定ができる
 <br>大抵Editorでできるため使用頻度は少ない。
 <br>Editorでやりたいことができなかった時開いてみてください。
 
-*-''Tools Tab->Fit Panel'':* フィットが簡単にできる
+<br><b>-''Tools Tab->Fit Panel'':</b> フィットが簡単にできる
 <br>既存の関数でfitしたり、ここで関数を作ってfitすることもできる。
 <br>フィットパラメータはterminal上に表示される。
 <br>Panel下のbarをいじるとフィット範囲も指定できる。
 <br>一番上の場所でフィットするヒストグラムを指定.
-<br><img alt="FitPanel.png" height="530" src="%ATTACHURL%/FitPanel.png" title="FitPanel.png" width="291" />
+<br><img alt="FitPanel.png" height="530" src="FitPanel.png" title="FitPanel.png" width="291" />
 
-<b>-''一部のオブジェクトだけをrootファイルとして保存''</b>
-<br>左のオブジェクトを右クリックするとÂ”SaveAsÂ”とあるので,　そこをクリックし名前を決めていろんな拡張子で保存できる。
+<br><b>-''一部のオブジェクトだけをrootファイルとして保存''</b>
+<br>左のオブジェクトを右クリックするとÂ”SaveAsÂ”とあるので, そこをクリックし名前を決めていろんな拡張子で保存できる。
 <br>一部のオブジェクト(ヒストグラム等)だけでいい場合や、GUIで編集したhistogramを保存したい場合は便利。
-<br><img alt="ObjectSave.png" height="299" src="%ATTACHURL%/ObjectSave.png" title="ObjectSave.png" width="295" />
+<br><img alt="ObjectSave.png" height="299" src="ObjectSave.png" title="ObjectSave.png" width="295" />
 
 <h2> 参考ページ</h2>
-  <br> ROOT Reference Page: [[https://root.cern/doc/master/]]
-  <br> 便利なコマンド表と使い方の例: \ [[https://atlas.kek.jp/comp/ROOT-commands.html]]
-  <br> 一般（KamonoWiki): [[https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:main]]
-  <br> TFile: [[TFile:https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:tfile:start][https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:tfile:start]]
-  <br> ヒストグラム: [[https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:histograms:start]]
-  <br> プロットの情報を見る: [[https://www-jlc.kek.jp/subg/offl/lib/docs/rootstarter/node26.html]]
-  <br> TColor Reference: https://root.cern.ch/doc/master/classTColor.html
-  <br> Graphic: [[https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:graphic]]
-  <br> Ntuple/MakeClass: [[https://www.icepp.jp/atlas-japan/tutorials/tutorial2013/ATLAS_SoftwareLecture2013.pdf]]
-  <br> 山形大ROOT: [[https://www.quark.kj.yamagata-u.ac.jp/~miyachi/ROOT/index.html#fit]]
-  <br> TMATH(関数等): [[https://root.cern.ch/root/html524/TMath.html]]
-  <br> ROOTUsersGuid: [[https://root.cern/root/htmldoc/guides/users-guide/ROOTUsersGuide.html]]
-  <br> python ROOT: [[https://qiita.com/dyamaguc/items/397121b303e26f8286cf]]
+  <br> <a href="https://root.cern/doc/master/">ROOT Reference Page</a>
+  <br> <a href="https://atlas.kek.jp/comp/ROOT-commands.html">便利なコマンド表と使い方の例</a>
+  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:main">一般（KamonoWiki)</a>
+  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:tfile:start">TFile</a>
+  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:histograms:start">ヒストグラム</a>
+  <br> <a href="https://www-jlc.kek.jp/subg/offl/lib/docs/rootstarter/node26.html">プロットの情報を見る</a>
+  <br> <a href="https://root.cern.ch/doc/master/classTColor.html">TColor Reference</a>
+  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:graphic">Graphic</a>
+  <br> <a href="https://www.icepp.jp/atlas-japan/tutorials/tutorial2013/ATLAS_SoftwareLecture2013.pdf">Ntuple/MakeClass</a>
+  <br> <a href="https://www.quark.kj.yamagata-u.ac.jp/~miyachi/ROOT/index.html#fit">山形大ROOT</a>
+  <br> <a href="https://root.cern.ch/root/html524/TMath.html">TMATH(関数等)</a>
+  <br> <a href="https://root.cern/root/htmldoc/guides/users-guide/ROOTUsersGuide.html">ROOTUsersGuid</a>
+  <br> <a href="https://qiita.com/dyamaguc/items/397121b303e26f8286cf">python ROOT</a>
 
-Takuya Kumaoka 熊岡　卓哉 (2021)
-
-[[https://qiita.com/dyamaguc/items/397121b303e26f8286cf][-- ]] [[https://qiita.com/dyamaguc/items/397121b303e26f8286cf][Main.TakuyaKumaoka]] [[https://qiita.com/dyamaguc/items/397121b303e26f8286cf][ - 2021-07-20]]
-
-   <br> 
-   <br> [[%ATTACHURL%/estimateBackground.C][estimateBackground.C]]
-   <br> [[%ATTACHURL%/ratioPlot.C][ratioPlot.C]]
 </body>
 </html>
