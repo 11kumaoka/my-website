@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>KumaWiki HTML版</title>
+  <style>
+    body {
+      font-family: "Hiragino Sans", sans-serif;
+      line-height: 1.6;
+      background-color: #fefefe;
+      padding: 2rem;
+      color: #333;
+    }
+    pre {
+      background: #222;
+      color: #b6ff01;
+      padding: 0.1rem;
+      padding-left: 0.5rem;
+      overflow-x: auto;
+    }
+    h2{
+      padding-left: 0.2rem;
+      color: rgb(25, 149, 0);
+      background-color: #ffea63;
+    }
+    h3{
+      padding-left: 0.3rem;
+      color: #42bc00;
+    }
+    h4 {
+      padding-left: 0.4rem;
+      color: #005c11;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- <details><summary>
+  mode="div"
+  showlink="Table of Contents..."
+  hidelink="Hide"
+  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
+  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
+ </summary> -->
+
+ <!-- パンくずリスト -->
+<nav class="breadcrumb">
+  <a href="/my-website/index.html">ホーム</a> &gt;
+  <span>EIC Physics</span>
+</nav>
+
+
+
+<h2>gitとは</h2>
+<p>
+    <a href="https://git-scm.com/">Git</a>は、ソフトウェア開発において広く使用されている分散型バージョン管理システムです。
+    Gitを使用することで、コードの変更履歴を追跡し、複数の開発者が同時に作業する際の競合を管理することができます。
+    Gitは、コードのバージョン管理だけでなく、ドキュメントや設定ファイルなど、あらゆる種類のファイルの変更履歴を管理するためにも使用されます。
+    セクション名を大きく書いたものの、書いた本人も語れるほどgitを分かっていませんが、 gitを全く知らなかった方に最低限知っておいて欲しい内容を記します。 
+    （詳しくは以下の参考ページを見てください）
+    git自体は企業等でも当たり前のように使われている一般的なアプリケーションです。 
+    大きなシステムを複数人でスムーズに管理するための分散型バージョン管理システムです。
+    そのため我々のような大きなコラボレーションのシステム開発に向いています。 個人的に使う際にも”バージョン管理”というのが非常に便利で、
+    差分を記録していくため、定期的にpushしておけば問題が起きた時にその前に簡単に戻れ、何が問題だったのかも明確にわかります。
+    以下の画像のように書き足した部分は緑色、削った部分は赤色になります。
+    また各箇所にコメントを入れることもできます。この機能は複数人で編集する際には便利になるでしょう。
+</p>
+
+<img src="images/gitHistory.png" alt="gitHistory" width="600">
+
+<p>
+    またある種のバックアップにもなるので開発コードは定期的に自分のレポジトリに挙げておくと後々便利でしょう。
+    ただ気をつけて欲しいのが、差分が全て記録されていくため編集中のpdf(もう書き換えないpdfはOK,
+    むしろReadMe等がpdfとして保管されているのは最高です)や、 とても重いファイル(root file等)はgitに上げない方がいいでしょう。
+    またいずれにせよroot fileなどは上げない方がいいと思いますが、
+    どうして重いものを上げる必要がある際には<a href="https://qiita.com/dk-math/items/0828de3f3b214229baf7">git-lfs
+    (<a href="https://git-lfs.github.com/">公式: Git Large File Storage</a>)というものを使うといいでしょう。</a>
+</p>
+
+
+<h2>便利なリンク集</h2>
+    <br> - 基礎を体系的に学ぶ <a href="https://backlog.com/ja/git-tutorial/">サル先生のGit入門</a>
+    : 基本的なことはここで全て学べます。
+    <br> - コミット、ブランチ、マージ、リベース <a href="https://www.slideshare.net/slideshow/git-15276118/15276118">こわくないGit</a>
+    : すごくわかりやすくスライドベースでコミット、ブランチ、マージ、リベースについて説明してくれています。
+    <br> - Gitのコマンドリスト <a href="https://qiita.com/konweb/items/621722f67fdd8f86a017">[1]</a>,
+    <a href="https://uguisu.skr.jp/Windows/git.html">[2]</a>
+    : gitのコマンドを一覧で見ることができます。よく使うコマンドは覚えておくと便利です。
+    <br> - <a href="https://qiita.com/muran001/items/dea2bbbaea1260098051">Gitでやらかした時に使える19個の奥義</a>

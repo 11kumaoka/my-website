@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>KumaWiki HTML版</title>
+  <style>
+    body {
+      font-family: "Hiragino Sans", sans-serif;
+      line-height: 1.6;
+      background-color: #fefefe;
+      padding: 2rem;
+      color: #333;
+    }
+    pre {
+      background: #222;
+      color: #b6ff01;
+      padding: 0.1rem;
+      padding-left: 0.5rem;
+      overflow-x: auto;
+    }
+    h2{
+      padding-left: 0.2rem;
+      color: rgb(25, 149, 0);
+      background-color: #ffea63;
+    }
+    h3{
+      padding-left: 0.3rem;
+      color: #42bc00;
+    }
+    h4 {
+      padding-left: 0.4rem;
+      color: #005c11;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- <details><summary>
+  mode="div"
+  showlink="Table of Contents..."
+  hidelink="Hide"
+  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
+  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
+ </summary> -->
+
+ <!-- パンくずリスト -->
+<nav class="breadcrumb">
+  <a href="/my-website/index.html">ホーム</a> &gt;
+  <span>EIC Physics</span>
+</nav>
+
+
+
+<h2>TeX Kumaoka Template</h2>
+<p> 
+本ページの内容を多く含んだフォーマットを用意したので， 必要があれば使ってください．
+( <a href="https://github.com/11kumaoka/KumaTeXFormat">https://github.com/11kumaoka/KumaTeXFormat</a> )
+paperディレクトリーは一応修論仕様にしてあります.
+本ページに書いてある\newcommandやハイパーリンク, bibTex, ディレクトリ分け等をしてあるので， 自身で1から作るより楽になるかと思います.
+</p>
+<pre>
+    git clone ssh://git@gitlab.cern.ch:7999/tkumaoka/texformat.git
+</pre>
+<p>
+使い方
+各内容ごとにディレクトリ分けがされています．
+図はfigディレクトリに, 内容はContentsディレクトリーに入れましょう.
+編集中の内容以外は, main.texの\inport{内容ファイル}の部分をコメントアウトすることで 処理が速くなります．
+参考文献(bibTeX)の有効化は本ページの内容を参考にしてください．
+</p>
+
+<h2>Editor</h2>
+<h3>VSCode</h3>
+<p>
+各自お好きなものを使うのが良いですが, 個人的なお勧めはVSCode. (<a href="https://qiita.com/rainbartown/items/d7718f12d71e688f3573">詳細説明ページ</a>)
+単純にはMacの場合terminalに"brew install mactex-no-gui --cask"と打ち込み,
+VScodeのLaTeX Workshopの拡張機能を入れるだけ.
+</p>
+<h3>Overleaf</h3>
+<p>
+ただ初めて使うなら設定等がいらない<a href="https://www.overleaf.com/">Overleaf</a>が良いかもしれません.
+ブラウザで編集できインストールなどの環境設定が入らないため, 初心者でもすぐに使えます.
+また複数人で編集できるのが特徴です．そのためコメント等も貰い易いかと(ただ進捗は全て把握されるので注意).
+Overleafの場合は有料でないとgitとつなげることができず,
+Overleafのサーバーが落ちているとその間編集ができなくなる問題がありますの注意.
+ちなみにCERNのアカウントを持っているとCERNのメールアドレスでアカウントが作れ, 有料版がただで使えます．
+</p>
+
+
+<h2>最低限のルール</h2>
+<p>
+<br> - 数字と単位の間にスペース（LaTeXでスペースは”~”で表記）
+<br> - 言葉はローマン(ex, truth, det, gen, and etc)
+<br> - sin, log, ln, exp, tr等々もローマン
+</p>
+
+<h2>newcommand</h2>
+<p>
+単位等をローマン体に変え忘れることが多いので， コマンドを作りました． 自分の文章の上に貼っておけば使えます．
+
+一応文章の中でも式の中でも使えるようにif文を使っているので, 同じように使えます．
+例えば,一番上の例では\mrm{hoge}とすれば式の中外問わず"hoge"がローマンになります． よく使うであろう例として$\pt^\mrm{truth}$とか.
+数式は\nEq{式}{ラベル}のように入れるとナンバリング付きの数式が入れられます．
+画像はひとつ入れる場合は\figIn{画像ディレクトリ}{サイズ}{キャプション}{ラベル}のように引数を入れると入れられます．
+画像を横に2つ並べる場合は引数8つで\dFigIn{画像ディレクトリ1}{サイズ1}{キャプション1}{ラベル1}{画像ディレクトリ2}{サイズ2}{キャプション2}{ラベル2}
+</p>
+<pre>
+\newcommand{\mrm}[1]{\ifmmode{\mathrm{#1}}\else{$\mathrm{#1}$}\fi}
+\newcommand{\erm}[1]{\mathrm{#1}} % in equation
+\newcommand{\trm}[1]{$\mathrm{#1}$} % in text
+\newcommand{\nEq}[2]{\begin{eqnarray}#1 \label{#2} \end{eqnarray}}
+\makeatletter % Set Numbering for Fig, Table, Equation for each section
+ \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+ \renewcommand{\thetable}{\thesection.\arabic{table}}
+ \renewcommand{\theequation}{\thesection.\arabic{equation}}
+ \@addtoreset{figure}{section}
+ \@addtoreset{table}{section}
+ \@addtoreset{equation}{section}
+\makeatother
+\newcommand{\figIn}[4]{
+ \begin{figure}[htbp]
+ \centering
+ \includegraphics[width=#2\linewidth]{#1}\caption{#3}\label{#4}
+ \end{figure}
+}
+\newcommand{\dFigIn}[8]{
+ \begin{figure}[htbp]
+ \begin{minipage}{0.5\hsize}
+ \begin{center} \includegraphics[width= #2 \linewidth]{#1} \end{center} \caption{#3} \label{#4}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+ \begin{center} \includegraphics[width= #6 \linewidth]{#5} \end{center} \caption{#7} \label{#8}
+ \end{minipage}
+ \end{figure}
+}
+\newcommand{\duFigIn}[6]{
+ \begin{figure}[htbp]
+ \begin{minipage}{0.5\hsize}
+ \begin{center} \includegraphics[width= #2 \linewidth]{#1} \end{center}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+ \begin{center} \includegraphics[width= #4 \linewidth]{#3} \end{center}
+ \end{minipage}
+ \caption{#5} \label{#6}
+ \end{figure}
+}
+
+\newcommand{\refE}[1]{Eq.\ref{#1}}
+\newcommand{\refF}[1]{Fig.\ref{#1}}
+\newcommand{\refT}[1]{Table.\ref{#1}}
+\newcommand{\pt}{\ifmmode{p_{\mathrm{T}}}\else{$p_{\mathrm{T}}$}\fi}
+\newcommand{\cme}{\ifmmode{\sqrt{s}}\else{$\sqrt{s}$}\fi}
+\newcommand{\cmeNN}{\ifmmode{\sqrt{s_{\mathrm{NN}}}}\else{$\sqrt{s_{\mathrm{NN}}}$}\fi}
+ 
+\newcommand{\eV}{\ifmmode{\mathrm{eV}}\else{$\mathrm{eV}$}\fi}
+\newcommand{\keV}{\ifmmode{\mathrm{keV}}\else{$\mathrm{keV}$}\fi}
+\newcommand{\MeV}{\ifmmode{\mathrm{MeV}}\else{$\mathrm{MeV}$}\fi}
+\newcommand{\GeV}{\ifmmode{\mathrm{GeV}}\else{$\mathrm{GeV}$}\fi}
+\newcommand{\TeV}{\ifmmode{\mathrm{TeV}}\else{$\mathrm{TeV}$}\fi}
+\newcommand{\raa}{\ifmmode{R_{\mathrm{AA}}}\else{$R_{\mathrm{AA}}$}\fi}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+</pre>
+
+<h2>よく使うコマンド</h2>
+<p>
+<br> - 空白 (~)
+<br> - 行間設定（マイナスも可）：TeXが勝手に行間を作った場合に潰すことができる．
+<br> - \vspace{2mm}
+<br> - コメントアウト (%)
+<br> - 行数表示 (\linenumbers) \usepackage{lineno}が必要. 人に文章を見てもらうときはつけておくと，相手はコメントしやすいです
+<br> - インデントしない 　\noindent
+<br> - physics pacage (いろいろ省略して描ける) 　\usepackage{physics} https://gitlab.cern.ch/tkumaoka/texformat
+</p>
+
+<h2>図の挿入</h2>
+<p>
+文字の回り込みを許した図の挿入や，二つ図を並べるやり方などの情報が有用
+<a href="http://www.yamamo10.jp/~yamamoto/comp/latex/make_doc/insert_fig/index.php">http://www.yamamo10.jp/~yamamoto/comp/latex/make_doc/insert_fig/index.php</a>
+</p>
+
+<h2>箇条書き</h2>
+<pre>
+\begin{enumerate}
+ \setlength{\parskip}{0cm} % 段落間のスペース
+ \setlength{\itemsep}{0cm} % 項目間のスペース
+
+ \item ほげほげ
+ \item ほげほげ
+\end{enumerate}
+</pre>
+
+<h2>余白の調整方法</h2>
+<p>
+図とキャプションの間などデフォルトでは結構スペースがある． 申請書などで極力スペースを活用したい場合は以下のページで調整するといいと思います.
+</p>
+
+<br> 文書の初めに以下を加えると文書内一括で設定できます．
+
+<br>- 表のスペース
+
+<pre>
+\tabcolsep = 1pt %横方向の余白
+\tabrowsep = 1pt %縦方向の余白
+</pre>
+
+<br>- 図のスペース
+
+<pre>
+\setlength\floatsep{0pt} %図と図の間の余白
+\setlength\textfloatsep{0pt} %本文と図の間の余白
+\setlength\intextsep{0pt} %本文中の図の余白
+\setlength\abovecaptionskip{0pt} %図とキャプションの間の余白
+</pre>
+
+<h2>引用の仕方</h2>
+<p>
+本来論文を引用する際には各論文紙ごとにどの部分を太字にするか斜体にするかなどが細かく決まっています．
+細かく自身で設定するのは大変なのでTeXにはbibTexというものがあり, 
+適切に出力できるよう各論文ごとにその設定テキストが用意されています．
+BibTeXの使い方は以下を参照してください.
+ただ, そこまでオフィシャルのものでなければ, すぐ下にあるthebibliographyを使えばいいと思います.
+</p>
+<pre>
+\begin{thebibliography}{99}
+\bibitem{参照ラベル名1} 文献情報
+\bibitem{参照ラベル2名} 文献情報
+......
+......
+\end{thebibliography}
+</pre>
+
+<h2>BibTeX インストール</h2>
+<pre>
+sudo apt-get install -y jbibtex-base
+</pre>
+
+<h3>使い方</h3>
+<p>
+1.本文中(hoge.tex)に以下を加える
+</p>
+<pre>
+\bibliography{bibのファイル名}
+</pre>
+<p>
+2.同じディレクトリにbibのファイル名.bibを作る. bibのファイルは以下のように書く.
+@hoge{}の部分は各論文に載っている.
+
+<br>2-1 論文を<a href="https://inspirehep.net/">INSPIREで検索する．</a>
+<br>2-2 対象論文のCiteの部分を押すと@hoge{}の部分が表示される．
+<img src="images/bibLaTeXCite.png" alt="bibLaTeXCite" width="600">
+
+<br>2-3 自身のbibファイルに書き込む（上の画像部分を貼り付ける）. <a href="https://www.isc.meiji.ac.jp/~mizutani/tex/link_slide/hyperlink.html">いろいろな引用源の正しい書き方.</a>
+</p>
+<pre>
+@book{aboutLaTeX, title = { \LaTeX について}, auther = {テクノ太郎}, volume= {1}, year = {2000}, publisher = {株式会社テクノモバイル} } @book{freeLaTeX, title = {無料}, auther = {田中太郎}, volume= {3}, year = {2004}, publisher = {株式会社テクノモバイル} } @book{featureLaTeX, title = { \LaTeX の特徴}, auther = {田中モバイル}, volume= {1}, year = {2003}, publisher = {株式会社テクノモバイル} }
+</pre>
+<p>
+文章中で\cite{label名}により呼び出した順で参考文献を並べてくれる． label名一番上の例だと"aboutLaTeX"になる（一番上の項目）．
+もちろん自分のわかりやすい名前に変更可能です． 
+引用していないものは参考文献には含まれないため， 使いそうな参考文献はひとまずbibファイルに加えておくと便利.
+3.最後に以下のコマンドを入力する．(何かしらのアプリケーションを使っていれば勝手にやってくれるかも)
+"article"の部分はコンパイルしたいファイル名(拡張子はつけない) 上記にある私のフォーマットを使う場合はarticleはmainとする.
+</p>
+
+<pre>
+platex article
+pbibtex article
+platex article
+platex article
+dvipdfmx article
+</pre>
+<p>
+これで参考文献が出力される．
+また.zshrc等にaliasを作っておくのが便利である． この場合texComp articleとすればbib及び画像のリンクがなされる．
+</p>
+<pre>
+function texComp(){                                                                                
+    platex $1                                                                                      
+    pbibtex $1                                                                                  
+    platex $1                                                                                   
+    platex $1                                                                                   
+    dvipdfmx $1                                                                                 
+}
+</pre>
+
+<h2>参考文献という文字を消す</h2>
+<pre>
+\renewcommand{\refname}{}
+</pre>
+
+<h2>ハイパーリンクの付け方</h2>
+参考URL: <a href="https://www.isc.meiji.ac.jp/~mizutani/tex/link_slide/hyperlink.html">https://www.isc.meiji.ac.jp/~mizutani/tex/link_slide/hyperlink.html</a>
+
+<pre>
+\documentclass{jsarticle}
+.......
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+.......
+\begin{document}
+</pre>
+
+<h2>参考になるサイト</h2>
+<p>
+<br> - <a href="https://www.isc.meiji.ac.jp/~mizutani/tex/latex_manual/latex.pdf">LaTeX の使い方</a>
+<br> - <a href="http://www1.kiy.jp/~yoka/LaTeX/latex.html">コマンド一覧</a>
+</p>
