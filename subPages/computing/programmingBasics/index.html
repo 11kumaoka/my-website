@@ -58,3 +58,172 @@
   <span>EIC Physics</span>
 </nav>
 
+
+よく使うterminal commoand
+
+Num	Command	Action
+ 	 	 
+1	 ls -itl ファイルの変更日時の確認 (新しくファイルが作れているかの確認等に便利)
+2	cd - 元のディレクトリに戻る
+3	mv baseFile newFile ファイル/ディレクトリの名前の変更
+4	man commandName コマンドのオプション確認 ( manコマンドのオプション)
+5	du -sh サイズチェック
+6	diff -u file1.txt file2.txt > diff.txt 二つのファイルの違いを見る
+7	find FileName -name "ward" ファイルやディレクトリを検索する ( findコマンドオプション)
+8	grep ward file ファイルの中のワード検索 ( オプション)
+9	.run & バックグラウンドでの実行 (長い処理を行うときに裏で走らせて別ことができる)
+10	history 1000 最近使ったコマンドの確認
+11	tar -zcvf xxxx.tar.gz directory ファイルの圧縮・解凍
+12	screen/tmux sshの際にterminalを増やすのが便利，いちいち複数入り直す必要がない
+13	command 2>&1 | tee log.txt エラーのlog fileへの書き出し (2>&1: エラーを標準出力に流す. tee: ファイルに書き出す．)
+14	sftp 別サーバーファイルのファイルのやり取り（ sftpコマンド集 (多くのコマンドの頭にlをつけるとlocalサーバーに対する操作となる(ex. lpwd, lls, etc)）(get file: ファイルをローカルにダウンロード, put file: ファイルをサーバーに送る)
+15	ln -s SOURCE_FILE LINK_NAME / unlink LINK_NAME ディレクトリやファイルにショートカットを作る
+16	opendiff file1 file2 二つのファイルの比較をみる．GUIで見ることができてわかりやすい
+0
+
+<h2>shellscriptの書き方</h2>
+<p>
+  shellscriptは、LinuxやMacOSのターミナルで使われるスクリプト言語です。基本的な構文を理解しておくと、日常的なタスクの自動化やデータ処理が効率的に行えます。
+  以下に、基本的な構文とよく使うコマンドを示します。
+</p>
+for文: https://qiita.com/tamcchi103/items/5e86524d8fb8597cdb8d if文
+比較演算子: https://shellscript.sunone.me/if_and_test.html
+<pre>
+option	example	mean
+-eq	a -eq b	a=bならtrue
+-ne	a -nq b	a not = bならtrue
+-lt	a -lt b	a<bならtrue
+-le	a -le b	a=<bならtrue
+-gt	a -gt b	a>bならtrue
+-ge	a -ge b	a=>bならtrue
+</pre>
+
+
+<h2>shell芸</h2>
+<p>
+  shell芸とは、シェルスクリプトやコマンドライン操作における技術やテクニックのことを指します。以下に、いくつかの例を示します。
+</p>
+<h3>基本構文と制御構造</h3>
+<h4>パイプライン</h4>
+<pre>コマンド1 | コマンド2</pre>
+
+<h4>コマンドリスト</h4>
+<pre>
+  コマンド1 ; コマンド2
+  コマンド1 && コマンド2
+  コマンド1 || コマンド2
+</pre>
+
+<h4>コマンド置換</h4>
+<pre>
+  $ touch $(date +%F)
+</pre>
+
+<h4>ブレース展開</h4>
+<pre>
+  $ mkdir dir{1,2,3}
+</pre>
+
+<h4>変数展開</h4>
+<pre>
+$ path=/home/user/file.txt
+$ echo ${path%.*}     # 拡張子除去
+$ echo ${path##*/}    # ファイル名取得
+</pre>
+
+<h3>ループ・条件分岐</h3>
+<h4>for文</h4>
+<pre>
+  $ for i in {1..5}; do echo $i; done
+</pre>
+
+<h4>while文</h4>
+<pre>
+  $ find . -type f | while read f; do wc -l "$f"; done
+</pre>
+
+<h4>if文</h4>
+  <pre>
+if 条件; then
+  実行内容
+elif 別条件; then
+  実行内容
+else
+  実行内容
+fi
+</pre>
+
+<h3>正規表現</h3>
+<ul>
+  <li><code>[]</code>: 任意の1文字</li>
+  <li><code>[^]</code>: 指定以外の1文字</li>
+  <li><code>.</code>: 任意の1文字</li>
+  <li><code>*</code>: 0回以上繰り返し</li>
+  <li><code>^</code>: 行頭</li>
+  <li><code>$</code>: 行末</li>
+</ul>
+
+<pre>
+  $ echo "file.txt" | sed 's/\.[^.]*$//'
+</pre>
+
+
+<h2>コーティング規約</h2>
+<p>
+  コードは基本的には人が読んでもすぐに理解できるようにすべきだと考えられています．
+  私が属している時点では本研究室では研究の引き継ぎや協力と言ったことはされていないようですが，
+  解析の基本的な処理は異なる研究内容であっても共通部分も多く，また研究を引き継ぐ場合はそのまま使えるので，
+  コードはわかりやすく書いておく方が良いです．
+ そのためにどのように書くべきかを示したのが，以下のコーディング規約です．
+  多くの場合研究グループや会社ごとにも規約がありますが，例としてGoogleとATLASのコーディング規約を挙げておきます．
+</p>
+<p>
+  <strong>c++コーディング規約:</strong><br>
+  <a href="https://ttsuki.github.io/styleguide/cppguide.ja.html">Google</a><br>
+  <a href="http://www.icepp.s.u-tokyo.ac.jp/~sakamoto/education/atlasj/cplusplus/atlascs.html">ATLAS</a><br>
+  <strong>pythonコーディング規約:</strong><br>
+  <a href="https://pep8-ja.readthedocs.io/ja/latest/">PEP8</a>
+</p>
+<p>
+  またどれだけ読みやすいコードを書いてもコメントはしっかり書いた方がいいです．
+  Readmeもしっかり書いてあると読む方としてはありがたいです．
+  特に実行手順，入力ファイルの構造，出力ファイルの構造，関数の役割(引数，戻り値，それらの型)，重要な変数の説明等があると良いと思います．
+  それらを Gitで共有するとより効果的に研究が進められると思います．
+</p>
+<h2>C++基礎</h2>
+<p>
+  オブジェクト指向について，クラス，ポインタ等について理解しておくと，
+  コードも読みやすく，書きやすくなると思います．
+  ROOTも基本はC++なので，以下に挙げる内容は理解しておいた方が良いです．
+</p>
+<p>
+  <a href="https://qiita.com/7shi/items/cac7b3e9b90bf91b00cc">C++の基本用語の説明と例</a><br>
+  <a href="http://cpp-lang.sevendays-study.com/day0.html">一週間で身につくC++言語の基本</a><br>
+  <a href="http://www.icepp.s.u-tokyo.ac.jp/~sakamoto/education/atlasj/cplusplus/index.html">ATLAS C++ トレーニングコース</a><br>
+  <a href="https://qiita.com/agate-pris/items/05948b7d33f3e88b8967">ポインタ, 参照</a><br>
+  余談ですが, C++入門者を名乗るには私には意外とハードルが高いようです.自分はC++入門者以前にC初学者であるようです.<br>
+  <a href="https://qiita.com/yumetodo/items/a843bd542106215bbc84">C++基本 (でも少しマニアック)</a><br>
+  <a href="https://qiita.com/yumetodo/items/2c8c1d4f5c6d8f0c1f2e">C++応用</a>
+</p>
+<h2>python基礎</h2>
+<p>
+  大抵のことが書いてあるページ: <a href="https://note.nkmk.me/python/">Python基礎</a><br>
+  matplotlib: <a href="https://qiita.com/nkay/items/d1eb91e33b9d6469ef51">matplotlib</a><br>
+  高エネルギー実験の人たちが使いやすいpython package: <a href="https://scikit-hep.org/">scikit-hep</a>
+</p>
+<h2>Docker</h2>
+<p>
+  Docker: <a href="https://knowledge.sakura.ad.jp/13795/">Docker入門</a>
+</p>
+<h2>参考ページ</h2>
+<p>
+  bashのコマンドライン編集操作: <a href="https://qiita.com/akito/items/0b1c8f2d3a4e5c6f7d8e">Bashのコマンドライン編集操作</a><br>
+  実践練習 paiza : 一応就活サイトですので，就活にも役立ちます．高ランクの問題が解けたりすると，企業から声がかかったり，面接を一部パスできたりするそうです．<br>
+  本格実践 AtCoder: 本格的な実践ですので，興味のある人だけ．
+</p> 
+
+
+
+
+
+
