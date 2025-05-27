@@ -24,15 +24,24 @@
   </header> -->
 
     <section class="topHero">
+        <button onclick="switchLang()">EN/JA</button>
+        <script>
+            let lang = 'ja';
+            function switchLang() {
+            const text = {
+                ja: '',
+                en: 'Sorry, english version is not available yet. Please check the Japanese version for now.'
+            };
+            lang = (lang === 'ja') ? 'en' : 'ja';
+            document.getElementById("intro").textContent = text[lang];
+            }
+        </script>
+
         <nav class="navbar">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
-<!-- 
-        <a href="subpage/index.html" class="icon-link">
-        <img src="KumaIcon6.png" alt="プロフィールリンク">
-        </a> -->
 
         <a href="images/BearIconFlow.png" class="icon-link" onclick="return showImage(this);">
             <img src="images/KumaIcon6.png" alt="zoom" width="200">
@@ -54,12 +63,11 @@
             };
         </script>
 
-        
-    </section>
-
-    <section class="content" id="about">
-        <h2>About Me</h2>
-        <p>ここに自己紹介などのコンテンツが続きます。</p>
+        <div class="caption">
+            <br>注1) このページは自身のホームページの勉強が主な目的で見やすさは一切考慮していません。
+            <br>注2) 現在作成中であり中身がないことはご了承ください。
+            (以前作った<a href="https://twiki.cern.ch/twiki/bin/view/Main/KumaLaTeX">wiki</a>の内容を移植中)
+        </div>
     </section>
 
   <!-- ナビバー -->
@@ -97,11 +105,6 @@
 
 
     <!-- 本文 -->
-    <div class="container my-5">
-        <p>注1) このページは自身のホームページの勉強が主な目的で見やすさは一切考慮していません。</p>
-        <p>注2) 現在作成中であり中身がないことはご了承ください。
-            (以前作った<a href="https://twiki.cern.ch/twiki/bin/view/Main/KumaLaTeX">wiki</a>の内容を移植中)</p>
-    </div>
     <main class="container">
         <section class="row image-left">
             <div class="image image-overlay-container">
@@ -121,7 +124,9 @@
                 
             </div>
         </section>
+    </main>
 
+    <main class="container">
         <section class="row image-right">
             <div class="text">
                 <ul><a href="subPages/studies/EICPhys">EICに関する物理</a></ul>
@@ -140,7 +145,9 @@
                 <div class="overlay-text">Study</div>
             </div>
         </section>
+    </main>
 
+    <main class="container">
         <section class="row image-left">
             <div class="image image-overlay-container">
                 <img src="images/ServerImage.jpeg" alt="RAA測定">
@@ -158,7 +165,9 @@
                 <ul><a href="/my-website/subPages/computing/homepage/">HomePageの作り方</a></ul>
             </div>
         </section>
-
+    </main>
+    
+    <main class="container">
         <section class="row image-right">
             <div class="text">
                 <ul><a href="/my-website/subPages/otherPages/usefulLinks/">よく使うリンク集</a></ul>

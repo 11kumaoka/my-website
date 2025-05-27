@@ -1,5 +1,5 @@
 
-/* top page */
+/* == s == top page */
 .topHero {
   background: url('HomePicture.png') no-repeat center center/cover;
   height: 100vh;
@@ -7,21 +7,15 @@
   color: white;
 }
 
-.navbar {
+.topHero .caption {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  bottom: 1px;
+  right: 3px;
+  color: #fff3c9;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 1rem;
-}
-
 
 .icon-link {
   position: absolute;
@@ -31,16 +25,51 @@
 }
 
 .icon-link img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 80%;
   border: 3px solid white;
   transition: transform 0.3s;
 }
+/* == e == top page */
+
+/* == s == navbar */
+.navbar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: white;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+/* == e == navbar */
+
+
 
 body {
     overflow-x: hidden;
-    background-color: #fffade;
+    /* background-color: #fffade; */
+    background-color: #475e00;
     /* background-color: #fdfdfc; */
     /* background-color: #f5f5eb; */
     color: #2a2a2a;
@@ -79,15 +108,17 @@ body {
 /*　== s == Main Container */
 .container {
     max-width: 1200px;
-    margin-left: 240px;
+    margin-left: 10px;
     margin-right: 10px;
-    width: 90%;
+    width: 98%;
     padding: 0.1rem;
     padding-left: 0.5rem;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background-color: #191919;
+    color: #ffe15c;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
-    border-radius: 8px;
-    border: 1px solid #dadada;
+    /* border-radius: 3px;
+    border: 1px solid #dadada; */
 }
 @media (max-width: 768px) {
   .sidebar {
@@ -105,6 +136,8 @@ body {
 }
 /*　== e == Main Container */
 
+
+/* == s == Setting of images　==== */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -137,7 +170,7 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* == s == Setting of images　==== */
+
 .image-overlay-container {
   position: relative;
   overflow: hidden;
@@ -166,27 +199,49 @@ body {
 
 /* Change when hovering */
 .image-overlay-container:hover img {
-  filter: brightness(70%); /* become dark */
+    filter: brightness(70%); /* become dark */
 }
 
 /* Flexbox で画像を横並びにする */
 .image-row {
-  display: flex;
-  gap: 1rem;                /* 画像間のスペース */
-  justify-content: center; /* 中央揃え */
-  padding: 2rem;
+    display: flex;
+    gap: 1rem;                /* 画像間のスペース */
+    justify-content: center; /* 中央揃え */
+    padding: 2rem;
 }
 
 .image-row img {
-  width: 45%;               /* 2つで約90% */
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+    width: 45%;               /* 2つで約90% */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
 .image-row img:hover {
   transform: scale(1.05);   /* ホバーで拡大 */
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-wrapper .caption {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.0); 
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 4px;
 }
 
 /* == e == イメージ設定　==== */
@@ -228,10 +283,10 @@ nav a:hover {
   リンク
 ---------------------------- */
 a {
-  color: #0066cc;
+  color: #99cc00;
 }
 a:hover {
-  color: #003399;
+  color: #4c8e00;
 }
 
 /* ---------------------------
@@ -254,15 +309,15 @@ a:hover {
 
 
 
-.hero {
+/* .hero {
   background-color: #3f5c00;
   color: #ffe9c7;
   padding: 3rem 1rem;
   text-align: center;
-}
-.hero h1 {
+} */
+/* .hero h1 {
   font-size: 2.5rem;
-}
+} */
 .section-title {
   border-bottom: 2px solid #007bff;
   display: inline-block;
