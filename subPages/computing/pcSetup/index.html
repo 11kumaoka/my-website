@@ -23,13 +23,26 @@
   <span>EIC Physics</span>
 </nav>
 
+<main class="subcontainer"> 
 
 <h1>Kuma PC Environment</h1>
 
 <h2>Application</h2>
 <ul>
-  <li><a href="https://www.vim.org/">MacSettingKuma </a> (usefull apprication)</li>
-  <li><a href="https://www.vim.org/">TWikiUseMethodsByKumaoka</a></li>
+  <li>Google Chrome: you know</li>
+  <li>ShiftIt: divide desktop by one command like windows</li>
+  <li>TeXstudio: usefull tex edita</li>
+  <li>Spark: mail application</li>
+  <li>Skype: you know</li>
+  <li>Xquazt: display GUI. It is needed for root.</li>
+  <li>Xcode (not usefull but essential): IDE. It is needed for root.</li>
+  <li>Grammary : modifying miss words application wherever and whenever.</li>
+  <li>Screen pointa : leaser pointer application. It is useful when we use desktop sharing or pdf prezentation.</li>
+  <li>Home brew</li>
+  <li>VScode</li>
+  <li>anaconda</li>
+  <li>python</li>
+  <li>zoom</li>
 </ul>
 
 
@@ -70,14 +83,18 @@ alias loginLx="ssh -XY tkumaoka@lxplus.cern.ch"
 </pre>
 
 
-ssh設定 ( ~.ssh/config)
+<h2>ssh設定 ( ~.ssh/config)</h2>
 
-接続継続
+<h3>接続継続</h3>
+<pre>
+# ~/.ssh/config
 Host *
   ServerAliveInterval 60
   ServerAliveCountMax 3
+</pre>
 
-多段接続
+<h3>多段接続</h3>
+<pre>
 Host login
   User         user_at_login
   HostName     login.example.com
@@ -88,14 +105,18 @@ Host server
   HostName server.example.com
   IdentityFile ~/.ssh/id_rsa_for_server
   ProxyCommand ssh login -W %h:%p
-Symbolic link ln -s directory
+</pre>
+
+<p>Symbolic link ln -s directory</p>
 
 
-Editor
+<h2>Editor</h2>
 
-VS code
-VScodeはVisual Studioと違い統合開発環境(IDE)ではなく単なるEditorです．ただいろんな機能(TeX, Git連携, SSH, Docker, etc)をダウンロードして追加していくことは可能です．
-
+<h3>VS code</h3>
+<p>VScodeはVisual Studioと違い統合開発環境(IDE)ではなく単なるEditorです.
+  ただいろんな機能(TeX, Git連携, SSH, Docker, etc)をダウンロードして追加していくことは可能です．
+</p>
+<p>
 個人的なVScodeのメリット
 
 エディタとターミナルを１画面で操作できる
@@ -116,29 +137,30 @@ brew install visual-studio-code --cask
 
 3. LaTeX のインストール
 brew install mactex-no-gui --cask
+</p>
+<img src="/my-website/images/MyVScodeWindow.png" alt="VSCodeの設定画面" class="img-fluid">
 
-MyVScodeWindow.png
-
+<p>
 = VSCodeの詳細な設定方法 =
 右下の歯車のマークからSettingsをポチってjsonファイルを編集すればOKです。
 真ん中の画面にあるようにGUIでも設定可能ですが、便利なjsonファイルをネットで見つけてコピペするのが無難です。
 キーバインドも同様にKeyboard Shortcutsから設定できます。
 私の設定は上にあるリンクからファイルをダウンロードできます。（いろいろと緑色になります。）
+</p>
 
 
-
+<p>
 一応私が入れているappも紹介しておきます．rainbow CSV, indent-rainbow, Bracket Pair Colorizerは特に便利です． SSHやGit, docker, TeX 等も使う人はそれらのアプリを入れておくとより便利だと思います．
+</p>
+<img src="/my-website/images/vsCodeAddApp.png" alt="VSCodeの追加アプリ" class="img-fluid">
 
-vsCodeAddApp.png
-
-TeX 画面
-
-ちゃんとジャンプもでき、シンプルなギリシャ文字なら右下の部分をポチッとすれば、入力されます。
+<h4>TeX 画面</h4>
 
 
+<p>ちゃんとジャンプもでき、シンプルなギリシャ文字なら右下の部分をポチッとすれば、入力されます。</p>
 
 
-参考URL
+<h4>参考URL</h4>
 デフォルトキーマップ
 配色設定
 シンタックス設定
@@ -177,4 +199,11 @@ ZOOM
 Timer url: https://ss.scphys.kyoto-u.ac.jp/person/yonezawa/contents/program/js/timer/latest/timer.html
 
 
-
+</main>
+<footer>
+  © 2025 Takuya Kumaoka
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/my-website/js/main.js"></script>
+</body>
+</html>

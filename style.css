@@ -165,11 +165,11 @@ body {
 
 .subcontainer {
     /* max-width: 1200px; */
-    margin-left: 10px;
+    margin-left: 155px;
     margin-right: 10px;
     width: 98%;
     padding: 0.1rem;
-    padding-left: 155rem;
+    padding-left: 0.5rem;
     padding-right: 0.5rem;
     background-color: #fffade;
     color: #181818;
