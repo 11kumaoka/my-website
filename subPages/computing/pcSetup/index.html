@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>KumaWiki HTML版</title>
+  <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/my-website/style.css">
   <style>
     body {
       font-family: "Hiragino Sans", sans-serif;
@@ -57,4 +59,157 @@
   <a href="/my-website/index.html">ホーム</a> &gt;
   <span>EIC Physics</span>
 </nav>
+
+
+<h1>Kuma PC Environment</h1>
+
+<h2>Application</h2>
+<ul>
+  <li><a href="https://www.vim.org/">MacSettingKuma </a> (usefull apprication)</li>
+  <li><a href="https://www.vim.org/">TWikiUseMethodsByKumaoka</a></li>
+
+
+重宝しているalias
+~/.zshrcもしくは~/.zprofile, ~/.bashrc, ~/.bash_profileにはっつけて使ってみてください．
+
+
+alias rm='rm -i' #ask yes/no when we remove file                                                                 
+alias ls='ls -G'
+
+alias em='emacs -nw' #open emacs no window
+function em1(){
+    emacs $1 &
+}
+
+function md(){
+    mkdir $1 && cd $1
+}
+
+function r(){
+    root -l $1
+}
+
+# for root file compile & run object
+function rpp(){ 
+    g++ $1 -o Run `root-config --cflags --libs` && ./Run
+} 
+
+function texComp(){
+    platex $1
+    pbibtex $1
+    platex $1
+    platex $1
+    dvipdfmx $1
+}
+
+alias loginLx="ssh -XY tkumaoka@lxplus.cern.ch"
+
+
+ssh設定 ( ~.ssh/config)
+
+接続継続
+Host *
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+
+多段接続
+Host login
+  User         user_at_login
+  HostName     login.example.com
+  IdentityFile ~/.ssh/id_rsa_for_login
+ 
+Host server
+  User user_at_server
+  HostName server.example.com
+  IdentityFile ~/.ssh/id_rsa_for_server
+  ProxyCommand ssh login -W %h:%p
+Symbolic link ln -s directory
+
+
+Editor
+
+VS code
+VScodeはVisual Studioと違い統合開発環境(IDE)ではなく単なるEditorです．ただいろんな機能(TeX, Git連携, SSH, Docker, etc)をダウンロードして追加していくことは可能です．
+
+個人的なVScodeのメリット
+
+エディタとターミナルを１画面で操作できる
+キーバインドの設定がやりやすい。(vim形式やEmacs形式なども選べるし、自分で追加することもできる)
+色々な拡張機能がある。
+個人的に便利だと思う部分を以下の画像に簡単にまとめました．
+私が設定した色やkeybindは( Color Syintax, KeyMap setting)をダウンロードして左下の歯車マークのところで読み込ませれば使えます．
+
+(範囲選択が私の好みのやり方ではできないことぐらいです．)
+
+VS codeでのTeXのやり方: https://qiita.com/rainbartown/items/d7718f12d71e688f3573
+
+インストール方法　Mac:
+1. HomeBrew がインストールされていない場合：まずは下のページからインストール
+
+2. 当然VScodeのインストール
+brew install visual-studio-code --cask
+
+3. LaTeX のインストール
+brew install mactex-no-gui --cask
+
+MyVScodeWindow.png
+
+= VSCodeの詳細な設定方法 =
+右下の歯車のマークからSettingsをポチってjsonファイルを編集すればOKです。
+真ん中の画面にあるようにGUIでも設定可能ですが、便利なjsonファイルをネットで見つけてコピペするのが無難です。
+キーバインドも同様にKeyboard Shortcutsから設定できます。
+私の設定は上にあるリンクからファイルをダウンロードできます。（いろいろと緑色になります。）
+
+
+
+一応私が入れているappも紹介しておきます．rainbow CSV, indent-rainbow, Bracket Pair Colorizerは特に便利です． SSHやGit, docker, TeX 等も使う人はそれらのアプリを入れておくとより便利だと思います．
+
+vsCodeAddApp.png
+
+TeX 画面
+
+ちゃんとジャンプもでき、シンプルなギリシャ文字なら右下の部分をポチッとすれば、入力されます。
+
+
+
+
+参考URL
+デフォルトキーマップ
+配色設定
+シンタックス設定
+Extensions
+ターミナルからVisual Studio Codeを起動する方法
+
+Emacs
+EMacsについていろいろ
+Emacsの導入 : 初めからMacでもEmacsを使うことはできますが，windowを出しては使えないためHomebrewでインストールすることをお勧めします．
+Emacsの基本設定変更方法1, Emacsの基本設定変更方法2
+EMacs色の設定方法1, EMacs色の設定方法2
+
+LaTeX
+TeXStudio 導入方法　（今はVScodeを使う方を推奨）
+VScodeでの設定方法, VScode 設定方法
+細かいLaTeXの使い方は こちらに書きました．
+
+
+ALICE Environment
+Local
+タスクの修正
+make install
+
+lxplus
+lxplus alice environment setting
+
+
+/cvmfs/alice.cern.ch/bin/alienv enter AliPhysics/vAN-20210911_ROOT6-1
+/cvmfs/alice.cern.ch/bin/alienv enter AliPhysics/vAN-20210911_ROOT6-1,別のpackage
+alien.py
+cp AliAOD.root file:.
+
+ZOOM
+座長等で自分のカメラの部分にタイマーを表示したい． OBS: download page url
+
+Timer url: https://ss.scphys.kyoto-u.ac.jp/person/yonezawa/contents/program/js/timer/latest/timer.html
+
+
 
