@@ -98,7 +98,7 @@ body {
     position: fixed;
     top: 300px;
     left: 0;
-    width: 150px;
+    width: 180px;
     background-color: #f5f5eb;
     padding: 1rem;
     border-right: 3px solid #8b6100;
@@ -165,12 +165,12 @@ body {
 
 .subcontainer {
     /* max-width: 1200px; */
-    margin-left: 155px;
+    margin-left: 200px;
     margin-right: 10px;
     width: 98%;
     padding: 0.1rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: #fffade;
     color: #181818;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
