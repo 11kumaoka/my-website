@@ -107,7 +107,7 @@ body {
 
 /*　== s == Main Container */
 .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin-left: 10px;
     margin-right: 10px;
     width: 98%;
@@ -135,67 +135,97 @@ body {
     padding: 0.8rem;
   }
 }
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0rem;
+    background: #475e00;
+}
+.card-block {
+    background-color: #191919;
+    color: #ffe15c;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    /* max-width: 800px; */
+    width: 98%;
+    padding: 0.1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    
+    margin-bottom: 0.1rem;
+    /* transition: transform 0.3s ease; */
+}
+/* .card-block:hover {
+    transform: translateY(-4px);
+} */
+
 /*　== e == Main Container */
 
 
 /* == s == Setting of images　==== */
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* margin-bottom: 0.1rem; */
 }
 
 .image-left .image {
   order: 0;
 }
 .image-left .text {
-  order: 1;
+  order: 0;
 }
 .image-right .text {
   order: 0;
 }
 .image-right .image {
-  order: 1;
+  order: 0;
 }
 
-.row .text, .row .image {
-  flex: 1 1 50%;
-  padding: 1rem;
+.row .text{
+    flex: 1 1 50%;
+    padding: 1rem;
+}
+.row .image {
+    flex: 1 1 50%;
+    padding: 0.0rem;
 }
 
 .row .image img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 
 .image-overlay-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .image-overlay-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: filter 0.3s ease; 
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease; 
 }
 
 .image-overlay-container .overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  border-radius: 6px;
-  pointer-events: none; /* Do not let the text be clickable */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 6px;
+    pointer-events: none; /* Do not let the text be clickable */
 }
 
 /* Change when hovering */
