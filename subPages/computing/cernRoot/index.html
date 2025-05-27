@@ -1,10 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>KumaWiki HTML版</title>
-  <style>
+  <title>KumaWiki ROOT</title>
+  <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/my-website/style.css">
+  <!-- <style>
     body {
       font-family: "Hiragino Sans", sans-serif;
       line-height: 1.6;
@@ -40,7 +43,7 @@
       cursor: pointer;
       font-weight: bold;
     }
-  </style>
+  </style> -->
 </head>
 <body>
 
@@ -80,7 +83,7 @@ xbin にwの重み付けfill
 h1D->Fill(x,w); 
 </pre>
 
-詳しい色や形状、引数等はひとまず参照pageをみてください.
+詳しい色や形状、引数等はひとまず<a href="https://root.cern.ch/doc/master/classTH1.html">参照</a>をみてください.
 <pre>
 TH2F *h2D = new TH2F("name","title", nBinsX, minX, maxX, nBinsY, minY, maxY); //char, char, int, float, float,  int, float, float
 h2D->Fill(x,y);
@@ -445,7 +448,15 @@ Scanで各変数の中身を確認することができる．第一引数をダ�
 *        3 *         0 *        75 *        30 *         0 * 50277.410 *        85 *        22 *
 </pre>
 
-これらのコードはマクロようなので，コンパイルして動かすには少し"include"や"define"などの部分をCとhで書き換える必要がある． 書き換えたファイル( [[anaMain.h][anaMain.h]] %ICON{download</summary>, [[anaMain.C][anaMain.C]] %ICON{download</summary>)とcompileすべきmain関数を含んだファイル [[compile.C][compile.C]] %ICON{download</summary>を添付する． またrootのコードをコンパイルすためにはg++は以下のオプションがいる．
+これらのコードはマクロようなので，コンパイルして動かすには少し"include"や"define"などの部分をCとhで書き換える必要がある． 
+書き換えたファイル( <a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/Algorithm.h"></a>, 
+<a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/Algorithm.cc">Algorithm.cc </a>)
+とcompileすべきmain関数を含んだファイル<a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/compile.C">compile.C</a>を添付する.
+(二つの異なるroot fileから読み出す場合(entryが一致している必要がある), 
+<a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/AlgorithmTwoFile.cc">AlgorithmTwoFile.cc</a>, 
+<a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/AlgorithmTwoFile.h">AlgorithmTwoFile.h</a>, 
+<a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/compileTwoFiile.C">compileTwoFile.C</a>を参照のこと.)
+<br>またrootのコードをコンパイルすためにはg++は以下のオプションがいる．
 <pre>
 $ g++ $1 -o Run `root-config --cflags --libs`
 $ ./Run
@@ -460,15 +471,12 @@ function rpp(){
 
 <h2> カテゴリはわかんないけどひとまず </h2>
 
--その内載せたいもの
+<h3>その内載せたいもの</h3>
 <br>hadd, TCanvas(分割), TLegend, TROOT, FindObject, TChain, MakeClass, ファイルの読み出し/書き出し, Errobar,
 <br>fitParameterの取り出し, etc... 
 
--''ALICE detector''
-<br>頑張るとこんなこともできます。
-<br>ヌルヌル動いてgif保存もできます!
 
--TDatabasePDG
+<h3>TDatabasePDG</h3>
 <pre>
 TDatabasePDG *pdg = new TDatabasePDG();
 TParticlePDG *particle = pdg->GetParticle(id); //pdgIdについてはhttp://pdg.lbl.gov/2004/reviews/montecarlorpp.pdf
