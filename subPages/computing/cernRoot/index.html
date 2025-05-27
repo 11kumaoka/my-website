@@ -60,8 +60,8 @@
 </nav>
 
 
+<h2> ブラウザでROOTファイルを開く（こっちの方が操作性がよく綺麗）</h2>
 <p>
-  ブラウザでROOTファイルを開く（こっちの方が操作性がよく綺麗）
   <a href="https://root.cern/js/latest/">https://root.cern/js/latest/</a>に飛ぶ．
   リンクに飛んだら下の画面の"..."の部分を開き，自分の読み込ませたいroot fileを選択する．
   （MonALISAを使っている人にはおなじみかもしれません）
@@ -393,23 +393,23 @@ l->Write("name",1);
   <img alt="ratioPlot_withgap.png" height="311" src="ratioPlot_withgap.png" title="ratioPlot_withgap.png" width="320" />
 </main>
 
-<br> - Error Band Plot Macro : [[errBandPlot.C][errBandPlot.C]]
+<br> - Error Band Plot Macro : <a href="https://github.com/11kumaoka/rootUsefulCodes/blob/main/errBandPlot.C">error band example code</a>
 <br><img alt="errBandPlot.png" height="283" src="errBandPlot.png" title="errBandPlot.png" width="373" />
 
-<br> - double Fit Function to sub background: Macro [[estimateBackground.C][estimateBackground.C]]
+<br> - double Fit Function to sub background: Macro <a href="https://github.com/11kumaoka/rootUsefulCodes/blob/main/estimateBackground.C">estimateBackground.C</a>
 <br><img alt="sigPeakSubBkg.png" height="301" src="sigPeakSubBkg.png" title="sigPeakSubBkg.png" width="371" />
 
 <h2> root fileを読み込み解析する (Make Class) </h2>
-
+<p>
 自分で解析コードを書いた方が早い方はいらないですが，
 <br>初めの内はrootのMakeClassを使うと便利だと思います．
-1) 解析対象のroot fileを一度rootで開く
+<br>1) 解析対象のroot fileを一度rootで開く
 <pre>root -l hoge.root</pre>
-2) tree名を確認する.
+<br>2) tree名を確認する.
 <pre>.ls()</pre>
-3) 解析対象としたいtree(ex. hogeTree)に対しMakeClassを行う
+<br>3) 解析対象としたいtree(ex. hogeTree)に対しMakeClassを行う
 <pre>hogeTree->MakeClass("hogeOutput");</pre>
-4) rootを抜け出してみるとroot fileを開いたディレクトリに
+<br>4) rootを抜け出してみるとroot fileを開いたディレクトリに
 <br>hogeOutput.CとhogeOutput.hが出来上がっているはず.
 <br>5) hogeOutput.hにhoge.root内の変数，オブジェクト名等が定義されているため，
 <br>hogeOutput.CのLoop()内にそれらの変数を用いて解析コードを書き加えていく.
@@ -426,6 +426,7 @@ root> t.Loop(); // Loop on all entries
 root> tree->Draw("valX", "valY > 10 && valZ < 20");
 root> tree->Draw("valX:valY", "event = 1", "colz"); //2D hist, cut: event  2, opt = colz
 </pre>
+</p>
 
 対話形式で動かす際に，上記の方法でDrawをすると扱いづらいbin幅になるので， 詳しくみたい場合には自身で先にヒストグラムを作り， 下記の第一引数のような形で引数>>ヒストグラムのように書くと良い.
 <pre>
@@ -466,7 +467,6 @@ function rpp(){
 -''ALICE detector''
 <br>頑張るとこんなこともできます。
 <br>ヌルヌル動いてgif保存もできます!
-<br>&ref(./ALICEClipping.png,35%);&ref(./ALICE.png,35%);
 
 -TDatabasePDG
 <pre>
@@ -479,9 +479,9 @@ particle->Lifetime();
 </pre>
 
 <h2> 便利なGUI </h2>
-
-グラフのいろんなところを右クリックで色々いじれます。(以下の画像は [[ã“ã®ãƒšãƒ¼ã‚¸][https://atlas.kek.jp/comp/ROOT-commands.html]]から拝借)
-
+<p>
+グラフのいろんなところを右クリックで色々いじれます。(以下の画像は<a href="https://atlas.kek.jp/comp/ROOT-commands.html">https://atlas.kek.jp/comp/ROOT-commands.html</a>から拝借)
+</p>
 <img alt="getROOTmethods.png" height="449" src="getROOTmethods.png" title="getROOTmethods.png" width="634" /><br><br>
 
 
@@ -505,7 +505,7 @@ particle->Lifetime();
 <br><img alt="FitPanel.png" height="530" src="FitPanel.png" title="FitPanel.png" width="291" />
 
 <br><b>-''一部のオブジェクトだけをrootファイルとして保存''</b>
-<br>左のオブジェクトを右クリックするとÂ”SaveAsÂ”とあるので, そこをクリックし名前を決めていろんな拡張子で保存できる。
+<br>左のオブジェクトを右クリックすると"SaveAs"とあるので, そこをクリックし名前を決めていろんな拡張子で保存できる。
 <br>一部のオブジェクト(ヒストグラム等)だけでいい場合や、GUIで編集したhistogramを保存したい場合は便利。
 <br><img alt="ObjectSave.png" height="299" src="ObjectSave.png" title="ObjectSave.png" width="295" />
 
