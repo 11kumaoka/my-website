@@ -165,7 +165,7 @@ body {
 
 .subcontainer {
     max-width: 1500px;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 240px;
     margin-right: 5px;
     width: 95%;
@@ -206,7 +206,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
+  /* font-size: 2rem; */
   text-align: center;
   width: 100%;
   color: rgb(255, 180, 19);
@@ -349,37 +349,39 @@ h1{
   color: #fc9629;
 }
 h2{
-  font-family: "Yu Gothic UI", serif;
+  font-family: "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
   font-size: 180%;
   font-weight: 400;
-  background: linear-gradient(to right, rgb(242, 157, 0), rgba(180, 211, 1, 0.474));
+  background: linear-gradient(to right, rgb(67, 89, 1), rgba(118, 108, 0, 0.854));
+  padding: 0.5rem 0.8rem 0.5rem 1rem;
   display: inline-block;
-  color: #ffee83;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+  color: #ff8400;
+  text-shadow: 1px 1px 2px rgba(255, 228, 109, 0.5);
 }
 h3{
-  font-family: "Yu Gothic UI", serif;
+  font-family: "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
   font-size: 150%;
-  font-weight: 400;
-
-  color: #89d200; 
+  font-weight: 800;
+  color: #69a200; 
 }
 h3::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 2px;
+  height: 4px;
   width: 100%;
-  background-image: linear-gradient(to right, rgba(215, 75, 0, 0.873), rgba(218, 185, 0, 0.474));
+  /* background-image: linear-gradient(to right, #8d6000, transparent); */
+  background-image: linear-gradient(to right, #dc5800,  rgba(255, 217, 0, 0.538));
+  border-radius: 2px;
 }
 h4{
-  font-family: "Yu Gothic UI", serif;
+  font-family: "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
   font-size: 120%;
   font-weight: 400;
   border-left: 5px solid #e5a000;
   padding-left: 1rem;
-  color: #4d8400; 
+  color: #3c6700; 
 }
 
 
