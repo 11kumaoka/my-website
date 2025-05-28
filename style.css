@@ -96,12 +96,12 @@ body {
 .sidebar {
     height: calc(100vh - 60px);
     position: fixed;
-    top: 300px;
+    top: 320px;
     left: 0;
     width: 180px;
     background-color: #f5f5eb;
     padding: 1rem;
-    border-right: 8px solid #8b6100;
+    border-right: 10px solid #8b6100;
     overflow-y: auto;
 }
 
@@ -164,7 +164,8 @@ body {
 
 
 .subcontainer {
-    max-width: 1200px;
+    max-width: 1500px;
+    margin-top: 5px;
     margin-left: 240px;
     margin-right: 5px;
     width: 95%;
@@ -340,17 +341,47 @@ body {
 /* == e == イメージ設定　==== */
 
 h1{
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-    text-shadow: 0.5px 4.0px 8.0px rgba(41, 31, 20, 0.823);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #fc9629;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  text-shadow: 0.5px 4.0px 8.0px rgba(41, 31, 20, 0.823);
+  font-size: 200%;
+  font-weight: 1200;
+  margin-bottom: 1rem;
+  color: #fc9629;
 }
-h2, h3 {
-    font-family: "Yu Gothic UI", serif;
-    font-weight: 400;
-    color: #5c8b1a; 
+h2{
+  font-family: "Yu Gothic UI", serif;
+  font-size: 180%;
+  font-weight: 400;
+  background: linear-gradient(to right, rgb(242, 157, 0), rgba(180, 211, 1, 0.474));
+  display: inline-block;
+  color: #ffee83;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
 }
+h3{
+  font-family: "Yu Gothic UI", serif;
+  font-size: 150%;
+  font-weight: 400;
+
+  color: #89d200; 
+}
+h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(215, 75, 0, 0.873), rgba(218, 185, 0, 0.474));
+}
+h4{
+  font-family: "Yu Gothic UI", serif;
+  font-size: 120%;
+  font-weight: 400;
+  border-left: 5px solid #e5a000;
+  padding-left: 1rem;
+  color: #4d8400; 
+}
+
 
 /* ---------------------------
   ナビゲーションバー
@@ -401,16 +432,6 @@ a:hover {
 }
 
 
-
-/* .hero {
-  background-color: #3f5c00;
-  color: #ffe9c7;
-  padding: 3rem 1rem;
-  text-align: center;
-} */
-/* .hero h1 {
-  font-size: 2.5rem;
-} */
 .section-title {
   border-bottom: 2px solid #007bff;
   display: inline-block;
