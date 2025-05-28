@@ -10,6 +10,18 @@
 </head>
 <body>
 
+<header class="sub-header-image">
+  <div class="sub-header-logo"><a href="../index.html">← トップへ</a></div>
+  <div class="header-nav">
+    <a href="../selfintro/index.html">自己紹介</a>
+    <a href="../research/index.html">研究</a>
+    <a href="../contact/index.html">連絡先</a>
+  </div>
+  <h1 class="sub-header-title">下層ページのタイトル</h1>
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a> &gt; <span>現在のページ</span>
+  </div>
+</header>
 
 <!-- <details><summary>
   mode="div"
@@ -265,23 +277,25 @@ Double_t retunVal = ff->Eval(1.0); //the ff value at x=1
 
 TH1::Fitの第２引数は下に引用したフィッティングのオプション、第３引数はTH1::Drawのグラフィックオプションである。
 
-<br>-"W" 空でないすべての階級に1の重みを設定する。ここではエラーバーは無視する
-<br>-"WW" 空の階級も含めてすべての階級に1の重みを設定する。エラーバーは無視する
-<br>-"I" 階級の中央の値を使用する代わりに、関数の積分値を使用する
-<br>-"L" 対数尤度メソッドを使用する （既定では、カイ2乗を使用する）
-<br>-"U" ユーザの指定するフィッティングアルゴリズムを使用する
-<br>-"Q" 静穏モード（最低限の表示のモード）
-<br>-"V" 冗長モード（既定のモードはQとVの間である）
-<br>-"E" Minos の技術を使用してより良いエラー推定を行う
-<br>-"M" フィッティングの結果を改良する
-<br>-"R" 関数レンジで指定される値域を使用する
-<br>-"N" グラフィック関数を保存しない、表示をしない
-<br>-"0" フィッティングの結果を表示しない。既定の設定では、先述の"N"が指定されなければ、フィッティングされた関数が表示される。
-<br>-"+" フィッティングされた関数のリストに、新しいフィッティングされた関数を追加する （既定では、最新の関数のみが保持されて、それ以前のものは消去される）
-<br>-"B" 1つ以上のパラメータを修正したくて、フィッティング関数が、polN、expo 、landau、 gausと同じようであれば、このオプションを使用する。
-<br>-"LL" とても統計量が低くて、内容が整数ではない場合のために改良した、対数尤度によるフィッティング。ビンの内容が（100よりも）大きければ、このオプションは使用しない。
-<br>-"C" 線形のフィッティングの場合は、カイ二乗を計算しない（時間の節約である）。
-<br>-"F" polNでフィッティングを行う場合、Minuitフィッターに切り替える。（既定の設定では、polN関数は線形フィッターでフィッティングされる）
+<ul>
+  <li>"W" 空でないすべての階級に1の重みを設定する。ここではエラーバーは無視する</li>
+  <li>"WW" 空の階級も含めてすべての階級に1の重みを設定する。エラーバーは無視する</li>
+  <li>"I" 階級の中央の値を使用する代わりに、関数の積分値を使用する</li>
+  <li>"L" 対数尤度メソッドを使用する （既定では、カイ2乗を使用する）</li>
+  <li>"U" ユーザの指定するフィッティングアルゴリズムを使用する</li>
+  <li>"Q" 静穏モード（最低限の表示のモード）</li>
+  <li>"V" 冗長モード（既定のモードはQとVの間である）</li>
+  <li>"E" Minos の技術を使用してより良いエラー推定を行う</li>
+  <li>"M" フィッティングの結果を改良する</li>
+  <li>"R" 関数レンジで指定される値域を使用する</li>
+  <li>"N" グラフィック関数を保存しない、表示をしない</li>
+  <li>"0" フィッティングの結果を表示しない。既定の設定では、先述の"N"が指定されなければ、フィッティングされた関数が表示される。</li>
+  <li>"+" フィッティングされた関数のリストに、新しいフィッティングされた関数を追加する （既定では、最新の関数のみが保持されて、それ以前のものは消去される）</li>
+  <li>"B" 1つ以上のパラメータを修正したくて、フィッティング関数が、polN、expo 、landau、 gausと同じようであれば、このオプションを使用する。</li>
+  <li>"LL" とても統計量が低くて、内容が整数ではない場合のために改良した、対数尤度によるフィッティング。ビンの内容が（100よりも）大きければ、このオプションは使用しない。</li>
+  <li>"C" 線形のフィッティングの場合は、カイ二乗を計算しない（時間の節約である）。</li>
+  <li>"F" polNでフィッティングを行う場合、Minuitフィッターに切り替える。（既定の設定では、polN関数は線形フィッターでフィッティングされる）</li>
+</ul>
 
 <h2> プロットの見た目</h2>
 <pre>
@@ -303,7 +317,9 @@ enum EColor { kWhite =0, kBlack =1, kGray=920, kRed =632, kGreen =416, kBlue=600
 
 <img alt="ColorReference.png" height="325" src="ColorReference.png" title="ColorReference.png" width="346" /><img alt="StyleSetting.png" height="318" src="StyleSetting.png" title="StyleSetting.png" width="666" />
 
-''カラー/マーカーを配列にしとくと便利かも.　既定のカラー(EColor変数:kRedなど)は下にあるように元々は値が入っている。この値を図を参照に+/-して色を決めておく.''
+<p>
+カラー/マーカーを配列にしとくと便利かも.　既定のカラー(EColor変数:kRedなど)は下にあるように元々は値が入っている。この値を図を参照に+/-して色を決めておく.
+</p>
 <pre>
 //[kBrack, kRed, kBlue, kGreen+3, kOrange+8, kAzure+10, kSpring+4, kViolet+1, kPink+9, kSpring-9, kOrange+8, kAzure+1, kTeal+4]
 int lFillColor[14] = [1, 632, 600, 416+3, 800+8, 860+10, 900+10, 820+4, 880+1, 900+9, 820-9, 800+1, 860+1, 840+4];
@@ -496,20 +512,21 @@ particle->Lifetime();
 <br><img alt="ObjectSave.png" height="299" src="ObjectSave.png" title="ObjectSave.png" width="295" />
 
 <h2> 参考ページ</h2>
-  <br> <a href="https://root.cern/doc/master/">ROOT Reference Page</a>
-  <br> <a href="https://atlas.kek.jp/comp/ROOT-commands.html">便利なコマンド表と使い方の例</a>
-  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:main">一般（KamonoWiki)</a>
-  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:tfile:start">TFile</a>
-  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:histograms:start">ヒストグラム</a>
-  <br> <a href="https://www-jlc.kek.jp/subg/offl/lib/docs/rootstarter/node26.html">プロットの情報を見る</a>
-  <br> <a href="https://root.cern.ch/doc/master/classTColor.html">TColor Reference</a>
-  <br> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:graphic">Graphic</a>
-  <br> <a href="https://www.icepp.jp/atlas-japan/tutorials/tutorial2013/ATLAS_SoftwareLecture2013.pdf">Ntuple/MakeClass</a>
-  <br> <a href="https://www.quark.kj.yamagata-u.ac.jp/~miyachi/ROOT/index.html#fit">山形大ROOT</a>
-  <br> <a href="https://root.cern.ch/root/html524/TMath.html">TMATH(関数等)</a>
-  <br> <a href="https://root.cern/root/htmldoc/guides/users-guide/ROOTUsersGuide.html">ROOTUsersGuid</a>
-  <br> <a href="https://qiita.com/dyamaguc/items/397121b303e26f8286cf">python ROOT</a>
-
+<ul>
+  <li> <a href="https://root.cern/doc/master/">ROOT Reference Page</a></li>
+  <li> <a href="https://atlas.kek.jp/comp/ROOT-commands.html">便利なコマンド表と使い方の例</a></li>
+  <li> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:main">一般（KamonoWiki)</a></li>
+  <li> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:tfile:start">TFile</a></li>
+  <li> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/shotakaha/dokuwiki/doku.php?id=toolbox:root:histograms:start">ヒストグラム</a></li>
+  <li> <a href="https://www-jlc.kek.jp/subg/offl/lib/docs/rootstarter/node26.html">プロットの情報を見る</a></li>
+  <li> <a href="https://root.cern.ch/doc/master/classTColor.html">TColor Reference</a></li>
+  <li> <a href="https://www-he.scphys.kyoto-u.ac.jp/member/n.kamo/wiki/doku.php?id=study:software:root:graphic">Graphic</a></li>
+  <li> <a href="https://www.icepp.jp/atlas-japan/tutorials/tutorial2013/ATLAS_SoftwareLecture2013.pdf">Ntuple/MakeClass</a></li>
+  <li> <a href="https://www.quark.kj.yamagata-u.ac.jp/~miyachi/ROOT/index.html#fit">山形大ROOT</a></li>
+  <li> <a href="https://root.cern.ch/root/html524/TMath.html">TMATH(関数等)</a></li>
+  <li> <a href="https://root.cern/root/htmldoc/guides/users-guide/ROOTUsersGuide.html">ROOTUsersGuid</a></li>
+  <li> <a href="https://qiita.com/dyamaguc/items/397121b303e26f8286cf">python ROOT</a></li>
+</ul>
 
 </main>
 
