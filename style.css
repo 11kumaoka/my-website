@@ -193,6 +193,29 @@ body {
   }
 }
 
+.sub-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0rem;
+    background: #475e00;
+}
+.sub-card-block {
+    background-color: #fffade;
+    color: #181818;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    /* max-width: 800px; */
+    width: 98%;
+    padding: 0.1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    
+    margin-bottom: 0.1rem;
+    /* transition: transform 0.3s ease; */
+}
+
 .sub-header-image {
   position: relative;
   width: 100%;
