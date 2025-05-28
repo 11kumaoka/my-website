@@ -216,7 +216,7 @@ body {
     margin-bottom: 0.3rem;
     /* transition: transform 0.3s ease; */
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .subsidebar {
     display: none;
   }
@@ -229,7 +229,9 @@ body {
   .sub-card-block {
     padding: 0.8rem;
   }
-}
+} */
+
+
 .sub-header-image {
   position: relative;
   width: 100%;
