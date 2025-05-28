@@ -67,12 +67,12 @@
 
 
 body {
-    overflow-x: hidden;
-    /* background-color: #fffade; */
-    background-color: #475e00;
-    /* background-color: #fdfdfc; */
-    /* background-color: #f5f5eb; */
-    color: #2a2a2a;
+  overflow-x: hidden;
+  /* background-color: #fffade; */
+  background-color: #475e00;
+  /* background-color: #fdfdfc; */
+  /* background-color: #f5f5eb; */
+  color: #2a2a2a;
 }
 
 /*  breadcrumb list　 */
@@ -101,7 +101,7 @@ body {
     width: 180px;
     background-color: #f5f5eb;
     padding: 1rem;
-    border-right: 3px solid #8b6100;
+    border-right: 8px solid #8b6100;
     overflow-y: auto;
 }
 
@@ -165,9 +165,9 @@ body {
 
 .subcontainer {
     max-width: 1200px;
-    margin-left: 200px;
-    margin-right: 10px;
-    width: 90%;
+    margin-left: 240px;
+    margin-right: 5px;
+    width: 95%;
     padding: 0.1rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -195,21 +195,21 @@ body {
 .sub-header-image {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 300px;
   background: url("/my-website/images//SubPageTop.png") center center / cover no-repeat;
   color: white;
 }
 
 .sub-header-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    text-align: center;
-    width: 100%;
-    color: rgb(255, 180, 19);
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  color: rgb(255, 180, 19);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 }
 
 .sub-header-logo {
