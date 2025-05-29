@@ -62,46 +62,57 @@
 
   <section class="sub-card-block mb-5">
     <h2> ヒストグラム </h2>
+
     <h3> ヒストグラム作成 </h3>
 
     <pre>
     TH1F *h1D = new TH1F("name","title", nBins, minX, maxX) ("name","title", nBins, minX, maxX); //char, char, int, float 
     </pre>
 
+    <p>
     xbin にwの重み付けfill
+    </p>
     <pre>
     h1D->Fill(x,w); 
     </pre>
 
+    <p>
     詳しい色や形状、引数等はひとまず<a href="https://root.cern.ch/doc/master/classTH1.html">参照</a>をみてください.
+    </p>
     <pre>
     TH2F *h2D = new TH2F("name","title", nBinsX, minX, maxX, nBinsY, minY, maxY); //char, char, int, float, float,  int, float, float
     h2D->Fill(x,y);
     </pre>
 
+    <p>
     平面プロットのカラー付棒が立っている奴は"lego2z"
+    </p>
     <pre>
     h2D->Draw("colz");
     </pre>
 
-    //綺麗な虹色 kLainbowは薄汚い暗い虹色
+    <p>
+    綺麗な虹色 kLainbowは薄汚い暗い虹色
+    </p>
     <pre>
     gStyle->SetPalette(1);
     </pre>
 
     <h4> 配列オブジェクト (ヒストグラムに関わらずROOTのオブジェクトは配列化できるものが多い) </h4>
-
+    <p>
     loopでhistNameが変わっていることが大切 (h%dの部分でloopの数字を名前に入れ，histごとに名前を変えている)
+    </p>
     <pre>
     TH1F *hList[n];
     for(int nHist = 0; nHist < n; nHist++) hList[nHist] = TH1F(Form("h%d", nHist),"", nBins[nHist], minX[nHist],maxX[nHist]);
     </pre>
 
     <h4>  多次元ヒストグラム( <a href="https://root.cern.ch/doc/master/classTHnSparse.html">THnSparse</a> ) </h4>
-
-    オブジェクトのbin数は, (bin_axial1)*(bin_axial2)*(bin_axial3)* ...となっていくためサイズが大きくなり、注意が必要.~
-    <br>下は4次元の例: nbinsEachHistは各hist(各軸)のbin数, minEachHist各hist(各軸)のmin値, maxEachHist各hist(各軸)のmax値~
+    <p>
+    オブジェクトのbin数は, (bin_axial1)*(bin_axial2)*(bin_axial3)* ...となっていくためサイズが大きくなり、注意が必要.
+    <br>下は4次元の例: nbinsEachHistは各hist(各軸)のbin数, minEachHist各hist(各軸)のmin値, maxEachHist各hist(各軸)のmax値
     <br>Fillも配列で突っ込む~
+    </p>
     <pre>
     Int_t nbinsEachHist[4]  = {100, 2, 30, 50};
     Double_t minEachHist[4] = {0,-0.5, -0.3, 0};
@@ -172,8 +183,9 @@
     </pre>
 
     <h4> 軸 </h4>
-
+    <p>
     軸情報へのアクセス
+    </p>
     <pre>
     h->GetXaxis(); //X, Y, Z
     h->GetAxis(3); //multi demension
@@ -200,8 +212,9 @@
       error = h.GetBinError(bin)
       content = h.GetBinContent(bin)
     </pre>
-
+    <p>
     グラフ中に線を引くTLine
+    </p>
     <pre>
     TH1D* h1 = new TH1D("h1", "h1", 200, -50, 150);
     TLine* l1 = new TLine(0,0.2, 0, 1.5);
@@ -212,22 +225,25 @@
     </pre>
 
     <img alt="TLineEx.png" height="248" src="TLineEx.png" width="239" />
-
+    <p>
     厄介なのが線の定義がグラフの定義の範囲を超えると線がそのまま突き抜ける．
     <br>１次元のヒストグラムの場合縦軸の範囲が非常に難しい.
+    </p>
 
     <h3>  C++の文字の扱い </h3></span>
     <pre>
     int intX = (int) floatX; //float->int
     </pre>
-
+    <p>
     \nは改行;
+    </p>
     <pre>
     leg->AddEntry(h3[i],cid,"l"); 
     </pre>
-
+    <p>
     %3dは3文字幅を指定。%02dで08などと頭にゼロをつけてくれる。~
     <br>文字は%sで受けlongは%ldで。
+    </p>
     <pre>
     Form("x = %d", x); // the value of x into %d as string
     char src[100] = "10 123.456 ABC";
@@ -277,9 +293,9 @@
     <a href="https://lambda.phys.tohoku.ac.jp/~nagao/seminar/downloads/ROOTManual/05.FittingHistgram.pdf">ヒストグラムのフィッティング</a>
 
     <h4> オプション </h4>
-
+    <p>
     TH1::Fitの第２引数は下に引用したフィッティングのオプション、第３引数はTH1::Drawのグラフィックオプションである。
-
+    </p>
     <ul>
       <li>"W" 空でないすべての階級に1の重みを設定する。ここではエラーバーは無視する</li>
       <li>"WW" 空の階級も含めてすべての階級に1の重みを設定する。エラーバーは無視する</li>
@@ -392,7 +408,9 @@
 
   <section class="sub-card-block mb-5">
     <h2> よく見るプロット(gap なし/あり) </h2>
+    <p>
       <br> - 横割りRatioプロット(macroなのでratioPlot.Cを作り中身を貼り付ければ, root ratioPlot.Cで走ります): [[ratioPlot.C][ratioPlot.C]]
+    </p>
       <main class="image-row">
         <img alt="ratioPlot_nogap.png" height="311" src="ratioPlot_nogap.png" title="ratioPlot_nogap.png" width="320" />
         <img alt="ratioPlot_withgap.png" height="311" src="ratioPlot_withgap.png" title="ratioPlot_withgap.png" width="320" />
@@ -434,8 +452,10 @@
     root> tree->Draw("valX:valY", "event = 1", "colz"); //2D hist, cut: event  2, opt = colz
     </pre>
     </p>
-
-    対話形式で動かす際に，上記の方法でDrawをすると扱いづらいbin幅になるので， 詳しくみたい場合には自身で先にヒストグラムを作り， 下記の第一引数のような形で引数>>ヒストグラムのように書くと良い.
+    <p>
+    対話形式で動かす際に，上記の方法でDrawをすると扱いづらいbin幅になるので，
+     詳しくみたい場合には自身で先にヒストグラムを作り， 下記の第一引数のような形で引数>>ヒストグラムのように書くと良い.
+    </p>
     <pre>
     TH2F *h = new TH2F("h", "h", 100, 0, 100, 100, 0, 100);
     eventTree->Draw("x:y>>h", "layer==1&&z<10", "colz");
@@ -451,7 +471,7 @@
     *        2 *         0 *        75 *        30 *         0 * 38548.171 *        85 *        22 *
     *        3 *         0 *        75 *        30 *         0 * 50277.410 *        85 *        22 *
     </pre>
-
+    <p>
     これらのコードはマクロようなので，コンパイルして動かすには少し"include"や"define"などの部分をCとhで書き換える必要がある． 
     書き換えたファイル( <a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/Algorithm.h"></a>, 
     <a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/Algorithm.cc">Algorithm.cc </a>)
@@ -461,12 +481,14 @@
     <a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/AlgorithmTwoFile.h">AlgorithmTwoFile.h</a>, 
     <a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/compileTwoFiile.C">compileTwoFile.C</a>を参照のこと.)
     <br>またrootのコードをコンパイルすためにはg++は以下のオプションがいる．
+    </p>
     <pre>
     $ g++ $1 -o Run `root-config --cflags --libs`
     $ ./Run
     </pre>
-
+    <p>
     自分はオプションを覚えていられないので，以下を.zshrcに貼り, rpp compile.Cでコンパイルから実行までを行なっている．
+    </p>
     <pre>
     function rpp(){
       g++ $1 -o Run `root-config --cflags --libs` && ./Run
@@ -478,9 +500,10 @@
     <h2> カテゴリはわかんないけどひとまず </h2>
 
     <h3>その内載せたいもの</h3>
+    <p>
     <br>hadd, TCanvas(分割), TLegend, TROOT, FindObject, TChain, MakeClass, ファイルの読み出し/書き出し, Errobar,
     <br>fitParameterの取り出し, etc... 
-
+    </p>
 
     <h3>TDatabasePDG</h3>
     <pre>
@@ -502,6 +525,7 @@
 
 
     <img alt="EditTab.png" height="79" src="EditTab.png" title="EditTab.png" width="576" />
+    <p>
     <br>-<b>''View Tab->Editor''</b>: 一番使う
     <br>binの設定rebinしたり、グラフの色を変えたり、軸の名前を変えたり、三次元を二次元に投影したり色々できる。
     <br>"Vie"Tabの"Editor"を押すと左の"Files"タブの隣に"Pad Editor"タブができている。
@@ -524,6 +548,7 @@
     <br>左のオブジェクトを右クリックすると"SaveAs"とあるので, そこをクリックし名前を決めていろんな拡張子で保存できる。
     <br>一部のオブジェクト(ヒストグラム等)だけでいい場合や、GUIで編集したhistogramを保存したい場合は便利。
     <br><img alt="ObjectSave.png" height="299" src="ObjectSave.png" title="ObjectSave.png" width="295" />
+    </p>
   </section>
 
   <section class="sub-card-block mb-5">
