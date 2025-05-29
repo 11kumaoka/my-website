@@ -205,8 +205,8 @@ body {
   max-width: 1300px;
   width: 98%;
   padding: 0.1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -218,7 +218,8 @@ body {
   /* transition: transform 0.3s ease; */
 
   color: #181818;
-  font-size: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 @media (max-width: 768px) {
   .subsidebar {
@@ -395,7 +396,9 @@ h2{
   font-family: "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
   font-size: 180%;
   font-weight: 1000;
-  background: linear-gradient(to right, rgb(67, 89, 1), rgba(118, 108, 0, 0.854));
+  /* background: linear-gradient(to right, rgb(67, 89, 1), rgba(118, 108, 0, 0.854)); */
+  /* background: linear-gradient(to right, rgb(67, 89, 1), rgba(118, 108, 0, 0.854)); */
+  background: linear-gradient(to right, #dc5800,  rgba(255, 217, 0, 0.538));
   padding: 0.5rem 0.8rem 0.5rem 1rem;
   margin: 0.1rem 0.1rem 0.1rem 0.1rem;
   color: #ffde90;
@@ -408,7 +411,7 @@ h3{
   color: #69a200; 
 
   position: relative;
-  padding-bottom: 0.5em;
+  padding: 1rem 0.8rem 0.5rem 1.5rem;
   margin-bottom: 0.4rem;
 }
 h3::after {
@@ -516,6 +519,7 @@ a:hover {
 .desc {
   flex: 1;
   color: #333;
+  font-size: 20px;
 }
 
 
@@ -524,7 +528,8 @@ pre {
   background: #222;
   color: #b6ff01;
   padding: 0.1rem;
-  padding-left: 0.5rem;
+  /* padding-left: 0.5rem; */
+  padding: 0.5rem 0.1rem;
   overflow-x: auto;
 }
 
