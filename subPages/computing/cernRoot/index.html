@@ -111,10 +111,9 @@ h2D->Fill(x,y);</pre>
     <p>
     loopでhistNameが変わっていることが大切 (h%dの部分でloopの数字を名前に入れ，histごとに名前を変えている)
     </p>
-    <pre>
-    TH1F *hList[n];
-    for(int nHist = 0; nHist < n; nHist++) hList[nHist] = TH1F(Form("h%d", nHist),"", nBins[nHist], minX[nHist],maxX[nHist]);
-    </pre>
+<pre>
+TH1F *hList[n];
+for(int nHist = 0; nHist < n; nHist++) hList[nHist] = TH1F(Form("h%d", nHist),"", nBins[nHist], minX[nHist],maxX[nHist]);</pre>
 
     <h4>  多次元ヒストグラム( <a href="https://root.cern.ch/doc/master/classTHnSparse.html">THnSparse</a> ) </h4>
     <p>
@@ -141,8 +140,7 @@ h2 = hN->Projection(1, 4, "h1 Name");</pre>
     <h4> 不均一bin幅 </h4>
 <pre>double xBinsW[] = {0,4,5,10};
 TH1F *h = new TH1F("hist","",3,xBinsW);
-h->Scale(1., "width");
-</pre>
+h->Scale(1., "width");</pre>
 
     <h4> ヒストグラムの演算 </h4>
 <pre>hist->Add(h1,x);//各binの値=現在の値+x*h1の値
