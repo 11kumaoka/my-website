@@ -23,6 +23,19 @@
   <div class="breadcrumb">
     <a href="../index.html">Home</a> &gt; <span>現在のページ</span>
   </div>
+
+  <nav class="section-nav">
+    <a href="#about">ROOTファイルを開く</a>
+    <a href="#histogram">ヒストグラム</a>
+    <a href="#function">関数</a>
+    <a href="#appearance">プロットの見た目</a>
+    <a href="#fileio">ROOT file I/O</a>
+    <a href="#plotexamples">よく見るプロット</a>
+    <a href="#makeclass">Make Class解析</a>
+    <a href="#misc">その他</a>
+    <a href="#gui">便利なGUI</a>
+    <a href="#reference">参考ページ</a>
+  </nav>
 </header>
 
 <!-- <details><summary>
@@ -51,7 +64,7 @@
 
 <!-- <main class="subcontainer">  -->
 <main class="sub-section-container"> 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5"  id="about">
     <h2> ブラウザでROOTファイルを開く（こっちの方が操作性がよく綺麗）</h2>
     <p>
       <a href="https://root.cern/js/latest/">https://root.cern/js/latest/</a>に飛ぶ．
@@ -61,7 +74,7 @@
     <img alt="js.png" height="192" hspace="0.5" src="js.png" title="js.png" vspace="0.5" width="245" />
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="histogram">
     <h2> ヒストグラム </h2>
 
     <h3> ヒストグラム作成 </h3>
@@ -271,7 +284,7 @@
 
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="function">
     <h2> 関数 </h2>
     <h3> 関数作成 </h3>
     <pre>
@@ -318,7 +331,7 @@
     </ul>
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="appearance">
     <h2> プロットの見た目</h2>
     <pre>
     h->SetLineColor(1);
@@ -351,7 +364,7 @@
     </pre>
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="fileio">
     <h2>  ROOT file I/O </h2>
     <pre>
     TFile *file = new TFile("hoge.root","option"); //option : READ, UPDATE, NEW/CREATE, RECREATE
@@ -407,7 +420,7 @@
     </pre>
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="plotexamples">
     <h2> よく見るプロット(gap なし/あり) </h2>
     <p>
       <br> - 横割りRatioプロット(macroなのでratioPlot.Cを作り中身を貼り付ければ, root ratioPlot.Cで走ります): [[ratioPlot.C][ratioPlot.C]]
@@ -424,7 +437,7 @@
       <br><img alt="sigPeakSubBkg.png" height="301" src="sigPeakSubBkg.png" title="sigPeakSubBkg.png" width="371" />
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="makeclass">
     <h2> root fileを読み込み解析する (Make Class) </h2>
     <p>
     自分で解析コードを書いた方が早い方はいらないですが，
@@ -497,7 +510,7 @@
     </pre>
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="other">
     <h2> カテゴリはわかんないけどひとまず </h2>
 
     <h3>その内載せたいもの</h3>
@@ -517,7 +530,7 @@
     </pre>
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5" id="gui">
     <h2> 便利なGUI </h2>
     <p>
     グラフのいろんなところを右クリックで色々いじれます。(以下の画像は<a href="https://atlas.kek.jp/comp/ROOT-commands.html">https://atlas.kek.jp/comp/ROOT-commands.html</a>から拝借)
@@ -552,7 +565,7 @@
     </p>
   </section>
 
-  <section class="sub-card-block mb-5">
+  <section class="sub-card-block mb-5"  id="reference">
     <h2> 参考ページ</h2>
     <ul>
       <li> <a href="https://root.cern/doc/master/">ROOT Reference Page</a></li>
