@@ -385,15 +385,15 @@ body {
 /* == e == イメージ設定　==== */
 
 h1{
-  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
   text-shadow: 0.5px 4.0px 8.0px rgba(41, 31, 20, 0.823);
-  font-size: 200%;
+  font-size: 400%;
   font-weight: 1200;
   margin-bottom: 1rem;
   color: #fc9629;
 }
 h2{
-  font-family: "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
+  font-family: "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
   font-size: 180%;
   font-weight: 1500;
   /* background: linear-gradient(to right, rgb(67, 89, 1), rgba(118, 108, 0, 0.854)); */
@@ -405,7 +405,7 @@ h2{
   text-shadow: 3px 3px 4px rgba(191, 115, 0, 0.5);
 }
 h3{
-  font-family: "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
+  font-family: "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
   font-size: 150%;
   font-weight: 1200;
   color: #69a200; 
@@ -426,7 +426,7 @@ h3::after {
   border-radius: 2px;
 }
 h4{
-  font-family: "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+  font-family: "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
   font-size: 120%;
   font-weight: 900;
   border-left: 5px solid #e5a000;
