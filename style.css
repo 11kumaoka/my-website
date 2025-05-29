@@ -212,13 +212,13 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   background-color: #fffade;  
   
-  margin-left: 240px;
+  margin-left: 220px;
   margin-right: 5px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   /* transition: transform 0.3s ease; */
 
   color: #181818;
-  font-size: 16px;
+  font-size: 20px;
 }
 @media (max-width: 768px) {
   .subsidebar {
