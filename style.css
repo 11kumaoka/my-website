@@ -543,11 +543,24 @@ pre {
   overflow-x: auto;
 }
 
+
 .back-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #5c4900;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 24px; 
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.back-to-top:hover {
+  background-color: #a1ad00;
+  transform: translateY(-3px);
+}
 
