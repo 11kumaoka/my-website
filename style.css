@@ -393,7 +393,7 @@ h1{
   color: #fc9629;
 }
 h2{
-  font-family: "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
+  font-family: "Sawarabi Gothic", "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
   font-size: 180%;
   font-weight: 1500;
   /* background: linear-gradient(to right, rgb(67, 89, 1), rgba(118, 108, 0, 0.854)); */
@@ -405,7 +405,7 @@ h2{
   text-shadow: 3px 3px 4px rgba(191, 115, 0, 0.5);
 }
 h3{
-  font-family: "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
+  font-family: "Sawarabi Gothic", "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
   font-size: 150%;
   font-weight: 1200;
   color: #69a200; 
@@ -426,7 +426,7 @@ h3::after {
   border-radius: 2px;
 }
 h4{
-  font-family: "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+  font-family: "Sawarabi Gothic", "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
   font-size: 120%;
   font-weight: 900;
   border-left: 5px solid #e5a000;
@@ -535,7 +535,6 @@ a:hover {
 pre {
   background: #222;
   color: #b6ff01;
-  font-size: 20px;
   font-weight: 500;
   /* padding-left: 0.5rem; */
   padding: 0.5rem;
