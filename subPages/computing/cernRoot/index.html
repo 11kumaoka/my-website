@@ -38,15 +38,6 @@
   </nav>
 </header>
 
-<!-- <details><summary>
-  mode="div"
-  showlink="Table of Contents..."
-  hidelink="Hide"
-  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
-  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
- </summary> -->
-
-
 <!-- Side bar -->
 <div class="sidebar" id="sidebarMenu">
     <img src="/my-website/images/KumaIcon6.png"  class="img-fluid rounded-circle"  alt="KumaIcon6" width="150" />
@@ -82,38 +73,28 @@
 
     <h3> ヒストグラム作成 </h3>
 
-    <pre>
-    TH1F *h1D = new TH1F("name","title", nBins, minX, maxX) ("name","title", nBins, minX, maxX); //char, char, int, float 
-    </pre>
+<pre>TH1F *h1D = new TH1F("name","title", nBins, minX, maxX) ("name","title", nBins, minX, maxX); //char, char, int, float </pre>
 
     <p>
     xbin にwの重み付けfill
     </p>
-    <pre>
-    h1D->Fill(x,w); 
-    </pre>
+<pre>h1D->Fill(x,w); </pre>
 
     <p>
     詳しい色や形状、引数等はひとまず<a href="https://root.cern.ch/doc/master/classTH1.html">参照</a>をみてください.
     </p>
-    <pre>
-    TH2F *h2D = new TH2F("name","title", nBinsX, minX, maxX, nBinsY, minY, maxY); //char, char, int, float, float,  int, float, float
-    h2D->Fill(x,y);
-    </pre>
+<pre>TH2F *h2D = new TH2F("name","title", nBinsX, minX, maxX, nBinsY, minY, maxY); //char, char, int, float, float,  int, float, float
+h2D->Fill(x,y);</pre>
 
     <p>
     平面プロットのカラー付棒が立っている奴は"lego2z"
     </p>
-    <pre>
-    h2D->Draw("colz");
-    </pre>
+<pre>h2D->Draw("colz");</pre>
 
     <p>
     綺麗な虹色 kLainbowは薄汚い暗い虹色
     </p>
-    <pre>
-    gStyle->SetPalette(1);
-    </pre>
+<pre>gStyle->SetPalette(1);</pre>
 
     <h4> 配列オブジェクト (ヒストグラムに関わらずROOTのオブジェクトは配列化できるものが多い) </h4>
     <p>
@@ -130,116 +111,98 @@
     <br>下は4次元の例: nbinsEachHistは各hist(各軸)のbin数, minEachHist各hist(各軸)のmin値, maxEachHist各hist(各軸)のmax値
     <br>Fillも配列で突っ込む~
     </p>
-    <pre>
-    Int_t nbinsEachHist[4]  = {100, 2, 30, 50};
-    Double_t minEachHist[4] = {0,-0.5, -0.3, 0};
-    Double_t maxEachHist[4] = {50,1.5, 5.0, 100};
-    THnSparse* hN = new THnSparseD("histname", "title", 4, nbinsEachHist, minEachHist, maxEachHist);
-    hN->Sumw2();//error bar
+<pre>Int_t nbinsEachHist[4]  = {100, 2, 30, 50};
+Double_t minEachHist[4] = {0,-0.5, -0.3, 0};
+Double_t maxEachHist[4] = {50,1.5, 5.0, 100};
+THnSparse* hN = new THnSparseD("histname", "title", 4, nbinsEachHist, minEachHist, maxEachHist);
+hN->Sumw2();//error bar
 
-    Double_t xN[4] = {11, 1.2, -0.1, 40};
-    hN->Fill(xN, 1.);
+Double_t xN[4] = {11, 1.2, -0.1, 40};
+hN->Fill(xN, 1.);
 
-    hN->GetAxis(3)->SetRangeUser(zMin[nZRange], zMax[nZRange]);
-    h1 = hN->Projection(0, "h1 Name"); 
-    h2 = hN->Projection(1, 4, "h1 Name");
-    </pre>
+hN->GetAxis(3)->SetRangeUser(zMin[nZRange], zMax[nZRange]);
+h1 = hN->Projection(0, "h1 Name"); 
+h2 = hN->Projection(1, 4, "h1 Name");</pre>
 
     <h4> ヒストグラムのコピー (当然だがポインタは新しくできるため、心配せずヒストグラムを編集できる) </h4>
-    <pre>
-    TH1F *hnew = (TH1F*)h->Clone(); hnew->SetName("hnew");
-    </pre>
+<pre>TH1F *hnew = (TH1F*)h->Clone(); hnew->SetName("hnew");</pre>
 
     <h4> 不均一bin幅 </h4>
-    <pre>
-    double xBinsW[] = {0,4,5,10};
-    TH1F *h = new TH1F("hist","",3,xBinsW);
-    h->Scale(1., "width");
-    </pre>
+<pre>double xBinsW[] = {0,4,5,10};
+TH1F *h = new TH1F("hist","",3,xBinsW);
+h->Scale(1., "width");
+</pre>
 
     <h4> ヒストグラムの演算 </h4>
-    <pre>
-    hist->Add(h1,x);//各binの値=現在の値+x*h1の値
-    hist->Add(h1,h2,x,y);//各binの値=x*h1の値+y*h2の値
-    hist->Divide(h1,x);//各binの値=現在の値/(x*h1の値)
-    hist->Divide(h1,h2,x,y);//各binの値=(x*h1の値)/(y*h2の値)
-    hist->Multiply(h1,x);//各binの値=現在の値*x*h1の値
-    hist->Multiply(h1,h2,x,y);//各binの値=x*h1の値*y*h2の値
-    hist->Scale(x);//各binの値=x*現在の値
-    Double_t tot=h1->Integral(); //面積で規格化
-    h1->Scale(1. /tot);
-    </pre>
+<pre>hist->Add(h1,x);//各binの値=現在の値+x*h1の値
+hist->Add(h1,h2,x,y);//各binの値=x*h1の値+y*h2の値
+hist->Divide(h1,x);//各binの値=現在の値/(x*h1の値)
+hist->Divide(h1,h2,x,y);//各binの値=(x*h1の値)/(y*h2の値)
+hist->Multiply(h1,x);//各binの値=現在の値*x*h1の値
+hist->Multiply(h1,h2,x,y);//各binの値=x*h1の値*y*h2の値
+hist->Scale(x);//各binの値=x*現在の値
+Double_t tot=h1->Integral(); //面積で規格化
+h1->Scale(1. /tot);</pre>
 
     <h4> Efficiency </h4>
-    <pre>
-    h->Divide(hNume, hDeno, 1.0, 1.0, "b") //efficiencyのerrorはバイナリであるため注意(option "b")
-    TEfficiency *heff = new TEfficiency(hNume, hDeno); //値が1を超える場合は計算できない
-    heff->Draw("AP"); //点と軸表示
-    </pre>
+<pre>h->Divide(hNume, hDeno, 1.0, 1.0, "b") //efficiencyのerrorはバイナリであるため注意(option "b")
+TEfficiency *heff = new TEfficiency(hNume, hDeno); //値が1を超える場合は計算できない
+heff->Draw("AP"); //点と軸表示</pre>
 
     <h4> Bin </h4>
-    <pre> 
-    //get a number of bin for the axis value.
-    //take care the number of bin starts 1 not 0
-    h->FindBin(val); 
-    h->FindFixBin(val);
-    h->GetBinContent(binNumber); //get the entry of the certain bin
-    Double_t xCenterValue = h1->GetXaxis()->GetBinCenter(i);　//binのxの中心値を取得　　
-    h->Rebin(n) //n binを1 binにまとめる。　bin数は1/nになる
-    double xBinsW[] = {0,4,5,10};
-    TH1F *h_rebin = hist->Rebin(4,"h_rebin",xBinsW); //recreate the bin width you want to set
-    </pre>
+<pre> //get a number of bin for the axis value.
+//take care the number of bin starts 1 not 0
+h->FindBin(val); 
+h->FindFixBin(val);
+h->GetBinContent(binNumber); //get the entry of the certain bin
+Double_t xCenterValue = h1->GetXaxis()->GetBinCenter(i);　//binのxの中心値を取得　　
+h->Rebin(n) //n binを1 binにまとめる。　bin数は1/nになる
+double xBinsW[] = {0,4,5,10};
+TH1F *h_rebin = hist->Rebin(4,"h_rebin",xBinsW); //recreate the bin width you want to set</pre>
 
     <h4> ブランチの中身の確認 </h4>
-    <pre>
-    f = ROOT.TFile("hoge.root", "READ")
-    branch = f.findObject("branchName")
-    for key in branch:
-      name = key.GetName()
-      print(name)
-    </pre>
+<pre>f = ROOT.TFile("hoge.root", "READ")
+branch = f.findObject("branchName")
+for key in branch:
+  name = key.GetName()
+  print(name)</pre>
 
     <h4> 軸 </h4>
     <p>
     軸情報へのアクセス
     </p>
-    <pre>
-    h->GetXaxis(); //X, Y, Z
-    h->GetAxis(3); //multi demension
-    h->GetXaxis()->SetRange(IBinNum, EBinNum);//bin番号を引数にする
-    h->GetXaxis()->SetRangeUser(IVal, EVal);//user座標を引数にする
-    //文字は#を使うとLaTeX表記できる ex) #it{p}_{T}, #alpha, #frac{1}{N}
-    //スライドで後から誤魔化す場合はHelveticaで書くといいらしい...　少し違う気もしますが
-    h->SetTitle("hTitle"); //ヒストグラムのタイトル
-    h->GetXaxis()->SetTitle("title_of_xaxis");    // 1次元ヒストグラム以外の場合
-    gPad->SetLogy(); //y軸をlog
-    //Axis labeling: Take care for the number start from 1 not 0
-    h->GetXaxis()->SetBinLabel(1,"A");
-    h->GetXaxis()->SetBinLabel(2,"B");
-    h->GetXaxis()->SetBinLabel(3,"C");
-    h->GetXaxis()->SetBinLabel(4,"D");
-    h->GetYaxis()->SetTitleSize(25);
-    h->GetYaxis()->SetTitleFont(43);
-    h->GetYaxis()->SetTitleOffset(1.55);
-    </pre>
+<pre>h->GetXaxis(); //X, Y, Z
+h->GetAxis(3); //multi demension
+h->GetXaxis()->SetRange(IBinNum, EBinNum);//bin番号を引数にする
+h->GetXaxis()->SetRangeUser(IVal, EVal);//user座標を引数にする
+//文字は#を使うとLaTeX表記できる ex) #it{p}_{T}, #alpha, #frac{1}{N}
+//スライドで後から誤魔化す場合はHelveticaで書くといいらしい...　少し違う気もしますが
+h->SetTitle("hTitle"); //ヒストグラムのタイトル
+h->GetXaxis()->SetTitle("title_of_xaxis");    // 1次元ヒストグラム以外の場合
+gPad->SetLogy(); //y軸をlog
+//Axis labeling: Take care for the number start from 1 not 0
+h->GetXaxis()->SetBinLabel(1,"A");
+h->GetXaxis()->SetBinLabel(2,"B");
+h->GetXaxis()->SetBinLabel(3,"C");
+h->GetXaxis()->SetBinLabel(4,"D");
+h->GetYaxis()->SetTitleSize(25);
+h->GetYaxis()->SetTitleFont(43);
+h->GetYaxis()->SetTitleOffset(1.55);</pre>
 
     <h3> histogramのbin情報のスキャン </h3>
-    <pre>
-    for bin in range(1, h.GetNbinsX() + 1):
-      error = h.GetBinError(bin)
-      content = h.GetBinContent(bin)
-    </pre>
+<pre>for bin in range(1, h.GetNbinsX() + 1):
+  error = h.GetBinError(bin)
+  content = h.GetBinContent(bin)</pre>
     <p>
     グラフ中に線を引くTLine
     </p>
-    <pre>
-    TH1D* h1 = new TH1D("h1", "h1", 200, -50, 150);
-    TLine* l1 = new TLine(0,0.2, 0, 1.5);
-    TLine* l2 = new TLine(-40, 0.5, 200, 0.5);
-    h1->Draw();
-    l1->Draw();
-    l2->Draw("same");
-    </pre>
+<pre>
+TH1D* h1 = new TH1D("h1", "h1", 200, -50, 150);
+TLine* l1 = new TLine(0,0.2, 0, 1.5);
+TLine* l2 = new TLine(-40, 0.5, 200, 0.5);
+h1->Draw();
+l1->Draw();
+l2->Draw("same");</pre>
 
     <img alt="TLineEx.png" height="248" src="TLineEx.png" width="239" />
     <p>
@@ -248,64 +211,56 @@
     </p>
 
     <h3>  C++の文字の扱い </h3></span>
-    <pre>
-    int intX = (int) floatX; //float->int
-    </pre>
+<pre>int intX = (int) floatX; //float->int</pre>
     <p>
     \nは改行;
     </p>
-    <pre>
-    leg->AddEntry(h3[i],cid,"l"); 
-    </pre>
+<pre>leg->AddEntry(h3[i],cid,"l"); </pre>
     <p>
     %3dは3文字幅を指定。%02dで08などと頭にゼロをつけてくれる。~
     <br>文字は%sで受けlongは%ldで。
     </p>
-    <pre>
-    Form("x = %d", x); // the value of x into %d as string
-    char src[100] = "10 123.456 ABC";
-    int i;
-    float f;
-    char s[100];
-    sscanf( src, "%d %f %s", &i, &f, &s ); //char to value
-    std::cout << src << " --(sscanf)---> "<< i <<" "<< f <<" "<< s << std::endl; // result 10 123.456 ABC --(sscanf)---> 10 123.456 ABC
-    </pre>
+<pre>
+Form("x = %d", x); // the value of x into %d as string
+char src[100] = "10 123.456 ABC";
+int i;
+float f;
+char s[100];
+sscanf( src, "%d %f %s", &i, &f, &s ); //char to value
+std::cout << src << " --(sscanf)---> "<< i <<" "<< f <<" "<< s << std::endl; // result 10 123.456 ABC --(sscanf)---> 10 123.456 ABC</pre>
 
     <h3>  canvas / legend </h3>
-    <pre>
-    TCanvas *c1 = new TCanvas("name","title",width,height);
-    canvas->Divide(n,m); //n行,m列にcanvasを分割する
-    canvas->cd(i); //i番目の区画に移動する
-    hList[i]->Draw();
-    //TLegend(x1,y1,x2,y2,"title")、位置はNDCで指定する（０−１の間の値）
-    //最後の引数の"title"はlegendに表示にされるタイトル、邪魔な場合はいれなくてもいい
-    TLegend *leg = new TLegend(0.1,0.7,0.48,0.9);
-    //第一引数はポインタ、第二引数は項目名、第三引数で表示したいattributeを指定
-    leg->AddEntry(h,"histogram","f");
-    leg->Draw();
-    </pre>
+<pre>
+TCanvas *c1 = new TCanvas("name","title",width,height);
+canvas->Divide(n,m); //n行,m列にcanvasを分割する
+canvas->cd(i); //i番目の区画に移動する
+hList[i]->Draw();
+//TLegend(x1,y1,x2,y2,"title")、位置はNDCで指定する（０−１の間の値）
+//最後の引数の"title"はlegendに表示にされるタイトル、邪魔な場合はいれなくてもいい
+TLegend *leg = new TLegend(0.1,0.7,0.48,0.9);
+//第一引数はポインタ、第二引数は項目名、第三引数で表示したいattributeを指定
+leg->AddEntry(h,"histogram","f");
+leg->Draw();</pre>
 
   </section>
 
   <section class="sub-card-block mb-5" id="function">
     <h2> 関数 </h2>
     <h3> 関数作成 </h3>
-    <pre>
-    TF1 ff = new TF1("ff", "ff", "(x<10)*(a + b * x) + (x>10)*c", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant
-    TF1 ff = new TF1("ff", "ff", "(x<10)*([0] + [1]*x) + (x>10)*[2]", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant
-    </pre>
+<pre>
+TF1 ff = new TF1("ff", "ff", "(x<10)*(a + b * x) + (x>10)*c", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant
+TF1 ff = new TF1("ff", "ff", "(x<10)*([0] + [1]*x) + (x>10)*[2]", 0, 100); //範囲指定のfitting ex: (x<10)linear, (x >10) constant</pre>
 
     <h4> フィット </h4>
-    <pre>
-    ff->SetParameter(0, a); //[0]にaを代入する
-    ff->SetParameters(a, b, c); //[0]にa, [1]にb, [2]にcをいっぺんに代入する
-    h->Fit("ff", "", "", 5.0, 100.0);
-    Double_t p0 = ff->GetParameter(0);//0番目のパラメータ
-    Double_t p0e = ff->GetParError(0);//0番目のパラメータのエラー
-    Double_t chi2 = ff->GetChisquare();//χ二乗値
-    Int_t Ndof = ff->GetNDF();//自由度の数（フィット点の数 - パラメータ数）
-    Double_t retunVal = ff->Eval(1.0); //the ff value at x=1
-    </pre>
+<pre>
+ff->SetParameter(0, a); //[0]にaを代入する
+ff->SetParameters(a, b, c); //[0]にa, [1]にb, [2]にcをいっぺんに代入する
+h->Fit("ff", "", "", 5.0, 100.0);
+Double_t p0 = ff->GetParameter(0);//0番目のパラメータ
+Double_t p0e = ff->GetParError(0);//0番目のパラメータのエラー
+Double_t chi2 = ff->GetChisquare();//χ二乗値
+Int_t Ndof = ff->GetNDF();//自由度の数（フィット点の数 - パラメータ数）
+Double_t retunVal = ff->Eval(1.0); //the ff value at x=1</pre>
 
     <a href="https://lambda.phys.tohoku.ac.jp/~nagao/seminar/downloads/ROOTManual/05.FittingHistgram.pdf">ヒストグラムのフィッティング</a>
 
@@ -336,91 +291,83 @@
 
   <section class="sub-card-block mb-5" id="appearance">
     <h2> プロットの見た目</h2>
-    <pre>
-    h->SetLineColor(1);
-    h->SetMarkerColor(1);
-    h->SetMarkerStyle(22);
-    h->SetMarkerSize(1.5); 
-    d->SetLineWidth(5); 
-    d->SetLineStyle(2); //[1=line,2=broken,3=dotted,4=broken-dot,5=long-broken-dot]
-    h->SetFillColorAlpha(kGreen, 0.5); //kGreen, 50% Clear
-    h->SetFillStyle(3005);  
-    </pre>
+<pre>
+h->SetLineColor(1);
+h->SetMarkerColor(1);
+h->SetMarkerStyle(22);
+h->SetMarkerSize(1.5); 
+d->SetLineWidth(5); 
+d->SetLineStyle(2); //[1=line,2=broken,3=dotted,4=broken-dot,5=long-broken-dot]
+h->SetFillColorAlpha(kGreen, 0.5); //kGreen, 50% Clear
+h->SetFillStyle(3005);  </pre>
 
     <h4>  RooT Color </h4>
-    <pre>
-    %CODE{ lang="cpp" num="1" numstep="1" </summary>
-    enum EColor { kWhite =0, kBlack =1, kGray=920, kRed =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432, kOrange=800, kSpring=820, kTeal=840, kAzure =860, kViolet =880, kPink=900 };
-    </pre>
+<pre>
+%CODE{ lang="cpp" num="1" numstep="1" </summary>
+enum EColor { kWhite =0, kBlack =1, kGray=920, kRed =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432, kOrange=800, kSpring=820, kTeal=840, kAzure =860kViolet =880, kPink=900 };</pre>
 
     <img alt="ColorReference.png" height="325" src="ColorReference.png" title="ColorReference.png" width="346" /><img alt="StyleSetting.png" height="318" src="StyleSetting.png" title="StyleSetting.png" width="666" />
 
     <p>
     カラー/マーカーを配列にしとくと便利かも.　既定のカラー(EColor変数:kRedなど)は下にあるように元々は値が入っている。この値を図を参照に+/-して色を決めておく.
     </p>
-    <pre>
-    //[kBrack, kRed, kBlue, kGreen+3, kOrange+8, kAzure+10, kSpring+4, kViolet+1, kPink+9, kSpring-9, kOrange+8, kAzure+1, kTeal+4]
-    int lFillColor[14] = [1, 632, 600, 416+3, 800+8, 860+10, 900+10, 820+4, 880+1, 900+9, 820-9, 800+1, 860+1, 840+4];
-    int [MarkerStyleList][MarkerStyleList] [10] = [20, 21, 22, 23, 34, 29, 33, 31, 24, 24, 26, 32];
-    hList[histNum]->SetMarkerColor( [FillColorList][FillColorList].at(histNum));
-    hList[histNum]->SetMarkerStyle( [MarkerStyleList][MarkerStyleList].at(histNum));
-    </pre>
+<pre>
+//[kBrack, kRed, kBlue, kGreen+3, kOrange+8, kAzure+10, kSpring+4, kViolet+1, kPink+9, kSpring-9, kOrange+8, kAzure+1, kTeal+4]
+int lFillColor[14] = [1, 632, 600, 416+3, 800+8, 860+10, 900+10, 820+4, 880+1, 900+9, 820-9, 800+1, 860+1, 840+4];
+int [MarkerStyleList][MarkerStyleList] [10] = [20, 21, 22, 23, 34, 29, 33, 31, 24, 24, 26, 32];
+hList[histNum]->SetMarkerColor( [FillColorList][FillColorList].at(histNum));
+hList[histNum]->SetMarkerStyle( [MarkerStyleList][MarkerStyleList].at(histNum));</pre>
   </section>
 
   <section class="sub-card-block mb-5" id="fileio">
     <h2>  ROOT file I/O </h2>
-    <pre>
-    TFile *file = new TFile("hoge.root","option"); //option : READ, UPDATE, NEW/CREATE, RECREATE
-    TH1F* h = (TH1F*)file->Get("hist");//Getで得られるのはTObject型なのでキャストしている。
-    TH1F *h = (TH1F*)gROOT->FindObject("hist");
-    obj->SaveAs("hoge.root");
-    obj->Write();
-    file->Write();
-    </pre>
+<pre>
+TFile *file = new TFile("hoge.root","option"); //option : READ, UPDATE, NEW/CREATE, RECREATE
+TH1F* h = (TH1F*)file->Get("hist");//Getで得られるのはTObject型なのでキャストしている。
+TH1F *h = (TH1F*)gROOT->FindObject("hist");
+obj->SaveAs("hoge.root");
+obj->Write();
+file->Write();</pre>
 
     <h3> TTree </h3>
     <h4> TTree Read </h4>
-    <pre>
-    TFile *file = new TFile("file.root","recreate"); //create root file
-    TTree *tree = new TTree("objectName","titleName");
-    
-    Int_t a;
-    Double_t b;
-    tree->Branch("val1", &a);
-    tree->Branch("val2", &b);
+<pre>
+TFile *file = new TFile("file.root","recreate"); //create root file
+TTree *tree = new TTree("objectName","titleName");
 
-    //Event loot #######
-    a = 3; b = 1.22;
-    tree->Fill();
-    a = 1; b = 2.4; c=1.33;
-    tree->Fill();
-    //Event loot #######
+Int_t a;
+Double_t b;
+tree->Branch("val1", &a);
+tree->Branch("val2", &b);
+
+//Event loot #######
+a = 3; b = 1.22;
+tree->Fill();
+a = 1; b = 2.4; c=1.33;
+tree->Fill();
+//Event loot #######
       
-    tree->Write();
-    </pre>
+tree->Write();</pre>
 
     <h4>  TTree Creation </h4>
-    <pre>
-    TFile *file = new TFile("hoge.root","recreate"); //TTree?????root?????????????
-    TTree *tree = new TTree("tree","tree");
-    </pre>
+<pre>
+TFile *file = new TFile("hoge.root","recreate"); //TTree?????root?????????????
+TTree *tree = new TTree("tree","tree");</pre>
 
     <h4>  Branch Creation </h4>
-    <pre>
-    Int_t a; //Branchに間接的に値を代入するための変数をあらかじめ宣言する (tempraly variable)
-    Double_t b;
-    tree->Branch("val1", &a);
-    tree->Branch("val2", &b);
-    </pre>
+<pre>
+Int_t a; //Branchに間接的に値を代入するための変数をあらかじめ宣言する (tempraly variable)
+Double_t b;
+tree->Branch("val1", &a);
+tree->Branch("val2", &b);</pre>
 
     <h4> TList/TObject </h4>
-    <pre>
-    TList *l = new TList();
-    l->Add(obj);
-    l->At(num); //return TObject*
-    l->FindObject("name");
-    l->Write("name",1);
-    </pre>
+<pre>
+TList *l = new TList();
+l->Add(obj);
+l->At(num); //return TObject*
+l->FindObject("name");
+l->Write("name",1);</pre>
   </section>
 
   <section class="sub-card-block mb-5" id="plotexamples">
@@ -458,36 +405,33 @@
 
     その後の解析
     <br> In a ROOT session, you can do:
-    <pre>
-    root> .L anaMain.C
-    root> anaMain t
-    root> t.GetEntry(12); // Fill t data members with entry number 12
-    root> t.Show(); // Show values of entry 12
-    root> t.Show(16); // Read and show values of entry 16
-    root> t.Loop(); // Loop on all entries
-    root> tree->Draw("valX", "valY > 10 && valZ < 20");
-    root> tree->Draw("valX:valY", "event = 1", "colz"); //2D hist, cut: event  2, opt = colz
-    </pre>
+<pre>
+root> .L anaMain.C
+root> anaMain t
+root> t.GetEntry(12); // Fill t data members with entry number 12
+root> t.Show(); // Show values of entry 12
+root> t.Show(16); // Read and show values of entry 16
+root> t.Loop(); // Loop on all entries
+root> tree->Draw("valX", "valY > 10 && valZ < 20");
+root> tree->Draw("valX:valY", "event = 1", "colz"); //2D hist, cut: event  2, opt = colz</pre>
     </p>
     <p>
     対話形式で動かす際に，上記の方法でDrawをすると扱いづらいbin幅になるので，
      詳しくみたい場合には自身で先にヒストグラムを作り， 下記の第一引数のような形で引数>>ヒストグラムのように書くと良い.
     </p>
-    <pre>
-    TH2F *h = new TH2F("h", "h", 100, 0, 100, 100, 0, 100);
-    eventTree->Draw("x:y>>h", "layer==1&&z<10", "colz");
-    </pre>
+<pre>
+TH2F *h = new TH2F("h", "h", 100, 0, 100, 100, 0, 100);
+eventTree->Draw("x:y>>h", "layer==1&&z<10", "colz");</pre>
 
     Scanで各変数の中身を確認することができる．第一引数をダブルクォーテーションで囲い， 各変数をコロンで分けることで，複数の変数を表示することができる． 第二引数は条件．
-    <pre>root> eventTree->Scan("iEvent:row:col:layer:depEn:particleNumber:pdgCode","col<100&&row<100")
-    ************************************************************************************************
-    *    Row   *    iEvent *       row *       col *     layer *     depEn * particleN *   pdgCode *
-    ************************************************************************************************
-    *        0 *         0 *        75 *        30 *         0 * 68654.726 *        85 *        22 *
-    *        1 *         0 *        75 *        30 *         0 * 79663.421 *        85 *        22 *
-    *        2 *         0 *        75 *        30 *         0 * 38548.171 *        85 *        22 *
-    *        3 *         0 *        75 *        30 *         0 * 50277.410 *        85 *        22 *
-    </pre>
+<pre>root> eventTree->Scan("iEvent:row:col:layer:depEn:particleNumber:pdgCode","col<100&&row<100")
+ ************************************************************************************************
+ *    Row   *    iEvent *       row *       col *     layer *     depEn * particleN *   pdgCode *
+ ************************************************************************************************
+ *        0 *         0 *        75 *        30 *         0 * 68654.726 *        85 *        22 *
+ *        1 *         0 *        75 *        30 *         0 * 79663.421 *        85 *        22 *
+ *        2 *         0 *        75 *        30 *         0 * 38548.171 *        85 *        22 *
+ *        3 *         0 *        75 *        30 *         0 * 50277.410 *        85 *        22 *</pre>
     <p>
     これらのコードはマクロようなので，コンパイルして動かすには少し"include"や"define"などの部分をCとhで書き換える必要がある． 
     書き換えたファイル( <a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/Algorithm.h"></a>, 
@@ -499,18 +443,16 @@
     <a href="https://github.com/11kumaoka/rootCompileMacroTemplate/blob/main/compileTwoFiile.C">compileTwoFile.C</a>を参照のこと.)
     <br>またrootのコードをコンパイルすためにはg++は以下のオプションがいる．
     </p>
-    <pre>
-    $ g++ $1 -o Run `root-config --cflags --libs`
-    $ ./Run
-    </pre>
+<pre>
+$ g++ $1 -o Run `root-config --cflags --libs`
+$ ./Run</pre>
     <p>
     自分はオプションを覚えていられないので，以下を.zshrcに貼り, rpp compile.Cでコンパイルから実行までを行なっている．
     </p>
-    <pre>
-    function rpp(){
-      g++ $1 -o Run `root-config --cflags --libs` && ./Run
-    }
-    </pre>
+<pre>
+function rpp(){
+  g++ $1 -o Run `root-config --cflags --libs` && ./Run
+}</pre>
   </section>
 
   <section class="sub-card-block mb-5" id="other">
@@ -523,14 +465,13 @@
     </p>
 
     <h3>TDatabasePDG</h3>
-    <pre>
-    TDatabasePDG *pdg = new TDatabasePDG();
-    TParticlePDG *particle = pdg->GetParticle(id); //pdgIdについてはhttp://pdg.lbl.gov/2004/reviews/montecarlorpp.pdf
-    particle->GetName();
-    particle->Mass();
-    particle->Spin();
-    particle->Lifetime();
-    </pre>
+<pre>
+TDatabasePDG *pdg = new TDatabasePDG();
+TParticlePDG *particle = pdg->GetParticle(id); //pdgIdについてはhttp://pdg.lbl.gov/2004/reviews/montecarlorpp.pdf
+particle->GetName();
+particle->Mass();
+particle->Spin();
+particle->Lifetime();</pre>
   </section>
 
   <section class="sub-card-block mb-5" id="gui">
