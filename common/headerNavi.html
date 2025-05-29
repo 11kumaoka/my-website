@@ -1,0 +1,62 @@
+
+<!-- EN/JA Change Button -->
+<button onclick="switchLang()">EN/JA</button>
+<script>
+    let lang = 'ja';
+    function switchLang() {
+    const text = {
+        ja: '',
+        en: 'Sorry, english version is not available yet. Please check the Japanese version for now.'
+    };
+    lang = (lang === 'ja') ? 'en' : 'ja';
+    document.getElementById("intro").textContent = text[lang];
+    }
+</script>
+
+<!-- Navigation Links -->
+<nav class="main-nav">
+<ul class="nav-list">
+    <li><a href="#">Home</a></li>
+    <li class="has-dropdown">
+        <a href="#">Studies ▾</a>
+        <ul class="dropdown">
+            <li><a href="subPages/studies/EICPhys">EICに関する物理</a></li>
+            <li><a href="#ePIC-DAQ">EIC-ePICのストリーミングリードアウトの開発</a></li>
+            <li><a href="#sPHENIX-Tracking">RHIC-sPHENIXのシリコン-カロリメータトラッキングの開発</a></li>
+            <li><a href="https://twiki.cern.ch/twiki/bin/view/Main/KumaJetAnalysis">LHC-ALICEのジェットを使ったQGPの研究</a></li>
+            <li><a href="#ALICE-FoCal">LHC-ALICEのFoCalのトリガーおよびプロトタイプの性能評価</a></li>
+            <li><a href="https://twiki.cern.ch/twiki/bin/view/Main/NswMuFastSteering">LHC-ATLASのNSWのミューオンソフトウェアトリガーの開発</a></li>
+            <li><a href="#ILD-ECal">ILC-ILDのECalのプロトタイプ性能評価</a></li>
+            <li><a href="#CGC現象論">グルーオン飽和の現象論</a></li>
+            <li><a href="#MI-ML-Chemi">Material Informaticsにおける情報欠損の補完を目的とした機械学習モデルの比較</a></li>
+            <li><a href="#Aqua-Material-Chemi">アクアマテリアルの物性研究</a></li>
+        </ul>
+    </li>
+    <li class="has-dropdown">
+        <a href="#">Computing ▾</a>
+        <ul class="dropdown">
+            <li><a href="/my-website/subPages/computing/pcSetup">PCの環境設定</a></li>
+            <li><a href="/my-website/subPages/computing/cernRoot">ROOTの使い方</a></li>
+            <li><a href="/my-website/subPages/computing/programmingBasics">プログラミングの基礎の基礎の基礎の内容</a></li>
+            <li><a href="/my-website/subPages/computing/latexPage">LaTeXの使い方の基礎</a></li>
+            <li><a href="/my-website/subPages/computing/gitPage">Gitの基礎の基礎の基礎</a></li>
+            <li><a href="/my-website/subPages/computing/dockerPage">Dockerの基礎の基礎の基礎</a></li>
+            <li><a href="/my-website/subPages/computing/kubernetesPage">Kubernetesの基礎の基礎の基礎</a></li>
+            <li><a href="/my-website/subPages/computing/mlPage">機械学習の基礎の基礎の基礎</a></li>
+            <li><a href="/my-website/subPages/computing/homepage">HomePageの作り方</a></li>
+        </ul>
+    </li>
+    <li class="has-dropdown">
+        <a href="#">Other ▾</a>
+        <ul class="dropdown">
+            <li><a href="/my-website/subPages/otherPages/usefulLinks/">よく使うリンク集</a></li>
+            <li><a href="/my-website/subPages/otherPages/slidesFormat/">スライドの書き方</a></li>
+            <li><a href="/my-website/subPages/otherPages/cernLife/">CERNでの生活</a></li>
+            <li><a href="/my-website/subPages/otherPages/jlabLife/">JLabでの生活</a></li>
+            <li><a href="/my-website/subPages/otherPages/phdFinance/">博士での金銭関連（奨学金・助成金）</a></li>
+            <li><a href="/my-website/subPages/otherPages/doubleDegree/">ダブルディグリープログラム</a></li>
+            <li><a href="/my-website/subPages/otherPages/businessTrip/">海外出張で持ってくもの</a></li>
+        </ul>
+    </li>
+</ul>
+</nav>

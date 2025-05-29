@@ -11,20 +11,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
-  
   <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 </head>
 
-
 <body  id="pageTop">
 
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+<!-- Setting of this page navigator -->
 <header class="sub-header-image">
-  <!-- <div class="sub-header-logo"><a href="/my-website/index.html">Top</a></div> -->
-  <div class="navbar">
-    <a href="../selfintro/index.html">自己紹介</a>
-    <a href="../research/index.html">研究</a>
-    <a href="../contact/index.html">連絡先</a>
-  </div>
   <h1 class="sub-header-title">TKumaのROOTの便利な使い方</h1>
    <!-- breadcrumb -->
   <div class="breadcrumb">
@@ -45,26 +50,6 @@
   </nav>
 </header>
 
-<!-- Side bar -->
-<div class="sidebar" id="sidebarMenu">
-    
-
-    <a href="/my-website/index.html" target="_homeblank">
-      <img src="/my-website/images/KumaIcon6.png"  class="img-fluid rounded-circle"  alt="KumaIcon6" width="150" />
-    </a>
-    <h4>メニュー</h4>
-    <ul class="nav flex-column">
-    <li class="nav-item"><a href="#career" class="nav-link">自己紹介</a></li>
-    <li class="nav-item"><a href="#research" class="nav-link">研究内容</a></li>
-    <li class="nav-item"><a href="#publications" class="nav-link">論文</a></li>
-    </ul>
-    <a href="https://github.com/11kumaoka" target="_blank">
-        <img src="/my-website/images/github-mark.png" alt="GitHubリンク" width="50">
-    </a>
-  <nav class="section-nav">
-    <a href="#pageTop">Page Top</a>
-  </nav>
-</div>
 
 
 <!-- <main class="subcontainer">  -->
