@@ -198,7 +198,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4rem 0rem;
+  padding: 1rem 0 4rem;
   background: #475e00;
 }
 .sub-card-block {
@@ -215,7 +215,6 @@ body {
   
   margin-left: 220px;
   margin-right: 5px;
-  margin-bottom: 0.1rem;
   /* transition: transform 0.3s ease; */
 
   color: #181818;
@@ -453,8 +452,8 @@ h4{
   display: inline-block;
   padding: 0.3rem 0.5rem;
   margin-right: 0.2rem;
-  background-color: #4a2f00;
-  color: rgb(113, 178, 0);
+  background-color: #784c00;
+  color: rgb(61, 194, 255);
   text-decoration: none;
   border-radius: 5px;
   font-weight: 500;
@@ -545,6 +544,10 @@ pre {
 
 
 .back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -563,4 +566,3 @@ pre {
   background-color: #a1ad00;
   transform: translateY(-3px);
 }
-
