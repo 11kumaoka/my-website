@@ -525,9 +525,12 @@ particle->Lifetime();</pre>
 
 </main>
 
-  <footer class="text-center py-4 bg-light">
-    © 2025 Takuya Kumaoka
-  </footer>
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
 
 </body>
 </html>
