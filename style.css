@@ -1,5 +1,5 @@
 
-/* == s == top page */
+/* == s == top page  == s == top page  == s == top page  == s == top page */
 .topHero {
   background: url('HomePicture.png') no-repeat center center/cover;
   height: 100vh;
@@ -31,44 +31,19 @@
   border: 3px solid white;
   transition: transform 0.3s;
 }
-/* == e == top page */
+/* == e == top page  == e == top page  == e == top page  == e == top page */
 
-/* == s == navbar */
-.navbar {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.5rem 1rem;
-}
-
-.navbar a {
-  color: #72a700;
-  text-decoration: none;
-  margin-right: 1rem;
-}
-
-.navbar a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: white;
-  left: 0;
-  bottom: -4px;
-  transition: 0.3s;
-}
-
-.navbar a:hover::after {
-  width: 100%;
-}
-
-/* ナビのスタイル */
+/* == s == navbar  == s == navbar  == s == navbar  == s == navbar  == s == navbar */
+/* navigation bar styles */
 .main-nav {
   background-color: #333;
   padding: 0.5rem 1rem;
   top: 1rem;
   right: 1rem;
+}
+.main-nav li:hover > a {
+  color: rgb(255, 199, 67);
+  border-bottom: 2px solid rgb(255, 199, 67);
 }
 
 .nav-list {
@@ -84,13 +59,13 @@
 }
 
 .nav-list > li > a {
-  color: white;
+  color: rgb(123, 171, 0);
   text-decoration: none;
   padding: 0.5rem 1rem;
   display: inline-block;
 }
 
-/* ドロップダウン非表示 */
+/* Undisplay dropdown */
 .dropdown {
   position: absolute;
   top: 100%;
@@ -99,12 +74,12 @@
   background-color: #555;
   padding: 0;
   list-style: none;
-  min-width: 180px;
+  min-width: 250px;
   z-index: 1000;
 }
 
 .dropdown li a {
-  color: white;
+  color: rgb(255, 199, 67);
   padding: 0.5rem 1rem;
   display: block;
   text-decoration: none;
@@ -114,11 +89,11 @@
   background-color: #444;
 }
 
-/* ホバー時に表示 */
+/* Hover timing */
 .has-dropdown:hover .dropdown {
   display: block;
 }
-/* == e == navbar */
+/* == e == navbar == e == navbar == e == navbar == e == navbar */
 
 
 
@@ -149,7 +124,7 @@ body {
 }
 
 
-/*  side bar */
+/* == s == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar ==== s ==-*/
 .sidebar {
     height: calc(100vh - 60px);
     position: fixed;
@@ -161,6 +136,56 @@ body {
     border-right: 10px solid #8b6100;
     overflow-y: auto;
 }
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.sidebar-menu a:hover {
+  background-color: #444;
+}
+
+/* == s == Drop down setting  */
+.sidebar-menu .dropdown {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;          /* Unfold to the right */
+  background-color: #555;
+  padding: 0;
+  list-style: none;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+.sidebar-menu .dropdown li a {
+  padding: 0.5rem;
+}
+
+.sidebar-menu .dropdown li a:hover {
+  background-color: #666;
+}
+
+/* Display when hovered */
+.sidebar-menu .has-dropdown:hover .dropdown {
+  display: block;
+}
+/* == e == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar === e ===-*/
 
 /*　== s == Main Container */
 .container {
@@ -396,16 +421,16 @@ body {
     filter: brightness(70%); /* become dark */
 }
 
-/* Flexbox で画像を横並びにする */
+/* Row images by Flexbox  */
 .image-row {
     display: flex;
-    gap: 1rem;                /* 画像間のスペース */
-    justify-content: center; /* 中央揃え */
+    gap: 1rem;
+    justify-content: center;
     padding: 2rem;
 }
 
 .image-row img {
-    width: 45%;               /* 2つで約90% */
+    width: 45%; /* 45% + 45% = 90% */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -413,7 +438,7 @@ body {
 }
 
 .image-row img:hover {
-  transform: scale(1.05);   /* ホバーで拡大 */
+  transform: scale(1.05);   /* expand by hover */
 }
 
 .image-wrapper {
@@ -440,6 +465,64 @@ body {
 
 /* == e == イメージ設定　==== */
 
+
+
+/* == s == Section navigation == s == Section navigation == s == Section navigation == s == Section navigation */
+.section-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center; 
+  padding: 1rem 0;
+}
+
+.section-nav a {
+  display: inline-block;
+  padding: 0.3rem 0.5rem;
+  margin-right: 0.2rem;
+  background-color: #784c00;
+  color: rgb(61, 194, 255);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.section-nav a:hover {
+  background-color: #9e7f00;
+}
+/* == e == Section navigation == e == Section navigation == e == Section navigation == e == Section navigation */
+
+
+/* == s == Link styles  == s == Link styles  == s == Link styles  == s == Link styles */
+a {
+  color: #99cc00;
+}
+a:hover {
+  color: #4c8e00;
+}
+/* == e == Link styles  == s == Link styles  == s == Link styles  == e == Link styles */
+
+/* == s == Button-like links  == s == Button-like links == s == Button-like links*/
+.button {
+  display: inline-block;
+  background-color: #2e5e4e;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #163b6b;
+}
+/* == e == Button-like links  == e == Button-like links == e == Button-like links*/
+
+
+/* == s == Heading styles  == s == Heading styles  == s == Heading styles  == s == Heading styles */
 h1{
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
   text-shadow: 0.5px 4.0px 8.0px rgba(41, 31, 20, 0.823);
@@ -490,102 +573,7 @@ h4{
   color: #3c6700; 
   margin-bottom: 0.4rem;
 }
-
-
-/* ---------------------------
-  navigator for each section
----------------------------- */
-.section-nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center; 
-  padding: 1rem 0;
-}
-
-.section-nav a {
-  display: inline-block;
-  padding: 0.3rem 0.5rem;
-  margin-right: 0.2rem;
-  background-color: #784c00;
-  color: rgb(61, 194, 255);
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.section-nav a:hover {
-  background-color: #9e7f00;
-}
-
-
-/* ---------------------------
-  リンク
----------------------------- */
-a {
-  color: #99cc00;
-}
-a:hover {
-  color: #4c8e00;
-}
-
-/* ---------------------------
-  ボタン風リンク
----------------------------- */
-.button {
-  display: inline-block;
-  background-color: #2e5e4e;
-  color: #ffffff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: 1rem;
-  font-weight: bold;
-}
-
-.button:hover {
-  background-color: #163b6b;
-}
-
-
-.section-title {
-  border-bottom: 2px solid #007bff;
-  display: inline-block;
-  margin-bottom: 1rem;
-  padding-bottom: 0.3rem;
-}
-
-
-
-/* List style */
-.tag-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  font-family: "Yu Gothic", sans-serif;
-}
-
-.tag-list .row {
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  padding: 2px 0; /* 上下の余白を小さく */
-  line-height: 1.1; /* 行間を狭く */
-}
-
-.tag {
-  flex: 0 0 100px;  /* 固定幅：左カラム */
-  font-weight: bold;
-  color: #2e5e4e;
-  font-family: monospace;
-}
-
-.desc {
-  flex: 1;
-  color: #333;
-  font-size: 20px;
-}
+/* == e == Heading styles  == e == Heading styles  == e == Heading styles  == e == Heading styles */
 
 
 pre {
@@ -600,8 +588,8 @@ pre {
 
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1rem;
+  right: 1rem;
   z-index: 1000;
   display: flex;
   align-items: center;

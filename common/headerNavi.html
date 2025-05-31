@@ -1,22 +1,9 @@
 
-<!-- EN/JA Change Button -->
-<button onclick="switchLang()">EN/JA</button>
-<script>
-    let lang = 'ja';
-    function switchLang() {
-    const text = {
-        ja: '',
-        en: 'Sorry, english version is not available yet. Please check the Japanese version for now.'
-    };
-    lang = (lang === 'ja') ? 'en' : 'ja';
-    document.getElementById("intro").textContent = text[lang];
-    }
-</script>
 
 <!-- Navigation Links -->
 <nav class="main-nav">
 <ul class="nav-list">
-    <li><a href="#">Home</a></li>
+    <li><a href="/my-website/">Home</a></li>
     <li class="has-dropdown">
         <a href="#">Studies ▾</a>
         <ul class="dropdown">
@@ -60,3 +47,5 @@
     </li>
 </ul>
 </nav>
+
+<a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>

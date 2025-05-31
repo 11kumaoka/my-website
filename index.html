@@ -49,6 +49,19 @@
             .then(html => document.getElementById("header-container").innerHTML = html);
         </script>
 
+        <!-- EN/JA Change Button -->
+        <button onclick="switchLang()">EN/JA</button>
+        <script>
+            let lang = 'ja';
+            function switchLang() {
+            const text = {
+                ja: '',
+                en: 'Sorry, english version is not available yet. Please check the Japanese version for now.'
+            };
+            lang = (lang === 'ja') ? 'en' : 'ja';
+            document.getElementById("intro").textContent = text[lang];
+            }
+        </script>
 
         <!-- Bottom right captions -->
         <div class="caption">
