@@ -47,43 +47,17 @@ body {
 
 
 
-/*　== s == Main Container */
-.container {
-    /* max-width: 1200px; */
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 98%;
-    padding: 0.1rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    /* background-color: #ffffff; */
-    background-color: #191919;
-    color: #ffe15c;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
-    /* border-radius: 3px;
-    border: 1px solid #dadada; */
-}
-@media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
-  .container {
-    margin-left: 0;
-    padding: 1rem;
-  }
-}
-@media (max-width: 480px) {
-  .container {
-    padding: 0.8rem;
-  }
-}
-
+/*　== s ==  Container　== s ==  Container == s ==  Container　== s ==  Container == s ==  Container */
 .section-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 4rem 0rem;
     background: #475e00;
+
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
 }
 .card-block {
     background-color: #191919;
@@ -105,35 +79,6 @@ body {
 } */
 
 
-.subcontainer {
-    max-width: 1300px;
-    margin-top: 5px;
-    margin-left: 240px;
-    margin-right: 5px;
-    width: 95%;
-    padding: 0.1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: #fffade;
-    color: #181818;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
-    border-radius: 3px;
-    border: 1px solid #dadada;
-}
-@media (max-width: 768px) {
-  .subsidebar {
-    display: none;
-  }
-  .subcontainer {
-    margin-left: 0;
-    padding: 1rem;
-  }
-}
-@media (max-width: 480px) {
-  .subcontainer {
-    padding: 0.8rem;
-  }
-}
 
 .sub-section-container {
   display: flex;
@@ -176,8 +121,8 @@ body {
     padding: 0.8rem;
   }
 }
+/*　== s ==  Container　== s ==  Container == s ==  Container　== s ==  Container == s ==  Container */
 
-/* == e == Main Container */
 
 
 /* == s == Setting of images　==== */
@@ -564,7 +509,7 @@ pre {
 .sidebar {
     height: calc(100vh - 60px);
     position: fixed;
-    top: 350px;
+    top: 380px;
     left: 0;
     width: 180px;
     background-color: #f5f5eb;
