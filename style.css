@@ -33,68 +33,6 @@
 }
 /* == e == top page  == e == top page  == e == top page  == e == top page */
 
-/* == s == navbar  == s == navbar  == s == navbar  == s == navbar  == s == navbar */
-/* navigation bar styles */
-.main-nav {
-  background-color: #333;
-  padding: 0.5rem 1rem;
-  top: 1rem;
-  right: 1rem;
-}
-.main-nav li:hover > a {
-  color: rgb(255, 199, 67);
-  border-bottom: 2px solid rgb(255, 199, 67);
-}
-
-.nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.nav-list > li {
-  position: relative;  /* ▼ ドロップダウン配置の基準にする */
-  margin-right: 1.5rem;
-}
-
-.nav-list > li > a {
-  color: rgb(123, 171, 0);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  display: inline-block;
-}
-
-/* Undisplay dropdown */
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  background-color: #555;
-  padding: 0;
-  list-style: none;
-  min-width: 250px;
-  z-index: 1000;
-}
-
-.dropdown li a {
-  color: rgb(255, 199, 67);
-  padding: 0.5rem 1rem;
-  display: block;
-  text-decoration: none;
-}
-
-.dropdown li a:hover {
-  background-color: #444;
-}
-
-/* Hover timing */
-.has-dropdown:hover .dropdown {
-  display: block;
-}
-/* == e == navbar == e == navbar == e == navbar == e == navbar */
-
 
 
 body {
@@ -106,38 +44,8 @@ body {
   color: #2a2a2a;
 }
 
-/*  breadcrumb list　 */
-.breadcrumb {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  margin-left: 2rem;
-  color: #c8c8c8;
-}
-
-.breadcrumb a {
-  color: #86a800;
-  text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
 
 
-/* == s == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar ==== s ==-*/
-.sidebar {
-    height: calc(100vh - 60px);
-    position: fixed;
-    top: 350px;
-    left: 0;
-    width: 180px;
-    background-color: #f5f5eb;
-    padding: 1rem;
-    border-right: 10px solid #8b6100;
-    overflow-y: auto;
-}
-
-/* == e == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar === e ===-*/
 
 /*　== s == Main Container */
 .container {
@@ -269,40 +177,7 @@ body {
   }
 }
 
-
-.sub-header-image {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  background: url("/my-website/images//SubPageTop.png") center center / cover no-repeat;
-  color: white;
-}
-
-.sub-header-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* font-size: 2rem; */
-  text-align: center;
-  width: 100%;
-  color: rgb(255, 180, 19);
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
-
-.sub-header-logo {
-  position: absolute;
-  top: 10px;
-  left: 20px;
-}
-
-.sub-header-logo a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1rem;
-}
-/*　== e == Main Container */
+/* == e == Main Container */
 
 
 /* == s == Setting of images　==== */
@@ -561,3 +436,163 @@ pre {
   background-color: #a1ad00;
   transform: translateY(-3px);
 }
+
+
+
+
+/*　== s == sub Page Header Settings == s == sub Page Header Settings == s == sub Page Header Settings */
+.sub-header-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: url("/my-website/images//SubPageTop.png") center center / cover no-repeat;
+  color: white;
+}
+
+.sub-header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* font-size: 2rem; */
+  text-align: center;
+  width: 100%;
+  color: rgb(255, 180, 19);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+.sub-header-logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.sub-header-logo a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+}
+/*　== e == sub Page Header Settings == e == sub Page Header Settings == e == sub Page Header Settings */
+
+
+/* == s == footer  == s == footer  == s == footer  == s == footer  == s == footer */
+.site-footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: #ddd;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+/* == e == footer  == e == footer  == e == footer  == e == footer  == e == footer */
+
+/* == s == navbar  == s == navbar  == s == navbar  == s == navbar  == s == navbar */
+/* navigation bar styles */
+.main-nav {
+  background-color: #333;
+  padding: 0.5rem 1rem;
+  top: 1rem;
+  right: 1rem;
+}
+.main-nav li:hover > a {
+  color: rgb(255, 199, 67);
+  border-bottom: 2px solid rgb(255, 199, 67);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-list > li {
+  position: relative;
+  margin-right: 1.5rem;
+}
+
+.nav-list > li > a {
+  color: rgb(123, 171, 0);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+
+/* Undisplay dropdown */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #555;
+  padding: 0;
+  list-style: none;
+  min-width: 250px;
+  z-index: 1000;
+}
+
+.dropdown li a {
+  color: rgb(255, 199, 67);
+  padding: 0.5rem 1rem;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  background-color: #444;
+}
+
+/* Hover timing */
+.has-dropdown:hover .dropdown {
+  display: block;
+}
+/* == e == navbar == e == navbar == e == navbar == e == navbar */
+
+
+
+/* == s == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar ==== s ==-*/
+.sidebar {
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 350px;
+    left: 0;
+    width: 180px;
+    background-color: #f5f5eb;
+    padding: 1rem;
+    border-right: 10px solid #8b6100;
+    overflow-y: auto;
+}
+/* == e == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar === e ===-*/
+
+
+
+/* == s ==  breadcrumb list　 == s ==  breadcrumb list　 == s ==  breadcrumb list　 */
+.breadcrumb {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  color: #c8c8c8;
+}
+
+.breadcrumb a {
+  color: #86a800;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+/* == e ==  breadcrumb list　 == e ==  breadcrumb list　 == e ==  breadcrumb list　 */
+
+
+

@@ -17,10 +17,15 @@
 
   <div id="header-container"></div>
   <div id="sidebar-container"></div>
+  <div id="footer-container"></div>
   <script>
     fetch("/my-website/common/headerNavi.html")
       .then(res => res.text())
       .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/footer.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("footer-container").innerHTML = html);
 
     fetch("/my-website/common/sidebar.html")
       .then(res => res.text())
