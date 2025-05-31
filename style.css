@@ -1,3 +1,4 @@
+
 /* == s == top page  == s == top page  == s == top page  == s == top page */
 .topHero {
   background: url('HomePicture.png') no-repeat center center/cover;
@@ -8,12 +9,12 @@
 
 .topHero .caption {
   position: absolute;
-  bottom: 0.062rem;
-  right: 0.188rem;
+  bottom: 1px;
+  right: 3px;
   color: #fff3c9;
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
 
 .icon-link {
@@ -24,10 +25,10 @@
 }
 
 .icon-link img {
-  width: 12.5rem;
-  height: 12.5rem;
+  width: 200px;
+  height: 200px;
   border-radius: 80%;
-  border: 0.188rem solid white;
+  border: 3px solid white;
   transition: transform 0.3s;
 }
 /* == e == top page  == e == top page  == e == top page  == e == top page */
@@ -46,25 +47,51 @@ body {
 
 
 
-/*　== s ==  Container　== s ==  Container == s ==  Container　== s ==  Container == s ==  Container */
+/*　== s ==  Container　== s ==  Container == s ==  Container 　== s ==  Container 　== s ==  Container */
+.container {
+    /* max-width: 1200px; */
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 98%;
+    padding: 0.1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    /* background-color: #ffffff; */
+    background-color: #191919;
+    color: #ffe15c;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
+    /* border-radius: 3px;
+    border: 1px solid #dadada; */
+}
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .container {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 0.8rem;
+  }
+}
+
 .section-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 4rem 0rem;
     background: #475e00;
-
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.6;
 }
 .card-block {
     background-color: #191919;
     color: #ffe15c;
-    border-radius: 0.312rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     width: 100%;
-    /* max-width: 50.0rem; */
+    /* max-width: 800px; */
     width: 98%;
     padding: 0.1rem;
     padding-left: 0.5rem;
@@ -74,10 +101,39 @@ body {
     /* transition: transform 0.3s ease; */
 }
 /* .card-block:hover {
-    transform: translateY(-0.25rem);
+    transform: translateY(-4px);
 } */
 
 
+.subcontainer {
+    max-width: 1300px;
+    margin-top: 5px;
+    margin-left: 240px;
+    margin-right: 5px;
+    width: 95%;
+    padding: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #fffade;
+    color: #181818;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.175);
+    border-radius: 3px;
+    border: 1px solid #dadada;
+}
+@media (max-width: 768px) {
+  .subsidebar {
+    display: none;
+  }
+  .subcontainer {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .subcontainer {
+    padding: 0.8rem;
+  }
+}
 
 .sub-section-container {
   display: flex;
@@ -88,25 +144,25 @@ body {
 }
 .sub-card-block {
   width: 100%;
-  max-width: 81.25rem;
+  max-width: 1300px;
   width: 98%;
   
   padding-left: 0.8rem;
   padding-right: 1.5rem;
 
-  border-radius: 0.312rem;
-  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   background-color: #fffade;  
   
-  margin-left: 13.75rem;
-  margin-right: 0.312rem;
+  margin-left: 220px;
+  margin-right: 5px;
   /* transition: transform 0.3s ease; */
 
   color: #181818;
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: 600;
 }
-@media (max-width: 48.0rem) {
+@media (max-width: 768px) {
   .subsidebar {
     display: none;
   }
@@ -115,13 +171,13 @@ body {
     padding: 1rem;
   }
 }
-@media (max-width: 30.0rem) {
+@media (max-width: 480px) {
   .sub-card-block {
     padding: 0.8rem;
   }
 }
-/*　== s ==  Container　== s ==  Container == s ==  Container　== s ==  Container == s ==  Container */
 
+/* == e == Main Container */
 
 
 /* == s == Setting of images　==== */
@@ -157,14 +213,14 @@ body {
 .row .image img {
     width: 100%;
     height: auto;
-    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 
 .image-overlay-container {
     position: relative;
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: 8px;
 }
 
 .image-overlay-container img {
@@ -183,7 +239,7 @@ body {
     background-color: rgba(0, 0, 0, 0.9);
     padding: 1rem 2rem;
     font-size: 1.5rem;
-    border-radius: 0.375rem;
+    border-radius: 6px;
     pointer-events: none; /* Do not let the text be clickable */
 }
 
@@ -203,8 +259,8 @@ body {
 .image-row img {
     width: 45%; /* 45% + 45% = 90% */
     height: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
@@ -225,13 +281,13 @@ body {
 
 .image-wrapper .caption {
   position: absolute;
-  bottom: 0.625rem;
-  right: 0.625rem;
+  bottom: 10px;
+  right: 10px;
   color: white;
   background: rgba(0, 0, 0, 0.0); 
-  padding: 0.312rem 0.625rem;
+  padding: 5px 10px;
   font-size: 0.9rem;
-  border-radius: 0.25rem;
+  border-radius: 4px;
 }
 
 /* == e == イメージ設定　==== */
@@ -255,7 +311,7 @@ body {
   background-color: #784c00;
   color: rgb(61, 194, 255);
   text-decoration: none;
-  border-radius: 0.312rem;
+  border-radius: 5px;
   font-weight: 500;
   transition: background-color 0.3s;
 }
@@ -281,7 +337,7 @@ a:hover {
   background-color: #2e5e4e;
   color: #ffffff;
   padding: 0.6rem 1.2rem;
-  border-radius: 0.375rem;
+  border-radius: 6px;
   text-decoration: none;
   margin-top: 1rem;
   font-weight: bold;
@@ -296,7 +352,7 @@ a:hover {
 /* == s == Heading styles  == s == Heading styles  == s == Heading styles  == s == Heading styles */
 h1{
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
-  text-shadow: 0.031rem 0.25rem 0.5rem rgba(41, 31, 20, 0.823);
+  text-shadow: 0.5px 4.0px 8.0px rgba(41, 31, 20, 0.823);
   font-size: 400%;
   font-weight: 1200;
   margin-bottom: 1rem;
@@ -312,7 +368,7 @@ h2{
   padding: 0.5rem 0.8rem 0.5rem 1rem;
   margin: 0.1rem 0.1rem 0.1rem 0.1rem;
   color: #ffde90;
-  text-shadow: 0.188rem 0.188rem 0.25rem rgba(191, 115, 0, 0.5);
+  text-shadow: 3px 3px 4px rgba(191, 115, 0, 0.5);
 }
 h3{
   font-family: "Sawarabi Gothic", "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Arial", serif;
@@ -329,17 +385,17 @@ h3::after {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 0.25rem;
+  height: 4px;
   width: 100%;
   /* background-image: linear-gradient(to right, #8d6000, transparent); */
   background-image: linear-gradient(to right, #dc5800,  rgba(255, 217, 0, 0.538));
-  border-radius: 0.125rem;
+  border-radius: 2px;
 }
 h4{
   font-family: "Sawarabi Gothic", "Zen Maru Gothic", "Tsukushi B Round Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
   font-size: 120%;
   font-weight: 900;
-  border-left: 0.312rem solid #e5a000;
+  border-left: 5px solid #e5a000;
   padding-left: 1rem;
   color: #3c6700; 
   margin-bottom: 0.4rem;
@@ -365,20 +421,20 @@ pre {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 60px;
+  height: 60px;
   background-color: #5c4900;
   color: white;
   border-radius: 50%;
   text-decoration: none;
-  font-size: 1.5rem; 
+  font-size: 24px; 
   transition: background-color 0.3s, transform 0.3s;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .back-to-top:hover {
   background-color: #a1ad00;
-  transform: translateY(-0.188rem);
+  transform: translateY(-3px);
 }
 
 
@@ -388,7 +444,7 @@ pre {
 .sub-header-image {
   position: relative;
   width: 100%;
-  height: 18.75rem;
+  height: 300px;
   background: url("/my-website/images//SubPageTop.png") center center / cover no-repeat;
   color: white;
 }
@@ -402,13 +458,13 @@ pre {
   text-align: center;
   width: 100%;
   color: rgb(255, 180, 19);
-  text-shadow: 0.062rem 0.062rem 0.312rem rgba(0,0,0,0.6);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 }
 
 .sub-header-logo {
   position: absolute;
-  top: 0.625rem;
-  left: 1.25rem;
+  top: 10px;
+  left: 20px;
 }
 
 .sub-header-logo a {
@@ -450,7 +506,7 @@ pre {
 }
 .main-nav li:hover > a {
   color: rgb(255, 199, 67);
-  border-bottom: 0.125rem solid rgb(255, 199, 67);
+  border-bottom: 2px solid rgb(255, 199, 67);
 }
 
 .nav-list {
@@ -481,7 +537,7 @@ pre {
   background-color: #555;
   padding: 0;
   list-style: none;
-  min-width: 15.625rem;
+  min-width: 250px;
   z-index: 1000;
 }
 
@@ -506,14 +562,14 @@ pre {
 
 /* == s == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar ==== s ==-*/
 .sidebar {
-    height: calc(100vh - 3.75rem);
+    height: calc(100vh - 60px);
     position: fixed;
-    top: 23.75rem;
+    top: 350px;
     left: 0;
-    width: 11.25rem;
+    width: 180px;
     background-color: #f5f5eb;
     padding: 1rem;
-    border-right: 0.625rem solid #8b6100;
+    border-right: 10px solid #8b6100;
     overflow-y: auto;
 }
 /* == e == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar === e ===-*/
