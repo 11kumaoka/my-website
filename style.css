@@ -54,13 +54,15 @@ body {
     padding: 4rem 0rem;
     background: #475e00;
 
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.6;
 }
 .card-block {
     background-color: #191919;
+    
     color: #ffe15c;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 2.5;
+
     border-radius: 0.312rem;
     box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
     width: 100%;
