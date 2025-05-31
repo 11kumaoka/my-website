@@ -51,9 +51,9 @@
             .then(res => res.text())
             .then(html => document.getElementById("header-container").innerHTML = html);
 
-            // fetch("/my-website/common/footer.html")
-            // .then(res => res.text())
-            // .then(html => document.getElementById("footer-container").innerHTML = html);
+            fetch("/my-website/common/footer.html")
+            .then(res => res.text())
+            .then(html => document.getElementById("footer-container").innerHTML = html);
         </script>
 
         <!-- EN/JA Change Button -->
