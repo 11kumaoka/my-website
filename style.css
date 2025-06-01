@@ -405,6 +405,15 @@ pre {
   overflow-x: auto;
 }
 
+cmd {
+  background: #222;
+  color: #b6ff01;
+  font-weight: 500;
+  /* padding-left: 0.5rem; */
+  padding: 0.5rem;
+  overflow-x: auto;
+}
+
 
 .back-to-top {
   position: fixed;

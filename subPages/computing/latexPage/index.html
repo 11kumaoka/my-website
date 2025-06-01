@@ -1,65 +1,68 @@
+
+<!-- == s == Latex Setting Page -->
 <!DOCTYPE html>
 <html lang="ja">
+
+<!-- === s === Sub-Page Settings ===================================== -->
 <head>
-  <meta charset="UTF-8">
-  <title>KumaWiki HTML版</title>
-  <style>
-    body {
-      font-family: "Hiragino Sans", sans-serif;
-      line-height: 1.6;
-      background-color: #fefefe;
-      padding: 2rem;
-      color: #333;
-    }
-    pre {
-      background: #222;
-      color: #b6ff01;
-      padding: 0.1rem;
-      padding-left: 0.5rem;
-      overflow-x: auto;
-    }
-    h2{
-      padding-left: 0.2rem;
-      color: rgb(25, 149, 0);
-      background-color: #ffea63;
-    }
-    h3{
-      padding-left: 0.3rem;
-      color: #42bc00;
-    }
-    h4 {
-      padding-left: 0.4rem;
-      color: #005c11;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>TKumaPage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/my-website/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 </head>
-<body>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">LaTeXの使い方の基礎 </h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">TeX Kumaoka Template</a>
+        <a href="#Content2">Editor</a>
+        <a href="#Content3">最低限のルール</a>
+        <a href="#Content4">newcommand</a>
+        <a href="#Content5">よく使うコマンド</a>
+        <a href="#Content6">図の挿入</a>
+        <a href="#Content7">箇条書き</a>
+        <a href="#Content8">余白の調整方法</a>
+        <a href="#Content9">引用の仕方</a>
+        <a href="#Content10">BibTeX インストール</a>
+        <a href="#Content11">参考文献という文字を消す</a>
+        <a href="#Content12">ハイパーリンクの付け方</a>
+        <a href="#Content13">参考になるサイト</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
 
 
-<!-- <details><summary>
-  mode="div"
-  showlink="Table of Contents..."
-  hidelink="Hide"
-  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
-  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
- </summary> -->
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
 
- <!-- パンくずリスト -->
-<nav class="breadcrumb">
-  <a href="/my-website/index.html">ホーム</a> &gt;
-  <span>EIC Physics</span>
-</nav>
-
-
-
+        <section class="sub-card-block mb-5"  id="content1">
 <h2>TeX Kumaoka Template</h2>
 <p> 
 本ページの内容を多く含んだフォーマットを用意したので， 必要があれば使ってください．
@@ -77,7 +80,9 @@ paperディレクトリーは一応修論仕様にしてあります.
 編集中の内容以外は, main.texの\inport{内容ファイル}の部分をコメントアウトすることで 処理が速くなります．
 参考文献(bibTeX)の有効化は本ページの内容を参考にしてください．
 </p>
+        </section>
 
+        <section class="sub-card-block mb-5"  id="content2">
 <h2>Editor</h2>
 <h3>VSCode</h3>
 <p>
@@ -94,15 +99,18 @@ Overleafの場合は有料でないとgitとつなげることができず,
 Overleafのサーバーが落ちているとその間編集ができなくなる問題がありますの注意.
 ちなみにCERNのアカウントを持っているとCERNのメールアドレスでアカウントが作れ, 有料版がただで使えます．
 </p>
+        </section>
 
-
+        <section class="sub-card-block mb-5"  id="content3">
 <h2>最低限のルール</h2>
 <p>
 <br> - 数字と単位の間にスペース（LaTeXでスペースは”~”で表記）
 <br> - 言葉はローマン(ex, truth, det, gen, and etc)
 <br> - sin, log, ln, exp, tr等々もローマン
 </p>
+        </section>
 
+        <section class="sub-card-block mb-5"  id="content4">
 <h2>newcommand</h2>
 <p>
 単位等をローマン体に変え忘れることが多いので， コマンドを作りました． 自分の文章の上に貼っておけば使えます．
@@ -170,7 +178,10 @@ Overleafのサーバーが落ちているとその間編集ができなくなる
 \newcommand{\red}{\textcolor{red}}
 \newcommand{\blue}{\textcolor{blue}}
 </pre>
+        </section>
 
+
+        <section class="sub-card-block mb-5"  id="content5">
 <h2>よく使うコマンド</h2>
 <p>
 <br> - 空白 (~)
@@ -181,13 +192,16 @@ Overleafのサーバーが落ちているとその間編集ができなくなる
 <br> - インデントしない 　\noindent
 <br> - physics pacage (いろいろ省略して描ける) 　\usepackage{physics} https://gitlab.cern.ch/tkumaoka/texformat
 </p>
+        </section>
 
+        <section class="sub-card-block mb-5"  id="content6">
 <h2>図の挿入</h2>
 <p>
 文字の回り込みを許した図の挿入や，二つ図を並べるやり方などの情報が有用
 <a href="http://www.yamamo10.jp/~yamamoto/comp/latex/make_doc/insert_fig/index.php">http://www.yamamo10.jp/~yamamoto/comp/latex/make_doc/insert_fig/index.php</a>
 </p>
 
+        </section>
 <h2>箇条書き</h2>
 <pre>
 \begin{enumerate}
@@ -199,6 +213,7 @@ Overleafのサーバーが落ちているとその間編集ができなくなる
 \end{enumerate}
 </pre>
 
+        <section class="sub-card-block mb-5"  id="content7">
 <h2>余白の調整方法</h2>
 <p>
 図とキャプションの間などデフォルトでは結構スペースがある． 申請書などで極力スペースを活用したい場合は以下のページで調整するといいと思います.
@@ -221,7 +236,9 @@ Overleafのサーバーが落ちているとその間編集ができなくなる
 \setlength\intextsep{0pt} %本文中の図の余白
 \setlength\abovecaptionskip{0pt} %図とキャプションの間の余白
 </pre>
+        </section>
 
+        <section class="sub-card-block mb-5"  id="content8">
 <h2>引用の仕方</h2>
 <p>
 本来論文を引用する際には各論文紙ごとにどの部分を太字にするか斜体にするかなどが細かく決まっています．
@@ -238,6 +255,9 @@ BibTeXの使い方は以下を参照してください.
 ......
 \end{thebibliography}
 </pre>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content9">
 
 <h2>BibTeX インストール</h2>
 <pre>
@@ -292,12 +312,16 @@ function texComp(){
     dvipdfmx $1                                                                                 
 }
 </pre>
+        </section>
 
+        <section class="sub-card-block mb-5"  id="content10">
 <h2>参考文献という文字を消す</h2>
 <pre>
 \renewcommand{\refname}{}
 </pre>
+        </section>
 
+        <section class="sub-card-block mb-5"  id="content11">
 <h2>ハイパーリンクの付け方</h2>
 参考URL: <a href="https://www.isc.meiji.ac.jp/~mizutani/tex/link_slide/hyperlink.html">https://www.isc.meiji.ac.jp/~mizutani/tex/link_slide/hyperlink.html</a>
 
@@ -309,9 +333,26 @@ function texComp(){
 .......
 \begin{document}
 </pre>
+        </section>
 
+        <section class="sub-card-block mb-5"  id="content12">
 <h2>参考になるサイト</h2>
 <p>
 <br> - <a href="https://www.isc.meiji.ac.jp/~mizutani/tex/latex_manual/latex.pdf">LaTeX の使い方</a>
 <br> - <a href="http://www1.kiy.jp/~yoka/LaTeX/latex.html">コマンド一覧</a>
 </p>
+        </section>
+        
+    </main>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>
+
+
