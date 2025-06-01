@@ -247,7 +247,7 @@ body {
     text-shadow: 0.05rem 0.3rem 0.8rem rgba(83, 47, 0, 0.946);
     /* background-color: rgba(0, 0, 0, 0.9); */
     /* padding: 1rem 2rem; */
-    font-size: 5.0rem;
+    font-size: 3.0rem;
     /* border-radius: 0.375rem; */
     pointer-events: none; /* Do not let the text be clickable */
 }
