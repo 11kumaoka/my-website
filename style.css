@@ -6,6 +6,66 @@
   color: white;
 }
 
+.topHero .title {
+  width: max-content;
+  max-width: 90%; 
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+  color: #ff9616;
+  font-size: 4.0rem;
+  font-weight: 600;
+  text-shadow: 0.05rem 0.3rem 0.8rem rgba(13, 78, 0, 0.836);
+
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
+
+.topHero .subtitle {
+  width: max-content;
+  max-width: 90%; 
+
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+  color: #ffe941;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.0;
+
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
+
+.topHero .subsubtitle  {
+  width: max-content;
+  max-width: 90%; 
+
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+  color: #fffbbc;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 2.5;
+
+  text-align: center;
+
+  padding: 2rem;
+}
+
 .topHero .caption {
   position: absolute;
   bottom: 0.062rem;
@@ -67,7 +127,6 @@ body {
     box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
     width: 100%;
     /* max-width: 50.0rem; */
-    width: 98%;
     padding: 0.1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -181,11 +240,15 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    border-radius: 0.375rem;
+
+    font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+    font-style: italic;
+    color: rgb(154, 206, 0);
+    text-shadow: 0.05rem 0.3rem 0.8rem rgba(83, 47, 0, 0.946);
+    /* background-color: rgba(0, 0, 0, 0.9); */
+    /* padding: 1rem 2rem; */
+    font-size: 5.0rem;
+    /* border-radius: 0.375rem; */
     pointer-events: none; /* Do not let the text be clickable */
 }
 
@@ -541,4 +604,28 @@ pre {
 /* == e ==  breadcrumb list　 == e ==  breadcrumb list　 == e ==  breadcrumb list　 */
 
 
+
+.widedistantText {
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+  color: #ffe15c;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2.5;
+
+  text-align: center;
+  padding: 2rem;
+}
+
+
+.specialText {
+  font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
+  color: #89bf00;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2.5;
+
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
 
