@@ -108,8 +108,8 @@ body {
 
 /*　== s ==  Container　== s ==  Container == s ==  Container　== s ==  Container == s ==  Container */
 .section-container {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    flex-direction: row;
     align-items: center;
     padding: 4rem 0rem;
     background: #475e00;
@@ -191,6 +191,11 @@ body {
     flex-wrap: wrap;
     align-items: center;
     /* margin-bottom: 0.1rem; */
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
 }
 
 .image-left .image {
@@ -276,9 +281,6 @@ body {
 .image-row img:hover {
   transform: scale(1.05);   /* expand by hover */
 }
-
-
-
 /* == e == イメージ設定　==== */
 
 
