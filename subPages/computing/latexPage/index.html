@@ -214,6 +214,7 @@ Overleafのサーバーが落ちているとその間編集ができなくなる
  \item ほげほげ
 \end{enumerate}
 </pre>
+        </section>
 
         <section class="sub-card-block mb-5"  id="content8">
 <h2>余白の調整方法</h2>
@@ -346,6 +347,30 @@ function texComp(){
         </section>
         
     </main>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
 
     <div id="footer-container"></div>
     <script>
