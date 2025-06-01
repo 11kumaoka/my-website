@@ -1,60 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="ja">
+
+<!-- === s === Sub-Page Settings ===================================== -->
 <head>
-  <meta charset="UTF-8">
-  <title>KumaWiki HTML版</title>
-  <style>
-    body {
-      font-family: "Hiragino Sans", sans-serif;
-      line-height: 1.6;
-      background-color: #fefefe;
-      padding: 2rem;
-      color: #333;
-    }
-    pre {
-      background: #222;
-      color: #b6ff01;
-      padding: 0.1rem;
-      padding-left: 0.5rem;
-      overflow-x: auto;
-    }
-    h2{
-      padding-left: 0.2rem;
-      color: rgb(25, 149, 0);
-      background-color: #ffea63;
-    }
-    h3{
-      padding-left: 0.3rem;
-      color: #42bc00;
-    }
-    h4 {
-      padding-left: 0.4rem;
-      color: #005c11;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>TKumaPage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/my-website/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 </head>
-<body>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">ダブルディグリープログラム</h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">プログラム内容</a>
+        <a href="#Content2">フランス政府奨学金</a>
+        <a href="#Content3">フランスVISA申請</a>
+        <a href="#Content4">フランス参考URL</a>
+        <a href="#Content5">登録などやりとりしないといけない組織</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
 
 
-<!-- <details><summary>
-  mode="div"
-  showlink="Table of Contents..."
-  hidelink="Hide"
-  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
-  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
- </summary> -->
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
 
- <!-- パンくずリスト -->
-<nav class="breadcrumb">
-  <a href="/my-website/index.html">ホーム</a> &gt;
-  <span>EIC Physics</span>
-</nav>
+        <section class="sub-card-block mb-5"  id="content1">
+<h2>プログラム内容</h2>
+<p>
+提携大学間で行われる制度。3年間で半分ずつ在籍することで二つの学位がもらえる。
+また特別に仕事が増えたり博士論文を二種類書く必要もない。
+学費も筑波大学の分だけ払えばいい。
+</p>
+<p>
+基本研究室の指導教官同士の口約束制度。そのため細かい決まりごとは明確にされていない。
+そのため自身でいろいろ調べて確認を取る必要がある（基本大学も教員も制度について把握していないため自身で全てやるつもりで動かないと自身が痛い目を見ます。）。
+</p>
+<p>
+また自身の初年度（2020年）にはDCとの併用は不可能でしたが、2021年からはなぜか併用可となったようです。
+</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content2">
+<h2>フランス政府奨学金</h2>
+<p>
+文系と理系でそれぞれ採用されて、倍率は隠されているが、自身の時は5人しか合格していなかったようです。
+ただとれるなら、金額だけでなくフランス大使館と連絡が取れるようになるので色々とメリットがあるのでとっておくことをおすすめします。
+金額は私の時は18万円程度/月+ 7万円(研究費)/留学合計 + 渡航費 + 保険といった感じでした。
+</p>
+<ul>
+  <li><a href="https://jp.ambafrance.org/bgf">申請ページ</a></li>
+  <li><a href="https://fra-ryugaku.com/">フランスの状況</a></li>
+  <li><a href="https://jp.ambafrance.org/article3977">戸籍謄本翻訳会社</a></li>
+</ul>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content3">
+<h2>フランスVISA申請</h2>
+<ul>
+  <li>自分の場合はフランス大使館の奨学金を取っていたため面接等は免除されたみたいでした。
+  事前に日本のキャンパスフランスの登録が入り、番号も控えておく必要がある。</li>
+  <li><a href="https://pastel.diplomatie.gouv.fr/rdvinternet/html-4.02.00/frameset/frameset.html?lcid=1&sgid=295&suid=1">予約サイト</a></li>
+</ul>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content4">
+<h2>フランス参考URL</h2>
+<ul>
+  <li><a href="https://fra-ryugaku.com/">フランスの現状及び留学について</a></li>
+  <li><a href="https://www.fr.emb-japan.go.jp/itpr_ja/">フランス大使館ページ</a></li>
+</ul>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content5">
+<h2>登録などやりとりしないといけない組織</h2>
+<ul>
+  <li>筑波大学（ダブルディグリーについて知っている人はほとんどいない（基本頼れない）。）</li>
+  <li>University Grenoble Alpes（なんかいろんなサイトに登録させられたけど、何が何かよくわからなかった（基本フランス語））</li>
+  <li>フランス大使館</li>
+  <li>日本のキャンパスフランス（VISA申請の際に必要な）</li>
+  <li>フランスのキャンパスフランス（向こうの手配などもろもろ、行くには必要。コチュテルを要求された）</li>
+</ul>
+        </section>
+
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>
+
+
+
 
