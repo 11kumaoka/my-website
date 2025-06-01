@@ -283,6 +283,15 @@ body {
 .image-row img:hover {
   transform: scale(1.05);   /* expand by hover */
 }
+
+.clickable-image {
+  cursor: pointer;
+  transition: transform 0.3s;  /* expand image when hover */
+}
+
+.clickable-image:active {
+  transform: scale(2);         /* expand image when click it */
+}
 /* == e == イメージ設定　==== */
 
 

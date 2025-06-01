@@ -17,6 +17,7 @@
 
   <div id="header-container"></div>
   <div id="sidebar-container"></div>
+  <div id="footer-container"></div>
   <script>
     fetch("/my-website/common/headerNavi.html")
       .then(res => res.text())
@@ -61,7 +62,7 @@
       リンクに飛んだら下の画面の"..."の部分を開き，自分の読み込ませたいroot fileを選択する．
       （MonALISAを使っている人にはおなじみかもしれません）
     </p>
-    <img alt="js.png" height="192" hspace="0.5" src="js.png" title="js.png" vspace="0.5" width="245" />
+    <img alt="js.png" height="192" hspace="0.5" src="js.png" title="js.png" vspace="0.5" width="245"  class="clickable-image" />
   </section>
 
   <section class="sub-card-block mb-5" id="histogram">
@@ -198,7 +199,7 @@ h1->Draw();
 l1->Draw();
 l2->Draw("same");</pre>
 
-    <img alt="TLineEx.png" height="248" src="TLineEx.png" width="239" />
+    <img alt="TLineEx.png" height="248" src="TLineEx.png" width="239" class="clickable-image" />
     <p>
     厄介なのが線の定義がグラフの定義の範囲を超えると線がそのまま突き抜ける．
     <br>１次元のヒストグラムの場合縦軸の範囲が非常に難しい.
@@ -300,7 +301,7 @@ h->SetFillStyle(3005);  </pre>
 %CODE{ lang="cpp" num="1" numstep="1" </summary>
 enum EColor { kWhite =0, kBlack =1, kGray=920, kRed =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432, kOrange=800, kSpring=820, kTeal=840, kAzure =860kViolet =880, kPink=900 };</pre>
 
-    <img alt="ColorReference.png" height="325" src="ColorReference.png" title="ColorReference.png" width="346" /><img alt="StyleSetting.png" height="318" src="StyleSetting.png" title="StyleSetting.png" width="666" />
+    <img alt="ColorReference.png" height="325" src="ColorReference.png" title="ColorReference.png" width="346" class="clickable-image" /><img alt="StyleSetting.png" height="318" src="StyleSetting.png" title="StyleSetting.png" width="666"  class="clickable-image"/>
 
     <p>
     カラー/マーカーを配列にしとくと便利かも.　既定のカラー(EColor変数:kRedなど)は下にあるように元々は値が入っている。この値を図を参照に+/-して色を決めておく.
@@ -370,15 +371,15 @@ l->Write("name",1);</pre>
       <br> - 横割りRatioプロット(macroなのでratioPlot.Cを作り中身を貼り付ければ, root ratioPlot.Cで走ります): [[ratioPlot.C][ratioPlot.C]]
     </p>
       <main class="image-row">
-        <img alt="ratioPlot_nogap.png" height="311" src="ratioPlot_nogap.png" title="ratioPlot_nogap.png" width="320" />
-        <img alt="ratioPlot_withgap.png" height="311" src="ratioPlot_withgap.png" title="ratioPlot_withgap.png" width="320" />
+        <img alt="ratioPlot_nogap.png" height="311" src="ratioPlot_nogap.png" title="ratioPlot_nogap.png" width="320" class="clickable-image"/>
+        <img alt="ratioPlot_withgap.png" height="311" src="ratioPlot_withgap.png" title="ratioPlot_withgap.png" width="320" class="clickable-image"/>
       </main>
 
       <br> - Error Band Plot Macro : <a href="https://github.com/11kumaoka/rootUsefulCodes/blob/main/errBandPlot.C">error band example code</a>
-      <br><img alt="errBandPlot.png" height="283" src="errBandPlot.png" title="errBandPlot.png" width="373" />
+      <br><img alt="errBandPlot.png" height="283" src="errBandPlot.png" title="errBandPlot.png" width="373" class="clickable-image"/>
 
       <br> - double Fit Function to sub background: Macro <a href="https://github.com/11kumaoka/rootUsefulCodes/blob/main/estimateBackground.C">estimateBackground.C</a>
-      <br><img alt="sigPeakSubBkg.png" height="301" src="sigPeakSubBkg.png" title="sigPeakSubBkg.png" width="371" />
+      <br><img alt="sigPeakSubBkg.png" height="301" src="sigPeakSubBkg.png" title="sigPeakSubBkg.png" width="371" class="clickable-image"/>
   </section>
 
   <section class="sub-card-block mb-5" id="makeclass">
@@ -473,10 +474,10 @@ particle->Lifetime();</pre>
     <p>
     グラフのいろんなところを右クリックで色々いじれます。(以下の画像は<a href="https://atlas.kek.jp/comp/ROOT-commands.html">https://atlas.kek.jp/comp/ROOT-commands.html</a>から拝借)
     </p>
-    <img alt="getROOTmethods.png" height="449" src="getROOTmethods.png" title="getROOTmethods.png" width="634" /><br><br>
+    <img alt="getROOTmethods.png" height="449" src="getROOTmethods.png" title="getROOTmethods.png" width="634" class="clickable-image"/><br>
 
 
-    <img alt="EditTab.png" height="79" src="EditTab.png" title="EditTab.png" width="576" />
+    <img alt="EditTab.png" height="79" src="EditTab.png" title="EditTab.png" width="576" class="clickable-image"/>
     <p>
     <br>-<b>''View Tab->Editor''</b>: 一番使う
     <br>binの設定rebinしたり、グラフの色を変えたり、軸の名前を変えたり、三次元を二次元に投影したり色々できる。
@@ -494,12 +495,12 @@ particle->Lifetime();</pre>
     <br>フィットパラメータはterminal上に表示される。
     <br>Panel下のbarをいじるとフィット範囲も指定できる。
     <br>一番上の場所でフィットするヒストグラムを指定.
-    <br><img alt="FitPanel.png" height="530" src="FitPanel.png" title="FitPanel.png" width="291" />
+    <br><img alt="FitPanel.png" height="530" src="FitPanel.png" title="FitPanel.png" width="291"  class="clickable-image"/>
 
     <br><b>-''一部のオブジェクトだけをrootファイルとして保存''</b>
     <br>左のオブジェクトを右クリックすると"SaveAs"とあるので, そこをクリックし名前を決めていろんな拡張子で保存できる。
     <br>一部のオブジェクト(ヒストグラム等)だけでいい場合や、GUIで編集したhistogramを保存したい場合は便利。
-    <br><img alt="ObjectSave.png" height="299" src="ObjectSave.png" title="ObjectSave.png" width="295" />
+    <br><img alt="ObjectSave.png" height="299" src="ObjectSave.png" title="ObjectSave.png" width="295" class="clickable-image"/>
     </p>
   </section>
 
@@ -525,12 +526,7 @@ particle->Lifetime();</pre>
 
 </main>
 
-    <div id="footer-container"></div>
-    <script>
-        fetch("/my-website/common/footer.html")
-        .then(res => res.text())
-        .then(html => document.getElementById("footer-container").innerHTML = html);
-    </script>
+
 
 </body>
 </html>
