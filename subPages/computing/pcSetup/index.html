@@ -1,27 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>KumaWiki HTML版</title>
-  <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/my-website/style.css">
-</head>
-<body>
-
-
- <!-- パンくずリスト -->
-<nav class="breadcrumb">
-  <a href="/my-website/index.html">ホーム</a> &gt;
-  <span>EIC Physics</span>
-</nav>
-
-<main class="subcontainer"> 
-
-<h1>Kuma PC Environment</h1>
-
-
-<!DOCTYPE html>
-<html lang="ja">
 
 <!-- === s === Sub-Page Settings ===================================== -->
 <head>
@@ -52,7 +30,7 @@
 
     <!-- Setting of common page navigator -->
     <header class="sub-header-image">
-    <h1 class="sub-header-title">Page Title</h1>
+    <h1 class="sub-header-title">TKuma PC Environment</h1>
 
     <!-- breadcrumb -->
     <!-- <div class="breadcrumb">
@@ -61,8 +39,11 @@
 
     <!-- Section This Page Navigation -->
     <nav class="section-nav">
-        <a href="#Content1">Content1</a>
-        <a href="#Content2">Content2</a>
+        <a href="#Content1">Application</a>
+        <a href="#Content2">重宝しているalias</a>
+        <a href="#Content3">ssh設定</a>
+        <a href="#Content4">Editor</a>
+        <a href="#Content5">ZOOM</a>
     </nav>
     </header>
     <!-- === e === Sub-Page Settings ===================================== -->
@@ -71,30 +52,30 @@
     <!-- <main class="subcontainer">  -->
     <main class="sub-section-container">
 
-        <section class="sub-card-block mb-5"  id="content1">
-          <h2>Application</h2>
-          <ul>
-            <li>Google Chrome: you know</li>
-            <li>ShiftIt: divide desktop by one command like windows</li>
-            <li>TeXstudio: usefull tex edita</li>
-            <li>Spark: mail application</li>
-            <li>Skype: you know</li>
-            <li>Xquazt: display GUI. It is needed for root.</li>
-            <li>Xcode (not usefull but essential): IDE. It is needed for root.</li>
-            <li>Grammary : modifying miss words application wherever and whenever.</li>
-            <li>Screen pointa : leaser pointer application. It is useful when we use desktop sharing or pdf prezentation.</li>
-            <li>Home brew</li>
-            <li>VScode</li>
-            <li>anaconda</li>
-            <li>python</li>
-            <li>zoom</li>
-          </ul>
-        </section>
+      <section class="sub-card-block mb-5"  id="content1">
+        <h2>Application</h2>
+        <ul>
+          <li>Google Chrome: you know</li>
+          <li>ShiftIt: divide desktop by one command like windows</li>
+          <li>TeXstudio: usefull tex edita</li>
+          <li>Spark: mail application</li>
+          <li>Skype: you know</li>
+          <li>Xquazt: display GUI. It is needed for root.</li>
+          <li>Xcode (not usefull but essential): IDE. It is needed for root.</li>
+          <li>Grammary : modifying miss words application wherever and whenever.</li>
+          <li>Screen pointa : leaser pointer application. It is useful when we use desktop sharing or pdf prezentation.</li>
+          <li>Home brew</li>
+          <li>VScode</li>
+          <li>anaconda</li>
+          <li>python</li>
+          <li>zoom</li>
+        </ul>
+      </section>
 
 
-        <section class="sub-card-block mb-5"  id="content2">
-          <h2>重宝しているalias</h2>
-          <p>~/.zshrcもしくは~/.zprofile, ~/.bashrc, ~/.bash_profileにはっつけて使ってみてください．p>
+      <section class="sub-card-block mb-5"  id="content2">
+        <h2>重宝しているalias</h2>
+        <p>~/.zshrcもしくは~/.zprofile, ~/.bashrc, ~/.bash_profileにはっつけて使ってみてください．p>
 
 <pre>
 alias rm='rm -i' #ask yes/no when we remove file                                                                 
@@ -128,10 +109,10 @@ function texComp(){
 
 alias loginLx="ssh -XY tkumaoka@lxplus.cern.ch"</pre>        </section>
 
-        <section class="sub-card-block mb-5"  id="content2">
-          <h2>ssh設定 ( ~.ssh/config)</h2>
+      <section class="sub-card-block mb-5"  id="content3">
+        <h2>ssh設定 ( ~.ssh/config)</h2>
 
-          <h3>接続継続</h3>
+        <h3>接続継続</h3>
 <pre>
 # ~/.ssh/config
 Host *
@@ -154,7 +135,7 @@ Host server
           <p>Symbolic link ln -s directory</p>
         </section>
 
-        <section class="sub-card-block mb-5"  id="content2">
+        <section class="sub-card-block mb-5"  id="content4">
           <h2>Editor</h2>
 
           <h3>VS code</h3>
@@ -174,23 +155,24 @@ Host server
 
           VS codeでのTeXのやり方: <a href="https://qiita.com/rainbartown/items/d7718f12d71e688f3573">https://qiita.com/rainbartown/items/d7718f12d71e688f3573</a>
 
-          インストール方法　Mac:
-          1. HomeBrew がインストールされていない場合：まずは下のページからインストール
-
-          2. 当然VScodeのインストール
-          <pre>brew install visual-studio-code --cask</pre>
-
-          3. LaTeX のインストール
-          <pre>brew install mactex-no-gui --cask</pre>
+          インストール方法 Mac:
+          <ol>
+            <li>1. HomeBrew がインストールされていない場合：まずは下のページからインストール</li>
+            <li>2. 当然VScodeのインストール
+              <pre>brew install visual-studio-code --cask</pre></li>
+            <li>3. LaTeX のインストール
+            <pre>brew install mactex-no-gui --cask</pre></li>
+          </ol>
+          
           </p>
           <img src="/my-website/subPages/computing/pcSetup/vsCodeSettingFlow.png" alt="VSCodeの設定画面" class="img-fluid">
 
           <p>
-          = VSCodeの詳細な設定方法 =
-          右下の歯車のマークからSettingsをポチってjsonファイルを編集すればOKです。
-          真ん中の画面にあるようにGUIでも設定可能ですが、便利なjsonファイルをネットで見つけてコピペするのが無難です。
-          キーバインドも同様にKeyboard Shortcutsから設定できます。
-          私の設定は上にあるリンクからファイルをダウンロードできます。（いろいろと緑色になります。）
+          <h4> VSCodeの詳細な設定方法 </h4>
+          <br>右下の歯車のマークからSettingsをポチってjsonファイルを編集すればOKです。
+          <br>真ん中の画面にあるようにGUIでも設定可能ですが、便利なjsonファイルをネットで見つけてコピペするのが無難です。
+          <br>キーバインドも同様にKeyboard Shortcutsから設定できます。
+          <br>私の設定は上にあるリンクからファイルをダウンロードできます。（いろいろと緑色になります。）
           </p>
           <img src="/my-website/subPages/computing/pcSetup/MyVScodeWindow.png" alt="VSCodeの設定画面" class="img-fluid">
 
@@ -223,7 +205,7 @@ Host server
 
         </section>
 
-        <section class="sub-card-block mb-5"  id="content2">
+        <section class="sub-card-block mb-5"  id="content5">
           <h2>ZOOM</h2>
           座長等で自分のカメラの部分にタイマーを表示したい． OBS: download page url
 
