@@ -128,12 +128,14 @@ body {
     width: 100%;
     /* max-width: 50.0rem; */
     padding: 0.1rem;
-    padding-left: 0.5rem;
+    padding-left: 0.8rem;
     padding-right: 0.5rem;
     
     margin-bottom: 0.1rem;
     /* transition: transform 0.3s ease; */
 }
+
+
 /* .card-block:hover {
     transform: translateY(-0.25rem);
 } */
@@ -587,14 +589,6 @@ pre {
 
 
 
-.widedistantText {
-  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
-  color: #ffe15c;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 2.0;
 
-  padding: 2rem;
-}
 
 
