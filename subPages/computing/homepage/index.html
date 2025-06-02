@@ -31,7 +31,7 @@
 
     <!-- Setting of common page navigator -->
     <header class="sub-header-image">
-    <h1 class="sub-header-title">Page Title</h1>
+    <h1 class="sub-header-title">HomePageの作り方</h1>
 
     <!-- breadcrumb -->
     <!-- <div class="breadcrumb">
@@ -40,7 +40,7 @@
 
     <!-- Section This Page Navigation -->
     <nav class="section-nav">
-        <a href="#Content1">Content1</a>
+        <a href="#Content1">よく使うタグ一覧</a>
         <a href="#Content2">Content2</a>
     </nav>
     </header>
@@ -52,46 +52,166 @@
 
         <section class="sub-card-block mb-5"  id="content1">
 <h2>よく使うタグ一覧</h2>
-<div class="cmd-list">
-    <div class="cmd-row"><div class="cmd">&lt;html&gt;</div><div class="desc">HTML文書のルート要素</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;head&gt;</div><div class="desc">メタ情報（タイトル、CSSなど）を記述</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;body&gt;</div><div class="desc">ページに表示される実際の内容</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;title&gt;</div><div class="desc">ブラウザタブのタイトル</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;h1&gt;〜&lt;h6&gt;</div><div class="desc">見出しタグ（h1が最大）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;p&gt;</div><div class="desc">段落</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;a&gt;</div><div class="desc">リンク（href属性）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;img&gt;</div><div class="desc">画像（src属性、alt属性）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;br&gt;</div><div class="desc">改行</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;hr&gt;</div><div class="desc">水平線</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;div&gt;</div><div class="desc">ブロック要素。構造やスタイルの単位</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;span&gt;</div><div class="desc">インライン要素。部分装飾などに使用</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;ul&gt;</div><div class="desc">順不同リスト</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;ol&gt;</div><div class="desc">番号付きリスト</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;li&gt;</div><div class="desc">リスト項目</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;table&gt;</div><div class="desc">表全体の要素</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;tr&gt;</div><div class="desc">表の行</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;td&gt;</div><div class="desc">表のセル（列）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;th&gt;</div><div class="desc">表の見出しセル</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;form&gt;</div><div class="desc">入力フォーム全体</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;input&gt;</div><div class="desc">テキスト入力やボタンなど</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;textarea&gt;</div><div class="desc">複数行のテキスト入力欄</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;button&gt;</div><div class="desc">クリック可能なボタン</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;label&gt;</div><div class="desc">フォーム入力項目のラベル</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;select&gt;</div><div class="desc">ドロップダウンメニュー</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;option&gt;</div><div class="desc">select の中の選択肢</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;link&gt;</div><div class="desc">外部CSSやファビコンを読み込む</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;script&gt;</div><div class="desc">JavaScriptの記述・読み込み</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;meta&gt;</div><div class="desc">ページ情報（文字コード、SEOなど）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;style&gt;</div><div class="desc">HTML内にCSSを直接書く</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;header&gt;</div><div class="desc">ページ上部（ナビゲーションやタイトル）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;footer&gt;</div><div class="desc">ページ下部（著作権やリンク）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;section&gt;</div><div class="desc">意味のあるセクションのまとまり</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;article&gt;</div><div class="desc">独立したコンテンツ（ブログ記事など）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;nav&gt;</div><div class="desc">ナビゲーションメニューの領域</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;main&gt;</div><div class="desc">ページの主コンテンツ</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;aside&gt;</div><div class="desc">補足的なコンテンツ（サイドバーなど）</div></div>
-    <div class="cmd-row"><div class="cmd">&lt;!-- --&gt;</div><div class="desc">コメント（画面には表示されない）</div></div>
-</div>
+ <table class="cmd-table" border="1">
+    <tr>
+      <th>command</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>html</td>
+      <td>HTML文書のルート要素</td>
+    </tr>
+    <tr>
+      <td>head</td>
+      <td>メタ情報（タイトル、CSSなど）を記述</td>
+    </tr>
+    <tr>
+      <td>body</td>
+      <td>ページに表示される実際の内容</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>ブラウザタブのタイトル</td>
+    </tr>
+    <tr>
+      <td>h1〜h6</td>
+      <td>見出しタグ（h1が最大）</td>
+    </tr>
+    <tr>
+      <td>p</td>
+      <td>段落</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>リンク（href属性）</td>
+    </tr>
+    <tr>
+      <td>img</td>
+      <td>画像（src属性、alt属性）</td>
+    </tr>
+    <tr>
+      <td>br</td>
+      <td>改行</td>
+    </tr>
+    <tr>
+      <td>hr</td>
+      <td>水平線</td>
+    </tr>
+    <tr>
+      <td>div</td>
+      <td>ブロック要素。構造やスタイルの単位</td>
+    </tr>
+    <tr>
+      <td>span</td>
+      <td>インライン要素。部分装飾などに使用</td>
+    </tr>
+    <tr>
+      <td>ul</td>
+      <td>順不同リスト</td>
+    </tr>
+    <tr>
+      <td>ol</td>
+      <td>番号付きリスト</td>
+    </tr>
+    <tr>
+      <td>li</td>
+      <td>リスト項目</td>
+    </tr>
+    <tr>
+      <td>table</td>
+      <td>表全体の要素</td>
+    </tr>
+    <tr>
+      <td>tr</td>
+      <td>表の行</td>
+    </tr>
+    <tr>
+      <td>td</td>
+      <td>表のセル（列）</td>
+    </tr>
+    <tr>
+      <td>th</td>
+      <td>表の見出しセル</td>
+    </tr>
+    <tr>
+      <td>form</td>
+      <td>入力フォーム全体</td>
+    </tr>
+    <tr>
+      <td>input</td>
+      <td>テキスト入力やボタンなど</td>
+    </tr>
+    <tr>
+      <td>textarea</td>
+      <td>複数行のテキスト入力欄</td>
+    </tr>
+    <tr>
+      <td>button</td>
+      <td>クリック可能なボタン</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>フォーム入力項目のラベル</td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>ドロップダウンメニュー</td>
+    </tr>
+    <tr>
+      <td>option</td>
+      <td>select の中の選択肢</td>
+    </tr>
+    <tr>
+      <td>link</td>
+      <td>外部CSSやファビコンを読み込む</td>
+    </tr>
+    <tr>
+      <td>script</td>
+      <td>JavaScriptの記述・読み込み</td>
+    </tr>
+    <tr>
+      <td>meta</td>
+      <td>ページ情報（文字コード、SEOなど）</td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td>HTML内にCSSを直接書く</td>
+    </tr>
+    <tr>
+      <td>header</td>
+      <td>ページ上部（ナビゲーションやタイトル）</td>
+    </tr>
+    <tr>
+      <td>footer</td>
+      <td>ページ下部（著作権やリンク）</td>
+    </tr>
+    <tr>
+      <td>section</td>
+      <td>意味のあるセクションのまとまり</td>
+    </tr>
+    <tr>
+      <td>article</td>
+      <td>独立したコンテンツ（ブログ記事など）</td>
+    </tr>
+    <tr>
+      <td>nav</td>
+      <td>ナビゲーションメニューの領域</td>
+    </tr>
+    <tr>
+      <td>main</td>
+      <td>ページの主コンテンツ</td>
+    </tr>
+    <tr>
+      <td>aside</td>
+      <td>補足的なコンテンツ（サイドバーなど）</td>
+    </tr>
+    <tr>
+      <td>&lt;!-- --&gt;</td>
+      <td>コメント（画面には表示されない）</td>
+    </tr>
+  </tr>
+  </table>
+
         </section>
 
         <section class="sub-card-block mb-5"  id="content2">

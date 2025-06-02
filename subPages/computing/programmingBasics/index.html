@@ -57,6 +57,77 @@
 
         <section class="sub-card-block mb-5"  id="content1">
 <h2>よく使うterminal command</h2>
+ <table border="1">
+    <tr>
+      <th>command</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>ls -itl</td>
+      <td>ファイルの変更日時の確認（新しくファイルが作成されているか確認に便利）</td>
+    </tr>
+    <tr>
+      <td>cd -</td>
+      <td>元のディレクトリに戻る</td>
+    </tr>
+    <tr>
+      <td>mv baseFile newFile</td>
+      <td>ファイル/ディレクトリの名前変更</td>
+    </tr>
+    <tr>
+      <td>man commandName</td>
+      <td>コマンドのオプション確認（manコマンドの使い方）</td>
+    </tr>
+    <tr>
+      <td>du -sh</td>
+      <td>サイズチェック</td>
+    </tr>
+    <tr>
+      <td>diff -u file1.txt file2.txt &gt; diff.txt</td>
+      <td>2つのファイルの違いを見る</td>
+    </tr>
+    <tr>
+      <td>find FileName -name "ward"</td>
+      <td>ファイルやディレクトリを検索（findコマンドのオプション）</td>
+    </tr>
+    <tr>
+      <td>grep ward file</td>
+      <td>ファイル内のワード検索</td>
+    </tr>
+    <tr>
+      <td>.run &amp;</td>
+      <td>バックグラウンドでの実行（長時間処理など）</td>
+    </tr>
+    <tr>
+      <td>history 1000</td>
+      <td>最近使ったコマンドの確認</td>
+    </tr>
+    <tr>
+      <td>tar -zcvf xxxx.tar.gz directory</td>
+      <td>ファイルの圧縮</td>
+    </tr>
+    <tr>
+      <td>screen / tmux</td>
+      <td>SSH中に仮想端末を複数扱える（再ログイン不要）</td>
+    </tr>
+    <tr>
+      <td>command 2&gt;&amp;1 | tee log.txt</td>
+      <td>エラーのログ出力（標準出力にリダイレクトしログ保存）</td>
+    </tr>
+    <tr>
+      <td>sftp</td>
+      <td>サーバーとのファイルやり取り（<code>lpwd</code>, <code>lls</code> などローカル操作）</td>
+    </tr>
+    <tr>
+      <td>ln -s SOURCE LINK / unlink LINK</td>
+      <td>ショートカット（シンボリックリンク）の作成と削除</td>
+    </tr>
+    <tr>
+      <td>opendiff file1 file2</td>
+      <td>GUIで2つのファイルの比較</td>
+    </tr>
+  </tr>
+  </table>
 
   <div class="cmd-list">
     <div class="cmd-row"><div class="cmd">ls -itl</div><div class="desc">ファイルの変更日時の確認（新しくファイルが作成されているか確認に便利）</div></div>

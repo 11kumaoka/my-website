@@ -616,27 +616,23 @@ cmd {
 
 
 
-.cmd-list .cmd-row {
-  display: flex;
-  align-items: flex-start; 
-  margin-bottom: 0.5rem;
-  flex-wrap: nowrap; /* 折り返し防止 */
+.cmd-table {
+  border-collapse: collapse;  /* 表の線を一体化させる */
+  width: 100%;
 }
 
-.cmd-list .cmd {
+.cmd-table td {
+  border: 1px solid #ccc;     /* 任意で枠線 */
+  padding: 0.5rem;
+}
+
+.cmd-table .cmd-cell {
   background: #222;
-  color: #b6ff01;
-  padding: 0.2rem 0.5rem; 
+  color: #b6ff01;    
   font-family: monospace; 
-  white-space: nowrap;
-  min-width: 200px;       
+  white-space: nowrap;    
+  width: 200px;           
 }
-
-.cmd-list .desc {
-  margin-left: 1rem;
-  flex: 1;          
-}
-
 
 
 .selfphoto {
