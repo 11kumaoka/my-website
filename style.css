@@ -622,7 +622,7 @@ cmd {
 }
 
 .cmd-table td {
-  border: 1px solid #ccc;     /* 任意で枠線 */
+  border: 1px solid #000;     /* 任意で枠線 */
   padding: 0.5rem;
 }
 
