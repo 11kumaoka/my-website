@@ -616,6 +616,28 @@ cmd {
 
 
 
+.cmd-list .row {
+  display: flex;
+  align-items: flex-start; /* 高さ揃え */
+  margin-bottom: 0.5rem;
+}
+
+.cmd-list .cmd {
+  background: #222;
+  color: #b6ff01;
+  padding: 0.2rem 0.5rem;  /* 余白調整 */
+  font-family: monospace;  /* コマンド風フォント */
+  white-space: nowrap;    /* 折り返し防止 */
+  min-width: 200px;       /* 左側の幅（お好みで調整） */
+}
+
+.cmd-list .desc {
+  margin-left: 1rem;     /* 左側に余白 */
+  flex: 1;               /* 残りの幅を使う */
+}
+
+
+
 .selfphoto {
   position: absolute;
   top: 1rem;
