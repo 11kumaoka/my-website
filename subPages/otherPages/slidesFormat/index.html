@@ -1,60 +1,184 @@
+
 <!DOCTYPE html>
 <html lang="ja">
+
+<!-- === s === Sub-Page Settings ===================================== -->
 <head>
-  <meta charset="UTF-8">
-  <title>KumaWiki HTML版</title>
-  <style>
-    body {
-      font-family: "Hiragino Sans", sans-serif;
-      line-height: 1.6;
-      background-color: #fefefe;
-      padding: 2rem;
-      color: #333;
-    }
-    pre {
-      background: #222;
-      color: #b6ff01;
-      padding: 0.1rem;
-      padding-left: 0.5rem;
-      overflow-x: auto;
-    }
-    h2{
-      padding-left: 0.2rem;
-      color: rgb(25, 149, 0);
-      background-color: #ffea63;
-    }
-    h3{
-      padding-left: 0.3rem;
-      color: #42bc00;
-    }
-    h4 {
-      padding-left: 0.4rem;
-      color: #005c11;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>TKumaPage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/my-website/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 </head>
-<body>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">Page Title</h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">Content1</a>
+        <a href="#Content2">Content2</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
 
 
-<!-- <details><summary>
-  mode="div"
-  showlink="Table of Contents..."
-  hidelink="Hide"
-  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
-  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
- </summary> -->
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
 
- <!-- パンくずリスト -->
-<nav class="breadcrumb">
-  <a href="/my-website/index.html">ホーム</a> &gt;
-  <span>EIC Physics</span>
-</nav>
+        <section class="sub-card-block mb-5"  id="content1">
+            <h2> 前書き </h2>
+            <p>
+              本分野のスライドにはいろいろお作法があるようです。
+              あらゆる研究室で毎年発表の直前の時期に各学生にスライドお作法について、
+              ろくな指導もなければ参考資料もないにも関わらず目くじらを立てているのをよく目にするので、
+              私がいままで聞いたことある内容を覚えている範囲でまとめました。
+              私自身は最低限理解できればどうでもいいと思っているのと、
+              ちゃんと教わったことがないので、
+              ここに書いてあることは正確ではない・不十分かもしれません。
+              また私自身が実践できていないこともあります。
+              もし間違いや改善点があれば、私をご存知の方であれば優しく教えてください。
+              もしくはご自身で完璧なものをぜひご提示ください。
+              このページの内容を削除し、そちらのリンクを貼らせていただきます!!              
+            </p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content2">
+            <h2> 注意項目 </h2>
+            <h3> 一般的な内容 </h3>
+            <ul>
+              <li>文字は大きく書きましょう！
+                （最近はオンラインも増えているので多少小さくても良いかもしれませんが、
+                対面の方も含まれる時はpowerpointだと小さくても24pt, 理想は28ptだと聞きました。）</li>
+              <li>極力文字は少なくしましょう</li>
+              <li>一枚のスライドには一つの内容にしましょう</li>
+            </ul>
+
+            <h3> レイアウト </h3>
+            <ul>
+              <li>タイトルページはつけましょう</li>
+              <li>ページ番号はつけましょう。質疑応答の際に質問者が何ページ目かを把握しやすくなります。
+                またトータルページも分母に書くと発表時間を守らない人が多いので、時間管理にも役立ちます。</li>
+              <li>発表場所と日付も入れるといいでしょう。後々どこで話した内容か他の人が見てわかるとありがたいと思います。</li>
+              <li>発表者の名前を左下とかでも入れとくといいでしょう。
+                学会とかで途中から会場に入った人で、誰が話しているのかわかるとありがたかったりします。
+                あとはスライド一枚だけ一人歩き指定しまうのを見ることがありますが、
+                誰が作ったのかその場合でもわかります。</li>
+            </ul>
+
+            <h3> 図 </h3>
+            <ul>
+              <li>図はおっきく。</li>
+              <li><span style="color: #c70000;">図の軸には絶対にラベルと単位をつけましょう！</span></li>
+              <li>ちっちゃなROOTで自動生成されるようなレジェンドは消しましょう。</li>
+              <li>見ずらい色は避けましょう。(黄色とか)</li>
+              <li>複数の線や点があるときには形状を変えると親切です。
+                学振ではなぜかいまだに白黒で送られるとの話も聞くのでそのときわかりやすいのと、色盲の方にも親切です。</li>
+              <li>できれば作られたプロットはシミュレーションなのかデータなのか区別がつくようにしましょう。</li>
+            </ul>
+
+            <h3> 細かいこと </h3>
+            <ul>
+              <li>数字と単位の間にはスペースを入れましょう。（ただし%はスペースいらないらしい）
+                例: 10GeVではなく1 GeV。</li>
+              <li>変数に対して単位をつけるときには括弧をつけましょう。
+                例: <i>p</i>i> GeVではなく、<i>p</i>i> [GeV]。</li>
+              <li>変数はイタリック: <i>F, v, t</i></li>
+              <li>単位はローマン: m, s, kg </li>
+              <li>数学定数や演算子もローマン: e, i, sin</li>
+              <li>ラベルもローマン: <i>p</i>_TのTとか</li>
+            </ul>
+
+            <img alt="TLineEx.png" height="400" width="700" src="slideLayout.png" class="clickable-image" />
+
+            <h3> スライドの大まかな流れ </h3>
+            <p>
+              研究発表のスライドは以下のような流れが一般的かなぁと思っています。
+              ただし、これはあくまで一例であり、研究内容や発表の目的によって調整が必要です。
+              また一番初めに端的な結果を示す方がわかりやすいという方もいます。
+            </p>
+            <ol>
+              <li>大きな研究背景</li>
+              <li>本発表で話す研究課題</li>
+              <li>本発表で話す研究内容（課題にどうアプローチしたか）</li>
+              <li>研究手法 </li>
+              <li>結果</li>
+              <li>まとめ</li>
+              <li>展望</li>
+            </ol>
+            <p>
+              ミーティングなどではどこからが進捗かを明確にするといいと思います。
+              また最後には次のステップや今後の予定を示すと、より効果的な発表になるでしょう。
+            </p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content3">
+            <h2> 参考資料 </h2>
+            本ページ内容とは被りませんが、以下のリンクも参考になるかもしれません。
+            <ul>
+              <li><a href="https://www.gakushuin.ac.jp/~881791/presentation/slide.html" target="_blank">フーリエ展開</a></li>
+              <li><a href="https://www.youtube.com/playlist?list=PLof6CI6w3TketzAqEdUY8ToGEFBmTvRwJ" target="_blank">チェレンコフ光</a></li>
+            </ul>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>
+
+
+
+
+
 
