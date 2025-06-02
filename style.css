@@ -617,13 +617,13 @@ cmd {
 
 
 .cmd-table {
-  border-collapse: collapse;  /* 表の線を一体化させる */
+  border-collapse: collapse;
   width: 100%;
 }
 
 .cmd-table td {
-  border: 1px solid #000;     /* 任意で枠線 */
-  padding: 0.5rem;
+  border: 1px solid #000;
+  padding: 0.2rem;
 }
 
 .cmd-table .cmd-cell {
@@ -634,6 +634,12 @@ cmd {
   width: 200px;           
 }
 
+.my-table tr:nth-child(even) .desc {
+  background-color: #e8fffd;
+}
+.my-table tr:nth-child(odd) .desc {
+  background-color: #a9cac4;
+}
 
 .selfphoto {
   position: absolute;

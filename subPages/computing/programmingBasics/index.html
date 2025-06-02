@@ -57,74 +57,74 @@
 
         <section class="sub-card-block mb-5"  id="content1">
 <h2>よく使うterminal command</h2>
- <table border="1">
+ <table class="cmd-table" border="1">
     <tr>
       <th>command</th>
       <th>description</th>
     </tr>
     <tr>
       <td class="cmd-cell">ls -itl</td>
-      <td>ファイルの変更日時の確認（新しくファイルが作成されているか確認に便利）</td>
+      <td class="desc">ファイルの変更日時の確認（新しくファイルが作成されているか確認に便利）</td>
     </tr>
     <tr>
       <td class="cmd-cell">cd -</td>
-      <td>元のディレクトリに戻る</td>
+      <td class="desc">元のディレクトリに戻る</td>
     </tr>
     <tr>
       <td class="cmd-cell">mv baseFile newFile</td>
-      <td>ファイル/ディレクトリの名前変更</td>
+      <td class="desc">ファイル/ディレクトリの名前変更</td>
     </tr>
     <tr>
       <td class="cmd-cell">man commandName</td>
-      <td>コマンドのオプション確認（manコマンドの使い方）</td>
+      <td class="desc">コマンドのオプション確認（manコマンドの使い方）</td>
     </tr>
     <tr>
       <td class="cmd-cell">du -sh</td>
-      <td>サイズチェック</td>
+      <td class="desc">サイズチェック</td>
     </tr>
     <tr>
       <td class="cmd-cell">diff -u file1.txt file2.txt &gt; diff.txt</td>
-      <td>2つのファイルの違いを見る</td>
+      <td class="desc">2つのファイルの違いを見る</td>
     </tr>
     <tr>
       <td class="cmd-cell">find FileName -name "ward"</td>
-      <td>ファイルやディレクトリを検索（findコマンドのオプション）</td>
+      <td class="desc">ファイルやディレクトリを検索（findコマンドのオプション）</td>
     </tr>
     <tr>
       <td class="cmd-cell">grep ward file</td>
-      <td>ファイル内のワード検索</td>
+      <td class="desc">ファイル内のワード検索</td>
     </tr>
     <tr>
       <td class="cmd-cell">.run &amp;</td>
-      <td>バックグラウンドでの実行（長時間処理など）</td>
+      <td class="desc">バックグラウンドでの実行（長時間処理など）</td>
     </tr>
     <tr>
       <td class="cmd-cell">history 1000</td>
-      <td>最近使ったコマンドの確認</td>
+      <td class="desc">最近使ったコマンドの確認</td>
     </tr>
     <tr>
       <td class="cmd-cell">tar -zcvf xxxx.tar.gz directory</td>
-      <td>ファイルの圧縮</td>
+      <td class="desc">ファイルの圧縮</td>
     </tr>
     <tr>
       <td class="cmd-cell">screen / tmux</td>
-      <td>SSH中に仮想端末を複数扱える（再ログイン不要）</td>
+      <td class="desc">SSH中に仮想端末を複数扱える（再ログイン不要）</td>
     </tr>
     <tr>
       <td class="cmd-cell">command 2&gt;&amp;1 | tee log.txt</td>
-      <td>エラーのログ出力（標準出力にリダイレクトしログ保存）</td>
+      <td class="desc">エラーのログ出力（標準出力にリダイレクトしログ保存）</td>
     </tr>
     <tr>
       <td class="cmd-cell">sftp</td>
-      <td>サーバーとのファイルやり取り（<code>lpwd</code>, <code>lls</code> などローカル操作）</td>
+      <td class="desc">サーバーとのファイルやり取り（<code>lpwd</code>, <code>lls</code> などローカル操作）</td>
     </tr>
     <tr>
       <td class="cmd-cell">ln -s SOURCE LINK / unlink LINK</td>
-      <td>ショートカット（シンボリックリンク）の作成と削除</td>
+      <td class="desc">ショートカット（シンボリックリンク）の作成と削除</td>
     </tr>
     <tr>
       <td class="cmd-cell">opendiff file1 file2</td>
-      <td>GUIで2つのファイルの比較</td>
+      <td class="desc">GUIで2つのファイルの比較</td>
     </tr>
   </tr>
   </table>
