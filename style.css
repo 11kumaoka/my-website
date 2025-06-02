@@ -634,10 +634,10 @@ cmd {
   width: 200px;           
 }
 
-.my-table tr:nth-child(even) .desc {
+.cmd-table tr:nth-child(even) .desc {
   background-color: #e8fffd;
 }
-.my-table tr:nth-child(odd) .desc {
+.cmd-table tr:nth-child(odd) .desc {
   background-color: #a9cac4;
 }
 
