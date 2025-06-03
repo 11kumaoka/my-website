@@ -1,60 +1,172 @@
+
 <!DOCTYPE html>
 <html lang="ja">
+
+<!-- === s === Sub-Page Settings ===================================== -->
 <head>
-  <meta charset="UTF-8">
-  <title>KumaWiki HTML版</title>
-  <style>
-    body {
-      font-family: "Hiragino Sans", sans-serif;
-      line-height: 1.6;
-      background-color: #fefefe;
-      padding: 2rem;
-      color: #333;
-    }
-    pre {
-      background: #222;
-      color: #b6ff01;
-      padding: 0.1rem;
-      padding-left: 0.5rem;
-      overflow-x: auto;
-    }
-    h2{
-      padding-left: 0.2rem;
-      color: rgb(25, 149, 0);
-      background-color: #ffea63;
-    }
-    h3{
-      padding-left: 0.3rem;
-      color: #42bc00;
-    }
-    h4 {
-      padding-left: 0.4rem;
-      color: #005c11;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>TKumaPage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/my-website/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 </head>
-<body>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">Page Title</h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">Content1</a>
+        <a href="#Content2">Content2</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
 
 
-<!-- <details><summary>
-  mode="div"
-  showlink="Table of Contents..."
-  hidelink="Hide"
-  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
-  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
- </summary> -->
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
 
- <!-- パンくずリスト -->
-<nav class="breadcrumb">
-  <a href="/my-website/index.html">ホーム</a> &gt;
-  <span>EIC Physics</span>
-</nav>
+        <section class="sub-card-block mb-5"  id="content1">
+<p>CERNの色々な申請は <a href="https://edh.cern.ch/Desktop/dir.jsp?-4" target="_blank">EDH</a> から行う（鍵やdosimeterなど）。</p>
+
+<h2>user registration</h2>
+
+<h2>dosimeter</h2>
+<ul>
+  <li>Main page: <a href="https://dosimetry.web.cern.ch/dosimeters/how-obtain-dosimeter/radiation-protection-training" target="_blank">Dosimetry</a></li>
+  <li>B55の1階の部屋の右奥でUsersカードを読ませば手続きできる。その後3階に行き、放射線講習を済ませる。</li>
+</ul>
+
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content3">
+<h2>移動</h2>
+<h3>自転車</h3>
+<ol>
+  <li>Learn e-learning</li>
+  <li>EDH request</li>
+  <li>Go to mobility center (entrance A). You will get key, helmet, and reflect light jacket.</li>
+</ol>
+<p>URL: <a href="https://smb-dep.web.cern.ch/en/Mobility/CERN_bikes_rental" target="_blank">Mobility Rental</a></p>
+<p>e-learning: 徒歩でも大丈夫。</p>
+
+<h3>CERN rental bike</h3>
+<p>最近レンタル自転車というものができたらしい。Urban Connectというappを携帯に入れて手続きする。</p>
+<p><a href="https://home.cern/news/announcement/cern/electric-scooters-and-bicycles-available-cerns-mobility-centre" target="_blank">詳細</a></p>
+
+<h3>Shuttle service</h3>
+<p>ALICEの場合は少しCERN本部から距離があるため、shiftバスが通っている。</p>
+<p><a href="https://smb-dep.web.cern.ch/en/Mobility_Shuttle" target="_blank">Shuttle Service</a></p>
+
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content4">
+<h2>appri</h2>
+<ul>
+  <li>mapCERN: CERNのマップのアプリ。大きなミーティングなどがあるとbuildingの移動などが多く、google mapでは全てのbuilding番号はわからないため便利。またバスの時刻表も見られる。</li>
+</ul>
+
+<h3>printer</h3>
+<p>CERNの各ビルディングにあるprinterのソフトをダウンロードして印刷できる。</p>
+<p><a href="https://printservice.web.cern.ch/printservice/UserTools/PrinterList" target="_blank">Printer Service</a></p>
+
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content5">
+<h2>hostel</h2>
+<p>CERNに泊まるときはCERN内のHostelと少し離れたところにあるSt-Genis（みんな\"サンジェニ\"と呼んでる）Hostelがある。</p>
+<p>手続きは両方とも同じサイトからできる。初めは予約完了のメールをコピーしてGateBで見せると鍵をもらえる。</p>
+
+<h3>CERN内のhostel</h3>
+<p>色々なランクがある。また管理場があるところとないところがあるため、長期滞在の際には少し気をつけた方がいい。</p>
+<p>ランドリーもある場所が限られているため、B39（だった気がします）の受付の方に聞いて、コインと鍵をもらいランドリーのあるbuildingで選択する。</p>
+
+<h3>St-Genis</h3>
+<p>いくつか建物があるが、ベンチがある木を背にして左奥の建物の一棟に受付があるため、そちらに声をかけるといろいろ教えてもらえる。</p>
+<p>初めにもらえる鍵は大きいが、受付で小さい鍵と交換してもらえる。</p>
+<p>またランドリーの手続き等もここでできる。</p>
+<p>お金の支払いもこの受付で済ませる。</p>
+<p>管理場等はIHがあり、冷蔵庫は部屋にあったり、管理場にあったりする。</p>
+<p>調理道具はお鍋と石、フライパンが各自の部屋の棚にある。</p>
+<p>包丁はないので注意。</p>
+<p>シャワーは共同のもので、服はどこに置いたらいいのかわからない...</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content6">
+<h2>CERN office room key</h2>
+<ol>
+  <li>EDHでkeyのリクエストをする。<a href="https://edh.cern.ch/Document/General/KeysRequest" target=\"_blank\">EDH Key Request</a></li>
+  <li>メールを受け取る。</li>
+  <li>Building 55で鍵を受け取る。</li>
+</ol>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content7">
+<h2>Shopping</h2>
+<ul>\n  <li>Carrefour（カリフール）: 一番近いスーパー。鍵に気を付けていろいろなものを入れ、レジでベルトに置いていくと料理してくれる。</li>\n  <li>Happy Grill: 6 Eurぐらいでおいしいケバブが食べられる。（St-Genisから20分程度。日曜日でも空いているのがありがたい）</li>\n</ul>
+        </section>
+
+
+
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>
+
+
+
+
 
