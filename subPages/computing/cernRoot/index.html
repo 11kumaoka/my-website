@@ -308,9 +308,9 @@ enum EColor { kWhite =0, kBlack =1, kGray=920, kRed =632, kGreen =416, kBlue=600
 <pre>
 //[kBrack, kRed, kBlue, kGreen+3, kOrange+8, kAzure+10, kSpring+4, kViolet+1, kPink+9, kSpring-9, kOrange+8, kAzure+1, kTeal+4]
 int lFillColor[14] = [1, 632, 600, 416+3, 800+8, 860+10, 900+10, 820+4, 880+1, 900+9, 820-9, 800+1, 860+1, 840+4];
-int [MarkerStyleList][MarkerStyleList] [10] = [20, 21, 22, 23, 34, 29, 33, 31, 24, 24, 26, 32];
-hList[histNum]->SetMarkerColor( [FillColorList][FillColorList].at(histNum));
-hList[histNum]->SetMarkerStyle( [MarkerStyleList][MarkerStyleList].at(histNum));</pre>
+int lMarkerStyleList[10] = [20, 21, 22, 23, 34, 29, 33, 31, 24, 24, 26, 32];
+hList[histNum]->SetMarkerColor(lFillColor.at(histNum));
+hList[histNum]->SetMarkerStyle(lMarkerStyleList.at(histNum));</pre>
   </section>
 
   <section class="sub-card-block mb-5" id="fileio">
