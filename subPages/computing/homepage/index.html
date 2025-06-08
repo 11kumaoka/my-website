@@ -51,7 +51,193 @@
     <main class="sub-section-container">
 
         <section class="sub-card-block mb-5"  id="content1">
+<h2>Git Hub page</h2>
+<h3>作り方</h3>
+<p>
+    Git Hub pageはGitHubのリポジトリを使ってWebページをホストするサービスです。
+    GitHubのリポジトリを作成し、そこにHTMLファイルを配置することで、簡単に無料でWebページを公開できます。
+    作成方法は<a href="https://docs.github.com/ja/pages/getting-started-with-github-pages/creating-a-github-pages-site">GitHubのページ</a>で書いてあるので、そちらを参照してください。
+    ひょっとすると、<a href="https://qiita.com/snow_swallow/items/631bbceabbb953da2646">このページ</a>の方が参考になるかもです。
+    GitHub pageは静的なWebサイトをホストするのに適しており、個人のポートフォリオやプロジェクトのドキュメントなどに利用されます。
+    GitHub pageを利用するには、リポジトリの設定でGitHub Pagesを有効にし、公開するブランチを指定します。
+    その後、リポジトリのURLにアクセスすることで、公開されたWebページを閲覧できます。
+</p>
+<h3>インデクスへの登録方法</h3>
+<p>
+    GitHub pageのURLは、通常、<code>https://username.github.io/repository-name/</code>の形式になります。
+    初めはGoogleのような検索エンジンに登録されていないため、公開後は自分でURLを共有する必要があります。
+    <a href="https://search.google.com/search-console/welcome">Google Search Console</a>を使って、サイトマップを送信することもできます。
+    "<code>https://username.github.io/my-page</code>をURL プレフィックスにいれて、
+    html形式のファイルが生成されるのでそれをダウンロードし、自身のウェブサイトのトップに配置したのち、
+    GitHubのリポジトリにアップロードすることで、サイトマップを登録できます。
+    その後、Search Consoleに戻って「確認」をクリックします。
+    しばらくなり、数日するとGoogleの検索結果に反映されるようになります。
+</p>
+<h3>ファイル構造</h3>
+<p>
+  ファイル構造は、GitHub pageのルートディレクトリに配置されます。
+  私の場合は以下のような形でディレクトリを作っています。
+  <pre>
+    .
+    ├── index.html
+    ├── style.css
+    ├── favicon.ico
+    ├── google.html
+    └── common
+        ├── sidebar.html
+        ├── headerNavi.html
+        └── footer.html
+    └── images
+        └── mainImage1.png
+    └── subPages
+        └── sub1
+            ├── index.html
+            └── subImage1.png
+        └── sub2
+            ├── index.html
+            └── subImage2.png
+  </pre>
+</p>
+
+<h3>ページのざっくりな構造</h3>
+<p>
+  基本的には大きなタグで囲んでいき、箱の中に箱を作りページを作っていきます。
+  一番大きな箱は<code>&lt;html&gt;</code>タグです。
+  その中に<code>&lt;head&gt;</code>タグや<code>&lt;body&gt;</code>タグを入れていきます。
+  <code>&lt;head&gt;</code>には設定やメタ情報、CSSのリンクなどを入れます。
+  <code>&lt;body&gt;</code>には実際のコンテンツを入れます。
+  その中にさらに<code>&lt;header&gt;</code>や<code>&lt;main&gt;</code>、<code>&lt;footer&gt;</code>などのセクションを作り、内容を整理していきます。
+  例えば、<code>&lt;header&gt;</code>にはページのタイトルやナビゲーションを入れ、<code>&lt;main&gt;</code>にはメインコンテンツを入れます。
+  <code>&lt;footer&gt;</code>には著作権情報やリンクを入れることが一般的です。
+  また、<code>&lt;section&gt;</code>や<code>&lt;div&gt;</code>タグを使って、セクションごとに内容を分けることもできます。
+</p>
+<p>
+  下の画像がなんとなくの例です。
+  <img src="/my-website/subPages/computing/homepage/images/roughStrcture.png" alt="ページのざっくりな構造" class="custom-image" width="600" height="400">
+</p>
+
+<h3>ページの設定 (head)</h3>
+<p>
+  <code>&lt;head&gt;</code>タグ内には、ページのタイトルやメタ情報、CSSファイルのリンクなどを記述します。
+  headerやfooter、サイドバーなどはまとめて管轄することはできますが、
+  headの読み込みなどが必要なものは各下層ページにもそれぞれ書く必要があります。
+</p>
+<p>
+  一応私の例が以下のような形です。
+  <img src="/my-website/subPages/computing/homepage/images/headExam.png" alt="ページのざっくりな構造" class="custom-image" width="600" height="400">
+</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content1">
+<h2>文字の基礎</h2>
+<h3>フォントサイズ</h3> 
+<p><pre><span style="font-size: 16px;">16px</span></pre>は標準的なフォントサイズです。
+  <pre><span style="font-size: 1em;">1em</span></pre>は親要素のフォントサイズに対する相対単位です
+</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content2">
+<h2> クラス </h2>
+<p>
+    既存のクラスの改造や自身のクラスを使うことで、スタイルを簡単に適用できます。
+    例えば、<pre><span class="ownStyle">ownStyle</span></pre>というクラスを定義して、特定のスタイルを適用できます。
+</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content2">
+<h2> リンク </h2>
+<p>
+  リンクは<pre><a href="https://www.example.com">ここをクリック</a></pre>で開くことができます。
+  <pre><a href="https://www.example.com" target="_blank">新しいタブで開くリンク</a></pre>も可能です。
+  <pre><a href="https://www.example.com" target="_blank" rel="noopener noreferrer">セキュリティを考慮したリンク</a></pre>
+
+  内部ページには単にそのパスを書けばいいです。: <pre><a href="/main/subpage/">下層ページへのリンクへ飛ぶ</a></pre><br>
+  またページ内の特定の場所に飛ぶこともできます。
+  まず、次のように飛びたい場所にIDを設定します。(id="exam1")<br>
+  <pre><section class="hoge" id="exam1">ほげほげ</section></pre>
+  その場所に対してリンクを設定します。
+  <pre><a href="#exam1">ほげほげに飛ぶリンク</a></pre>
+  別のページの特定の場所に飛ぶこともできます。
+  <pre><a href="/main/subpage/#exam1">別のページのほげほげに飛ぶリンク</a></pre>
+</p>
+
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content1">
+<h2>表</h2>
+<p>表について
+</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content1">
+<h2>図</h2>
+<p>図について
+</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content1">
+<h2>リスト</h2>
+<p>図について
+</p>
+        </section>
+
+
+        <section class="sub-card-block mb-5"  id="content1">
 <h2>よく使うタグ一覧</h2>
+<h3>フォント</h3>
+ <table class="cmd-table" border="1">
+    <tr>
+      <th>command</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td class="cmd-cell"><span style=”ownStyle”>hoge</span></td>
+      <td class="desc">自身のCSSで設定したownStyleを一部の文字"hoge"だけに適応する</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">font-size: ?px;</td>
+      <td class="desc">フォントサイズの設定。?pixel or em</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">font-family: ?;</td>
+      <td class="desc">フォントファミリーの設定。?はフォント名</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">font-weight: ?;</td>
+      <td class="desc">フォントの太さを設定。?は数値（例: 400）またはキーワード（例: bold）。ただしフォントの種類によっては対応してません。</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">font-style: italic</td>
+      <td class="desc">フォントのスタイルを設定。italicは斜体、normalは通常体。こちらもフォントの種類によっては対応してません。</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">line-height: ?;</td>
+      <td class="desc">行の高さを設定。?は数値（例: 1.5）またはキーワード（例: normal）</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">text-align: ?;</td>
+      <td class="desc">テキストの配置を設定。?はキーワード（例: left, right, center）</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">text-decoration: ?;</td>
+      <td class="desc">テキストの装飾を設定。?はキーワード（例: underline, line-through（取消線））.<a href="https://saruwakakun.com/html-css/reference/border">種類は色々あるようです。</a></td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">letter-spacing: ?em</td>
+      <td class="desc">文字の間隔を設定。?はem単位の値</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">border-left :solid 5px orange;</td>
+      <td class="desc">左のボーダーを設定。太さ5px、スタイルはsolid、色はorange。見出しなどに使える。leftを変えれば下や右にもつけられる。</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell">text-shadow: 影の右への長さ 影の下への長さ 影のぼけ具合 影の色</td>
+      <td class="desc">テキストの影を設定。影の位置や色を指定できる。</td>
+    </tr>
+
+
+  </table>
+
  <table class="cmd-table" border="1">
     <tr>
       <th>command</th>
@@ -215,11 +401,19 @@
         </section>
 
         <section class="sub-card-block mb-5"  id="content2">
+            <h2> 参考ページ </h2>
+            <ul>
+                <li><a href="https://saruwakakun.com/html-css/basic/html">基本的なことが網羅されていてわかりやすい</a></li>
+                <li><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Elements/video">video要素のMDNドキュメント 実行まで見れて超わかりやすい</a></li>
+            </ul>
+        </section>
+
+
+        <section class="sub-card-block mb-5"  id="content2">
             <h2> Content2 </h2>
             <p>
                 ここにContent2の内容を書きます。
             </p>
-            <a href="https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Elements/video">video要素のMDNドキュメント 実行まで見れて超わかりやすい</a>
         </section>
 
     </main>
