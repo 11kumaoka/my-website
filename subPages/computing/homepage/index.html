@@ -51,6 +51,18 @@
     <main class="sub-section-container">
 
         <section class="sub-card-block mb-5"  id="content1">
+<h2>前置き</h2>
+<p>
+  私は片手間で適当にこのページを作った経験しかないので、適切な情報が欲しければ本やちゃんとしたサイトを参照してください。
+  ここではGPTだと詳しすぎたて説明が長すぎたり、逆に説明が足りなかったりするので、
+  程よい長さでリスト化して説明し、辞書代わりに使えるようなページを目指して書いています。
+  なので、修士以上のなんとなくコーディングをした経験をお持ちの方以上が対象です。
+  このページがどう作られているかや、ここに書かれている内容がどう反映されているのかは
+  <a href="https://github.com/tkumaoka/my-website">私のgit hub page</a>を参照してください。
+</p>
+        </section>
+
+        <section class="sub-card-block mb-5"  id="content1">
 <h2>Git Hub page</h2>
 <h3>作り方</h3>
 <p>
@@ -118,7 +130,7 @@
 <p>
   下の画像がなんとなくの例です。
 </p>
-<img src="/my-website/subPages/computing/homepage/images/roughStrcture.png" alt="ページのざっくりな構造" class="custom-image" width="600" height="400">
+<img src="/my-website/subPages/computing/homepage/images/roughStrcture.png" alt="ページのざっくりな構造" class="clickable-image" width="600" height="500">
 
 
 <h3>ページの設定 (head)</h3>
@@ -130,8 +142,11 @@
 <p>
   一応私の例が以下のような形です。
 </p>
-<img src="/my-website/subPages/computing/homepage/images/headExam.png" alt="ページのざっくりな構造" class="custom-image" width="600" height="400">
+<img src="/my-website/subPages/computing/homepage/images/headExam.png" alt="ページのざっくりな構造" class="clickable-image" width="600" height="400">
 
+<h3>箱のサイズや空間について</h3>
+<p>
+</p>
         </section>
 
         <section class="sub-card-block mb-5"  id="content1">
@@ -141,6 +156,8 @@
   <code>&lt;span style=&quot;font-size: 16px;&quot;&gt;16px&lt;/span&gt;</code> は標準的なフォントサイズです。<br>
   <code>&lt;span style=&quot;font-size: 1em;&quot;&gt;1em&lt;/span&gt;</code> は親要素のフォントサイズに対する相対単位です。
 </p>
+
+        </section>
 
 <section class="sub-card-block mb-5" id="content2">
   <h2>クラス</h2>
@@ -178,14 +195,14 @@
         </section>
 
         <section class="sub-card-block mb-5"  id="content1">
-<h2>図</h2>
-<p>図について
+<h2>画像</h2>
+<p>画像について
 </p>
         </section>
 
         <section class="sub-card-block mb-5"  id="content1">
 <h2>リスト</h2>
-<p>図について
+<p>リストについて
 </p>
         </section>
 
@@ -252,32 +269,12 @@
       <th>description</th>
     </tr>
     <tr>
-      <td class="cmd-cell">html</td>
-      <td class="desc">HTML文書のルート要素</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">head</td>
-      <td class="desc">メタ情報（タイトル、CSSなど）を記述</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">body</td>
-      <td class="desc">ページに表示される実際の内容</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">title</td>
-      <td class="desc">ブラウザタブのタイトル</td>
-    </tr>
-    <tr>
       <td class="cmd-cell">h1〜h6</td>
       <td class="desc">見出しタグ（h1が最大）</td>
     </tr>
     <tr>
       <td class="cmd-cell">p</td>
       <td class="desc">段落</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">a</td>
-      <td class="desc">リンク（href属性）</td>
     </tr>
     <tr>
       <td class="cmd-cell">img</td>
@@ -298,34 +295,6 @@
     <tr>
       <td class="cmd-cell">span</td>
       <td class="desc">インライン要素。部分装飾などに使用</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">ul</td>
-      <td class="desc">順不同リスト</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">ol</td>
-      <td class="desc">番号付きリスト</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">li</td>
-      <td class="desc">リスト項目</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">table</td>
-      <td class="desc">表全体の要素</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">tr</td>
-      <td class="desc">表の行</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">td</td>
-      <td class="desc">表のセル（列）</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">th</td>
-      <td class="desc">表の見出しセル</td>
     </tr>
     <tr>
       <td class="cmd-cell">form</td>
@@ -372,14 +341,6 @@
       <td class="desc">HTML内にCSSを直接書く</td>
     </tr>
     <tr>
-      <td class="cmd-cell">header</td>
-      <td class="desc">ページ上部（ナビゲーションやタイトル）</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">footer</td>
-      <td class="desc">ページ下部（著作権やリンク）</td>
-    </tr>
-    <tr>
       <td class="cmd-cell">section</td>
       <td class="desc">意味のあるセクションのまとまり</td>
     </tr>
@@ -390,10 +351,6 @@
     <tr>
       <td class="cmd-cell">nav</td>
       <td class="desc">ナビゲーションメニューの領域</td>
-    </tr>
-    <tr>
-      <td class="cmd-cell">main</td>
-      <td class="desc">ページの主コンテンツ</td>
     </tr>
     <tr>
       <td class="cmd-cell">aside</td>
