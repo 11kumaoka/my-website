@@ -88,13 +88,28 @@
 }
 
 .icon-link img {
-  /* width: 12.5rem; */
-  /* height: 12.5rem; */
-  width: 10%;
+  /* width: 12.5rem;
+  height: 12.5rem; */
+  width: 40%;
   max-width: 15rem; /* 広すぎ防止 */
   border-radius: 80%;
   border: 0.188rem solid white;
   transition: transform 0.3s;
+}
+
+@media (max-width: 50.0rem) {
+  .icon-link img {
+    width: 50%;
+  }
+  .topHero .title {
+    font-size: 10vw;
+  }
+  .topHero .subtitle {
+    font-size: 6vw;
+  }
+  .topHero .subsubtitle  {
+    font-size: 4vw;
+  }
 }
 /* == e == top page  == e == top page  == e == top page  == e == top page */
 
@@ -166,6 +181,7 @@ body {
   font-size: 1.125rem;
   font-weight: 600;
 }
+
 @media (max-width: 48.0rem) {
   .subsidebar {
     display: none;
