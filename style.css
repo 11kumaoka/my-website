@@ -17,7 +17,8 @@
 
   font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
   color: #ff9616;
-  font-size: 5.0rem;
+  /* font-size: 5.0rem; */
+  font-size: 5vw;
   font-weight: 600;
   text-shadow: 0.05rem 0.3rem 0.8rem rgba(13, 78, 0, 0.836);
 
@@ -37,7 +38,8 @@
 
   font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
   color: #ffe941;
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
+  font-size: 3vw;
   font-weight: 500;
   line-height: 1.0;
 
@@ -57,7 +59,8 @@
 
   font-family: "Playfair Display", "Hiragino Maru Gothic ProN", "Yu Gothic UI", serif;
   color: #fffbbc;
-  font-size: 2.0rem;
+  /* font-size: 2.0rem; */
+  font-size: 2vw;
   font-weight: 600;
   line-height: 2.5;
 
@@ -73,7 +76,8 @@
   color: #fff3c9;
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
-  font-size: 1rem;
+  /* font-size: 1rem; */
+  font-size: 1vw;
 }
 
 .icon-link {
@@ -84,8 +88,10 @@
 }
 
 .icon-link img {
-  width: 12.5rem;
-  height: 12.5rem;
+  /* width: 12.5rem; */
+  /* height: 12.5rem; */
+  width: 10%;
+  max-width: 15rem; /* 広すぎ防止 */
   border-radius: 80%;
   border: 0.188rem solid white;
   transition: transform 0.3s;
@@ -170,6 +176,9 @@ body {
   }
 }
 @media (max-width: 30.0rem) {
+  .subsidebar {
+    display: none;
+  }
   .sub-card-block {
     padding: 0.8rem;
   }
