@@ -50,10 +50,10 @@
 
 .topHero .subsubtitle  {
   width: max-content;
-  max-width: 85%; 
+  max-width: 90%; 
 
   position: absolute;
-  top: 95%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -100,7 +100,8 @@
 
 @media (max-width: 50.0rem) {
   .icon-link img {
-    width: 80%;
+    width: 70%;
+    top: 60%;
   }
   .topHero .title {
     font-size: 10vw;
@@ -209,43 +210,34 @@ body {
 
 /* == s == Setting of images　==== */
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    /* margin-bottom: 0.1rem; */
-}
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.image-left .image {
-  order: 0;
-}
-.image-left .text {
-  order: 0;
-}
-.image-right .text {
-  order: 0;
-}
-.image-right .image {
-  order: 0;
-}
+.image-left .image { order: 1; }
+.image-left .text  { order: 2; }
+.image-right .text  { order: 1; }
+.image-right .image { order: 2; }
 
-.row .text{
-    flex: 1 1 50%;
-    padding: 1rem;
-}
-.row .image {
-    flex: 1 1 50%;
-    padding: 0.0rem;
+.row .image, .row .text {
+  flex: 1 1 50%;
+  padding: 1rem;
 }
 
 .row .image img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.1);
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .row {flex-direction: column;}
+  .image-left .image,
+  .image-left .text,
+  .image-right .image,
+  .image-right .text { order: unset;}
 }
 
 
