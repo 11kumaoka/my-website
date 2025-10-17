@@ -20,8 +20,9 @@
   /* font-size: 5.0rem; */
   font-size: 5vw;
   font-weight: 600;
+  line-height: 1.2;
   text-shadow: 0.05rem 0.3rem 0.8rem rgba(13, 78, 0, 0.836);
-
+  
   font-style: italic;
   text-align: center;
   padding: 2rem;
@@ -86,6 +87,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: block;
 }
 
 .icon-link img {
@@ -93,6 +95,7 @@
   height: 12.5rem; */
   /* width: 90%; */
   height: 90%;
+  width: auto;
   max-width: 15rem; /* 広すぎ防止 */
   border-radius: 80%;
   border: 0.188rem solid white;
