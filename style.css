@@ -101,7 +101,7 @@
 @media (max-width: 50.0rem) {
   .icon-link img {
     width: 70%;
-    top: 60%;
+    top: 70%;
   }
   .topHero .title {
     font-size: 10vw;
@@ -111,6 +111,7 @@
   }
   .topHero .subsubtitle  {
     font-size: 3vw;
+    top: 80%;
   }
   .topHero .caption {
     font-size: 2vw;
@@ -551,6 +552,7 @@ cmd {
 
 .nav-list > li {
   position: relative;
+  /* margin-right: 1.0rem; */
   margin-right: 1.5rem;
 }
 
