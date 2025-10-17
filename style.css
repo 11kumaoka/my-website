@@ -93,7 +93,6 @@
 /* == e == top page  == e == top page  == e == top page  == e == top page */
 
 
-
 body {
   overflow-x: hidden;
   /* background-color: #fffade; */
@@ -102,8 +101,6 @@ body {
   /* background-color: #f5f5eb; */
   color: #2a2a2a;
 }
-
-
 
 
 /*　== s ==  Container　== s ==  Container == s ==  Container　== s ==  Container == s ==  Container */
@@ -134,12 +131,6 @@ body {
     margin-bottom: 0.1rem;
     /* transition: transform 0.3s ease; */
 }
-
-
-/* .card-block:hover {
-    transform: translateY(-0.25rem);
-} */
-
 
 
 .sub-section-container {
@@ -586,11 +577,19 @@ cmd {
     position: fixed;
     top: 23.75rem;
     left: 0;
-    width: 11.25rem;
+    /* width: 11.25rem; */
+    width: 10%;
+    max-width: 11.25rem; /* 広すぎ防止 */
+    min-width: 7.5rem; /* 狭すぎ防止 */
     background-color: #f5f5eb;
     padding: 1rem;
     border-right: 0.625rem solid #8b6100;
     overflow-y: auto;
+}
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
 }
 /* == e == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar === e ===-*/
 
