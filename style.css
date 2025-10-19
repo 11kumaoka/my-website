@@ -193,21 +193,13 @@ body {
   font-weight: 600;
 }
 
-@media (max-width: 48.0rem) {
+@media (max-width: 768px) {
   .subsidebar {
     display: none;
   }
   .sub-card-block {
-    margin-left: 0;
+    margin-left: 0.5rem;
     padding: 1rem;
-  }
-}
-@media (max-width: 30.0rem) {
-  .subsidebar {
-    display: none;
-  }
-  .sub-card-block {
-    padding: 0.8rem;
   }
 }
 /*　== s ==  Container　== s ==  Container == s ==  Container　== s ==  Container == s ==  Container */
@@ -252,8 +244,6 @@ body {
   /* （お好みで）画像とテキストの間の余白を追加 */
   .row .image {margin-bottom: 1rem;}
 }
-
-
 
 .image-overlay-container {
     position: relative;
@@ -581,6 +571,9 @@ cmd {
   text-decoration: none;
   padding: 0.5rem 1rem;
   display: inline-block;
+}
+@media (max-width: 600px) {
+  padding: 0.1rem 0.3rem;
 }
 
 /* Undisplay dropdown */
