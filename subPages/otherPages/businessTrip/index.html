@@ -1,60 +1,93 @@
 <!DOCTYPE html>
 <html lang="ja">
+<!-- === s === Sub-Page Settings ===================================== -->
 <head>
-  <meta charset="UTF-8">
-  <title>KumaWiki HTML版</title>
-  <style>
-    body {
-      font-family: "Hiragino Sans", sans-serif;
-      line-height: 1.6;
-      background-color: #fefefe;
-      padding: 2rem;
-      color: #333;
-    }
-    pre {
-      background: #222;
-      color: #b6ff01;
-      padding: 0.1rem;
-      padding-left: 0.5rem;
-      overflow-x: auto;
-    }
-    h2{
-      padding-left: 0.2rem;
-      color: rgb(25, 149, 0);
-      background-color: #ffea63;
-    }
-    h3{
-      padding-left: 0.3rem;
-      color: #42bc00;
-    }
-    h4 {
-      padding-left: 0.4rem;
-      color: #005c11;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+    <title>TKumaPage</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/my-website/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 </head>
-<body>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">海外出張</h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">荷物</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
 
 
-<!-- <details><summary>
-  mode="div"
-  showlink="Table of Contents..."
-  hidelink="Hide"
-  showimgleft="%ICONURLPATH{toggleopen-small</summary>"
-  hideimgleft="%ICONURLPATH{toggleclose-small</summary>"
- </summary> -->
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
 
- <!-- パンくずリスト -->
-<nav class="breadcrumb">
-  <a href="/my-website/index.html">ホーム</a> &gt;
-  <span>EIC Physics</span>
-</nav>
+        <section class="sub-card-block mb-5"  id="content1">
+<h2>荷物</h2>
+<p>
+  海外出張の際の荷物についてまとめます。
+</p>
+        </section>
+
+
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>
 
