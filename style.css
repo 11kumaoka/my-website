@@ -95,8 +95,9 @@
   height: 12.5rem; */
   /* width: 90%; */
   /* height: 90%; */
-  height: 25vh%;
+  height: 20vh;
   width: auto;
+  object-fit: contain; /* 必要に応じて縦横比を維持 */
   max-width: 15rem; /* 広すぎ防止 */
   border-radius: 80%;
   border: 0.188rem solid white;
@@ -108,12 +109,8 @@
     width: 70%;
     top: 70%;
   }
-  .topHero .title {
-    font-size: 10vw;
-  }
-  .topHero .subtitle {
-    font-size: 4vw;
-  }
+  .topHero .title {font-size: 10vw;}
+  .topHero .subtitle {font-size: 4vw;}
   .topHero .subsubtitle  {
     font-size: 3vw;
     top: 80%;
@@ -573,7 +570,10 @@ cmd {
   display: inline-block;
 }
 @media (max-width: 600px) {
-  padding: 0.1rem 0.3rem;
+  .nav-list {gap: 0.1rem;}
+  .nav-list > li > a {
+    padding: 0.1rem 0.3rem;
+  }
 }
 
 /* Undisplay dropdown */
