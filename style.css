@@ -575,10 +575,15 @@ cmd {
   }
 }
 
+.has-dropdown {
+  position: relative; /* dropdownの基準にする */
+  overflow: visible;  /* はみ出しを許可 */
+}
+
 /* Undisplay dropdown */
 .dropdown {
-  position: relative;
-  /* position: absolute; */
+  /* position: relative; */
+  position: absolute;
   top: 100%;
   left: 0;
   display: none;
@@ -587,6 +592,9 @@ cmd {
   list-style: none;
   min-width: 15.625rem;
   z-index: 9999;
+}
+.has-dropdown:hover .dropdown {
+  display: block;
 }
 @media (max-width: 600px) {
   .dropdown {
