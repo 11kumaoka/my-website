@@ -167,21 +167,23 @@ body {
   align-items: center;
   padding: 1rem 4rem;
   background: #475e00;
+
+  overflow-x: hidden;
 }
 .sub-card-block {
   width: 100%;
   max-width: 81.25rem;
   width: 98%;
   
-  padding-left: 0.8rem;
-  padding-right: 18%;
+  padding-left: 2%;
+  padding-right: 2%;
 
   border-radius: 0.312rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
   background-color: #fffade;  
   
-  margin-left: 13.75rem;
-  margin-right: 0.312rem;
+  margin-left: 18%;
+  margin-right: 2%;
   /* transition: transform 0.3s ease; */
 
   color: #181818;
@@ -351,12 +353,8 @@ body {
 
 
 /* == s == Link styles  == s == Link styles  == s == Link styles  == s == Link styles */
-a {
-  color: #99cc00;
-}
-a:hover {
-  color: #4c8e00;
-}
+a {color: #99cc00;}
+a:hover {color: #4c8e00;}
 /* == e == Link styles  == s == Link styles  == s == Link styles  == e == Link styles */
 
 /* == s == Button-like links  == s == Button-like links == s == Button-like links*/
