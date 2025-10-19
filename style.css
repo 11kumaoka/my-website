@@ -167,6 +167,9 @@ body {
   align-items: center;
   padding: 1rem 4rem;
   background: #475e00;
+  
+  margin-left: max(18%, 8rem);
+  margin-right: 2%;
 
   overflow-x: hidden;
 }
@@ -181,9 +184,7 @@ body {
   border-radius: 0.312rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
   background-color: #fffade;  
-  
-  margin-left: 20%;
-  margin-right: 21%;
+
   /* transition: transform 0.3s ease; */
 
   color: #181818;
