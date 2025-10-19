@@ -91,10 +91,6 @@
 }
 
 .icon-link img {
-  /* width: 12.5rem;
-  height: 12.5rem; */
-  /* width: 90%; */
-  /* height: 90%; */
   height: 20vh;
   width: auto;
   object-fit: contain; /* 必要に応じて縦横比を維持 */
@@ -106,7 +102,10 @@
 
 @media (max-width: 50.0rem) {
   .icon-link img {
-    width: 70%;
+    height: 20vh;
+    width: auto;
+    object-fit: contain; /* 必要に応じて縦横比を維持 */
+    max-width: 15rem; /* 広すぎ防止 */
     top: 70%;
   }
   .topHero .title {font-size: 10vw;}
@@ -382,7 +381,7 @@ a:hover {
 h1{
   font-family: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", serif;
   text-shadow: 0.031rem 0.25rem 0.5rem rgba(41, 31, 20, 0.823);
-  font-size: 400%;
+  font-size: 5vw;
   font-weight: 1200;
   margin-bottom: 1rem;
   color: #fc9629;
@@ -578,7 +577,8 @@ cmd {
 
 /* Undisplay dropdown */
 .dropdown {
-  position: absolute;
+  position: relative;
+  /* position: absolute; */
   top: 100%;
   left: 0;
   display: none;
@@ -586,7 +586,16 @@ cmd {
   padding: 0;
   list-style: none;
   min-width: 15.625rem;
-  z-index: 1000;
+  z-index: 9999;
+}
+@media (max-width: 600px) {
+  .dropdown {
+    position: static;  /* ← absoluteを解除して自然な位置に */
+    display: none;
+  }
+  .has-dropdown:hover .dropdown {
+    display: block;
+  }
 }
 
 .dropdown li a {
