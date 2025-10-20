@@ -168,8 +168,8 @@ body {
   padding: 1rem 4rem;
   background: #475e00;
   
-  margin-left: max(18%, 8rem);
-  margin-right: 2%;
+  margin-left: max(15%, 8rem);
+  margin-right: 1%;
 
   overflow-x: hidden;
 }
@@ -193,6 +193,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .sub-section-container {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
   .subsidebar {
     display: none;
   }
