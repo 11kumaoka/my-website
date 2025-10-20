@@ -100,7 +100,7 @@
   transition: transform 0.3s;
 }
 
-@media (max-width: 50.0rem) {
+@media (max-width: 550px) {
   .icon-link img {
     height: 20vh;
     width: auto;
@@ -136,7 +136,7 @@ body {
     display: block;
     flex-direction: row;
     align-items: center;
-    padding: 4rem 0rem;
+    /* padding: 4rem 0rem; */
     background: #475e00;
 
 }
@@ -167,21 +167,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 4rem;
+  /* padding: 1rem 4rem; */
   background: #475e00;
   
-  margin-left: max(15%, 8rem);
+  /* margin-left: max(15%, 8rem); */
+  margin-left: 16%;
   margin-right: 1%;
 
   overflow-x: hidden;
 }
 .sub-card-block {
   width: 100%;
-  max-width: 81.25rem;
-  width: 98%;
+  max-width: 90rem;
   
-  padding-left: 2%;
-  padding-right: 3%;
+  /* padding-left: 2%;
+  padding-right: 3%; */
+  padding: 0.5rem;
 
   border-radius: 0.312rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
@@ -194,7 +195,7 @@ body {
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .sub-section-container {
     margin-left: 1%;
     margin-right: 1%;
@@ -203,6 +204,7 @@ body {
     display: none;
   }
   .sub-card-block {
+    max-width: 25rem;
     margin: 0.5rem;
     padding: 0.1rem;
   }
@@ -235,7 +237,7 @@ body {
   border-radius: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   /* 縦並び */
   .row {flex-direction: column;}
 
@@ -279,7 +281,7 @@ body {
     /* border-radius: 0.375rem; */
     pointer-events: none; /* Do not let the text be clickable */
 }
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .image-overlay-container .overlay-text {
     font-size: 7vw;
   }
@@ -558,7 +560,7 @@ cmd {
   display: flex;
   gap: 1.5rem;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .nav-list {gap: 0.1rem;}
 }
 
@@ -573,7 +575,7 @@ cmd {
   padding: 0.5rem 1rem;
   display: inline-block;
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .nav-list {gap: 0.1rem;}
   .nav-list > li > a {
     padding: 0.3rem 0.3rem;
@@ -635,11 +637,6 @@ cmd {
     padding: 1rem;
     border-right: 0.625rem solid #8b6100;
     overflow-y: auto;
-}
-@media (max-width: 900px) {
-  .sidebar {
-    display: none;
-  }
 }
 /* == e == side bar ==== == side bar ==== == side bar ==== == side bar ==== == side bar === e ===-*/
 
