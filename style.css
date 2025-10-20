@@ -150,11 +150,9 @@ body {
 
     border-radius: 0.312rem;
     box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
-    width: 100%;
+    width: 98%;
     /* max-width: 50.0rem; */
-    padding: 0.1rem;
-    padding-left: 0.8rem;
-    padding-right: 0.5rem;
+    padding: 0.5rem;
 
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -200,7 +198,7 @@ body {
     margin-left: 1%;
     margin-right: 1%;
   }
-  .subsidebar {
+  .sidebar {
     display: none;
   }
   .sub-card-block {
