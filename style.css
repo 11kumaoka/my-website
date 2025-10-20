@@ -106,7 +106,7 @@
     width: auto;
     object-fit: contain; /* 必要に応じて縦横比を維持 */
     max-width: 15rem; /* 広すぎ防止 */
-    top: 75%;
+    top: 80%;
   }
   .topHero .title {font-size: 10vw;}
   .topHero .subtitle {font-size: 4vw;}
@@ -311,7 +311,7 @@ body {
 }
 
 .modal {
-  display: none;               /* 最初は非表示 */
+  display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%;
