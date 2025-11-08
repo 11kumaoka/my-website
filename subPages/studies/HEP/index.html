@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- === s === Sub-Page Settings ===================================== -->
+<head>
+    <title>TKumaPage</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/my-website/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+</head>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">ざっくり高エネルギー物理実験</h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">高エネルギー物理実験</a>
+        <a href="#Content2">重い素粒子の生成</a>
+        <a href="#Content3">超高温物質の生成</a>
+        <a href="#Content4">核子の内部構造の解明</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
+
+
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
+
+      <section class="sub-card-block mb-5"  id="content1">
+        <h2> 高エネルギー物理実験 </h2>
+        <p>
+          ここにContent1の内容を書きます。
+        </p>
+
+        <img alt="HepPhysKinds.png" height="449" src="HepPhysKinds.png" title="HepPhysKinds.png" width="634" class="clickable-image"/><br>
+      </section>
+
+      <section class="sub-card-block mb-5"  id="content2">
+        <h2> 重い素粒子の生成 </h2>
+        <p>
+            ここにContent2の内容を書きます。
+        </p>
+      </section>
+
+
+      <section class="sub-card-block mb-5"  id="content3">
+        <h2> 超高温物質の生成 </h2>
+        <p>
+            ここにContent2の内容を書きます。
+        </p>
+      </section>
+
+      <section class="sub-card-block mb-5"  id="content4">
+        <h2> 核子の内部構造の解明 </h2>
+        <p>
+            ここにContent2の内容を書きます。
+        </p>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>
+
+
+
+
