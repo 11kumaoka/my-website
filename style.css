@@ -373,7 +373,8 @@ body {
   width: 100%;
   word-break: break-word;
   font-size: 0.9em;
-  color: #dddddd;
+  background-color: #c8c8c8;
+  color: #242424;
   margin-top: 0.5em;
   text-align: center;
 }
