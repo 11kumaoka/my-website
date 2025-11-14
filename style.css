@@ -358,6 +358,8 @@ body {
 .flex-8 { flex: 8 1 0%; }
 .flex-9 { flex: 9 1 0%; }
 .flex-10 { flex: 10 1 0%; }
+.flex-55 {flex: 5.5 1 0%;}
+.flex-45 {flex: 4.5 1 0%;}
 
 .image-container-flex img {
   width: 100%;
