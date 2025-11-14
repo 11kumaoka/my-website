@@ -83,11 +83,11 @@
           高エネルギー物理学実験の目的です。
         </p>
         <div class="flex-image-row">
-          <figure class="image-container-flex flex-7">
+          <figure class="image-container-flex flex-6">
             <img src="SnakeScalings.png" alt="画像1">
             <figcaption>図1: 素粒子から宇宙までのスケールを示すウロボロスの蛇</figcaption>
           </figure>
-          <figure class="image-container-flex flex-3">
+          <figure class="image-container-flex flex-4">
             <img src="ElementaryParticles.png" alt="画像2">
             <figcaption>図2:素粒子の分類
             画像は<a href="higgstan.com">higgstan.com</a>から拝借。
@@ -116,30 +116,40 @@
       <section class="sub-card-block mb-5"  id="content2">
         <h2> 重い素粒子の生成 </h2>
         <p>
-          現在実験で確認されている物理事象は<b>素粒子標準模型</b>という理論ですでに非常によく説明されています。
-          この標準理論では以下の図に示すような１７種類の素粒子から構成されています。
+          現在実験で確認されている物理事象は<b>素粒子標準理論</b>ですでに非常によく説明されています。
+          この標準理論では先の図2に示すような１７種類の素粒子から構成されています。
           自然界には四つの基礎的な力重力、弱い力、電磁気力、強い力
           (ちょっとどうかと思う名前ですよね)が存在しますが、
-          この標準模型では弱い力、電磁気力、強い力の三つを含み説明されます。
-          これらの相互作用は画像にあるゲージ粒子という素粒子を介して伝達されます。
-          例えば、我々が感じることができる電磁気力は光子という素粒子を介して伝達されます。
+          この標準理論では弱い力、電磁気力、強い力の三つを含み説明されます。
+          実は重力は弱い力よりも圧倒的に弱く、素粒子レベルでは無視できるほど小さいため、
+          現在の標準理論には含むことができていません。
         </p>
-        <figure style="text-align: center;">
-          <img 
-            alt="elementary-07-620x465.jpg" 
-            src="elementary-07-620x465.jpg" 
-            title="elementary-07-620x465.jpg" 
-            width="95%" 
-            class="clickable-image"
-          />
-          <figcaption>
-            図 2: 素粒子の分類
-            画像は<a href="higgstan.com">higgstan.com</a>から拝借。
-            元々素粒子の研究をされていた方が、
-            わかりやすく可愛らしいイラストで素粒子物理学を解説してくださっているサイトです。
-            ぜひ色々見ていただきたいです。
-          </figcaption>
-        </figure>
+        <p>
+          これらの相互作用は画像にあるゲージ粒子という素粒子を介して伝達されます(図1の右側の粒子)。
+          例えば、我々が感じることができる電磁気力は光子という素粒子を介して伝達され、
+          強い力はグルーオンという素粒子を介して伝達され、
+          弱い力はWボソンとZボソンという素粒子を介して伝達されます。
+          重力ももし量子化できれば、重力子（グラビトン）という素粒子を介して伝達されると考えられていますが、
+          まだ発見されていません。
+        </p>
+        <p>
+          これらの相互作用は図３に示すように、宇宙の始まりでは一つの力であったと考えられ、
+          宇宙の膨張とともに温度が下がることで徐々に分離していったと考えられています。
+        </p>
+        <div class="flex-image-row">
+          <figure class="image-container-flex flex-6">
+            <img src="SnakeScalings.png" alt="画像1">
+            <figcaption>
+              図3: 宇宙の発展と力の分離
+            </figcaption>
+          </figure>
+          <figure class="image-container-flex flex-4">
+            <img src="UnifyTheElementaryForth.png" alt="画像4">
+            <figcaption>図4:四つの基礎的な力の統合
+            画像は<a href="https://higgstan.com/">higgstan.com</a>から拝借。
+            四つの基礎的な力の統合
+          </figure>
+        </div>
 
 
         <p>
@@ -182,7 +192,11 @@
         const modalImg = document.createElement("img");
         modal.appendChild(modalImg);
 
-        document.querySelectorAll(".clickable-image").forEach(img => {
+        const clickableImages = document.querySelectorAll(
+          ".clickable-image, .image-container-flex img"
+        );
+
+        clickableImages.forEach(img => {
           img.addEventListener("click", () => {
             modal.style.display = "flex";
             modalImg.src = img.src;

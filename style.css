@@ -366,10 +366,7 @@ body {
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 0.5rem rgba(22, 79, 0, 0.396);
   transition: transform 0.3s ease;
-}
-
-.image-container-flex img:hover {
-  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .image-container-flex figcaption {
@@ -380,6 +377,8 @@ body {
   margin-top: 0.5em;
   text-align: center;
 }
+
+
 /* == e == イメージ設定　==== */
 
 
