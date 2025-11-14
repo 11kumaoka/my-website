@@ -327,6 +327,59 @@ body {
   max-height: 90%;
   box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
+
+/* more flexible figure array */
+.flex-image-row {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  max-width: 1000px;
+  width: 95%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.image-container-flex {
+  flex-grow: 1;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 比率用クラス（必要に応じて追加可能） */
+.flex-1 { flex: 1 1 0%; }
+.flex-2 { flex: 2 1 0%; }
+.flex-3 { flex: 3 1 0%; }
+.flex-4 { flex: 4 1 0%; }
+.flex-5 { flex: 5 1 0%; }
+.flex-6 { flex: 6 1 0%; }
+.flex-7 { flex: 7 1 0%; }
+.flex-8 { flex: 8 1 0%; }
+.flex-9 { flex: 9 1 0%; }
+.flex-10 { flex: 10 1 0%; }
+
+.image-container-flex img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(22, 79, 0, 0.396);
+  transition: transform 0.3s ease;
+}
+
+.image-container-flex img:hover {
+  transform: scale(1.05);
+}
+
+.image-container-flex figcaption {
+  width: 100%;
+  word-break: break-word;
+  font-size: 0.9em;
+  color: #dddddd;
+  margin-top: 0.5em;
+  text-align: center;
+}
 /* == e == イメージ設定　==== */
 
 
