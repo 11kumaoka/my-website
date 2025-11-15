@@ -375,7 +375,7 @@ body {
   width: 100%;
   word-break: break-word;
   font-size: 0.9em;
-  background-color: #c8c8c8;
+  background-color: #f0efef;
   color: #242424;
   margin-top: 0.5em;
   text-align: center;
@@ -751,4 +751,6 @@ cmd {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-
+d {
+  text-decoration: line-through;
+}
