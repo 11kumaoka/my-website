@@ -375,7 +375,7 @@ body {
   width: 100%;
   word-break: break-word;
   font-size: 0.9em;
-  background-color: #f0efef;
+  background-color: #f8f7f7;
   color: #242424;
   margin-top: 0.5em;
   text-align: center;
@@ -752,5 +752,5 @@ cmd {
 }
 
 d {
-  text-decoration: line-through;
+  text-decoration: line-through 5px solid #000000;
 }
