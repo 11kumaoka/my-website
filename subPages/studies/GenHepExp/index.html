@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- === s === Sub-Page Settings ===================================== -->
+<head>
+  <title>TKumaPage</title>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/my-website/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+</head>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">実験装置に関すること</h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">よく使う実験器具名称一覧</a>
+        <a href="#Content2">Content2</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
+
+
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
+
+<section class="sub-card-block mb-5"  id="content1">
+<h2>前置き</h2>
+<p>
+  私は関わったことない内容に関して色々単語出されてもわからないよぉということが多いので、実験装置に関する用語をまとめてみました。
+</p>
+</section>
+
+
+<section class="sub-card-block mb-5"  id="content1">
+<h2>よく使う実験器具名称一覧</h2>
+<h3>フォント</h3>
+ <table class="cmd-table" border="1">
+    <tr>
+      <th>名称</th>
+      <th>説明</th>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> NIM (Nuclear Instrument Module Bin)</td>
+      <td class="desc"> 核物理学や高エネルギー物理学の実験で使用される標準化された電子機器の筐体</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> NIMビン</td>
+      <td class="desc"> 様々な電子モジュールを収納するための箱型の構造で、これらのモジュールは実験装置の制御やデータ収集などに使用されます。
+      </td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> ラック</td>
+      <td class="desc"> NIMビンや電源などを格納するための棚</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> Hi-Vol, Low-Vol</td>
+      <td class="desc"> 大体, ~V- </td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> DAQ (Data AcQuisition)</td>
+      <td class="desc"> 幅広くデータ収集のこと </td>
+    </tr>
+
+    ケーブル
+    <tr>
+      <td class="cmd-cell"> NIMケーブル</td>
+      <td class="desc"> 細く、一応大体カラーコードに従って色付けられている。（10 cm, 1 nsのdelay） </td>
+    </tr>
+    <tr>
+    <td class="cmd-cell"> Hi-Volケーブル</td>
+      <td class="desc"> 結構太く端子としては-が使われることが多い </td>
+    </tr>
+
+    端子
+    <tr>
+      <td class="cmd-cell"> 端子</td>
+      <td class="desc"> huga</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> NIM端子</td>
+      <td class="desc"> huga</td>
+    </tr>
+
+    モジュール
+    <tr>
+      <td class="cmd-cell"> ディスクモジュール</td>
+      <td class="desc">  </td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> ディレイモジュール</td>
+      <td class="desc">  </td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> FANIN/FANOUTモジュール</td>
+      <td class="desc">  </td>
+    </tr>
+
+    <tr>
+      <td class="cmd-cell"> hoge</td>
+      <td class="desc"> huga</td>
+    </tr>
+  </table>
+
+
+</section>
+
+
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>

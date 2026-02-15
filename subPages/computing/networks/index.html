@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- === s === Sub-Page Settings ===================================== -->
+<head>
+  <title>TKumaPage</title>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="/my-website/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/my-website/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&family=Yuji+Syuku&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <a href="#pageTop" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+</head>
+
+<body  id="pageTop">
+
+  <div id="header-container"></div>
+  <div id="sidebar-container"></div>
+  <script>
+    fetch("/my-website/common/headerNavi.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html);
+
+    fetch("/my-website/common/sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar-container").innerHTML = html);
+  </script>
+
+    <!-- Setting of common page navigator -->
+    <header class="sub-header-image">
+    <h1 class="sub-header-title">HomePageの作り方</h1>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        <a href="/my-website/index.html">Home</a> 
+    </div> -->
+
+    <!-- Section This Page Navigation -->
+    <nav class="section-nav">
+        <a href="#Content1">よく使うタグ一覧</a>
+        <a href="#Content2">Content2</a>
+    </nav>
+    </header>
+    <!-- === e === Sub-Page Settings ===================================== -->
+
+
+    <!-- <main class="subcontainer">  -->
+    <main class="sub-section-container">
+
+<section class="sub-card-block mb-5"  id="content1">
+<h2>前置き</h2>
+<p>
+  私は全くコンピューティングの専門でないので、とても基本的な内容から自分のためにリスト化して言葉をまとめています。
+</p>
+</section>
+
+
+<section class="sub-card-block mb-5"  id="content1">
+<h2>よく使うタグ一覧</h2>
+<h3>フォント</h3>
+ <table class="cmd-table" border="1">
+    <tr>
+      <th>名称</th>
+      <th>説明</th>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> サーバー</td>
+      <td class="desc">何かを提供するもの。（ex: 計算機サーバー（計算リソース）、データサーバー（データの保管/提供））</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> クライアント</td>
+      <td class="desc"> サーバーの提供に対し、それを要求・利用する側</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> MCPサーバー（Model Context Protocol Server）</td>
+      <td class="desc"> LLM（ChatGPTなど）と、外部のツール・データ・システムを「安全かつ標準化された方法」で接続するためのサーバ</td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> GPU</td>
+      <td class="desc"> 元々はグラフィックの処理の高速化に使われていたが、
+        これが機械学習の並列処理に向いているということで近年さらに着目されている。
+        さらに、GPUはCPUと比べて消費電力が高いこともあり、電力効率の観点からも注目されている。
+        またより一般的な使いかも考えられていてGPGPU（General purpos）と呼ばれることもある。
+      </td>
+    </tr>
+    <tr>
+      <td class="cmd-cell"> メタ情報 </td>
+      <td class="desc"> データそのものを説明するためのデータ (実データ:メタデータ:: ファイルの中身:ファイル名, バイナリ:サイズ,  文章:作成日時)</td>
+    </tr>
+          
+
+    <tr>
+      <td class="cmd-cell"> hoge</td>
+      <td class="desc"> huga</td>
+    </tr>
+  </table>
+
+
+</section>
+
+
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+
+        const modalImg = document.createElement("img");
+        modal.appendChild(modalImg);
+
+        document.querySelectorAll(".clickable-image").forEach(img => {
+          img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+          });
+        });
+
+        modal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script>
+        fetch("/my-website/common/footer.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("footer-container").innerHTML = html);
+    </script>
+
+</body>
+</html>
