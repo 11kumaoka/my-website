@@ -150,33 +150,67 @@
       <th>説明</th>
     </tr>
     <tr>
-      <td class="cmd-cell"> プレアンプ</td>
-      <td class="desc">  </td>
-    </tr>
-    <tr>
-      <td class="cmd-cell"> ディスクモジュール</td>
-      <td class="desc">  </td>
-    </tr>
-    <tr>
-      <td class="cmd-cell"> ディレイモジュール</td>
-      <td class="desc">  </td>
-    </tr>
-    <tr>
-      <td class="cmd-cell"> FANIN/FANOUTモジュール</td>
-      <td class="desc">  </td>
-    </tr>
-    <tr>
-      <td class="cmd-cell"> Clockモジュール</td>
-      <td class="desc">  </td>
-    </tr>
-    <tr>
-      <td class="cmd-cell"> Scaler/Counterモジュール</td>
-      <td class="desc">  </td>
-    </tr>
-    <tr>
-      <td class="cmd-cell"> High-Voltage モジュール</td>
-      <td class="desc">  </td>
-    </tr>
+  <td class="cmd-cell"> preamp</td>
+  <td class="desc">
+    プリアンプ（前置増幅器）は、PMTやシリコン検出器などから出力される非常に微弱な電気信号を増幅するためのモジュールである。検出器直近に設置されることが多く、信号劣化やノイズ混入を最小限に抑えながら、後段のアンプやディスクリミネータで扱いやすいレベルまで信号を増幅する役割を持つ。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> Discriminator</td>
+  <td class="desc">
+    ディスクリミネータは、入力されたアナログ信号が設定したしきい値（threshold）を超えたかどうかを判定し、デジタルパルス（NIM信号など）を出力するモジュールである。ノイズ除去やイベント選別の第一段階として重要で、Leading-edge型やConstant-fraction型（CFD）などの種類がある。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> FANIN/FANOUT</td>
+  <td class="desc">
+    FAN-IN/FAN-OUTは信号の分配や合成を行うモジュールである。FAN-OUTは1つの入力信号を複数の出力へ分配し、複数機器へ同時に信号を送るために使用する。FAN-INは複数の入力信号を1つにまとめる機能を持つ。インピーダンス整合を保ちながら信号を劣化させずに扱うために重要である。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> Logic</td>
+  <td class="desc">
+    ロジックモジュールは、AND・OR・NOTなどの論理演算を行う装置である。複数のディスクリミネータ出力を組み合わせてトリガー条件を作る際に使用される。例えば「検出器Aかつ検出器Bが同時にヒットした場合のみトリガーを出す」といった条件設定が可能である。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> Gate generator</td>
+  <td class="desc">
+    ゲートジェネレータは、一定幅のゲート信号（時間窓）を生成するモジュールである。ADCやTDCなどのデータ取得装置に対して「この時間内だけ信号を受け付ける」と指定するために使用する。トリガー信号に同期してナノ秒〜マイクロ秒幅のパルスを出力できる。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> Clock</td>
+  <td class="desc">
+    クロックモジュールは、一定周期の基準信号を生成する装置である。DAQシステムやTDCの時間基準として用いられ、実験全体のタイミング同期を担う。高精度な周波数安定性が求められる。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> Scaler/Counter</td>
+  <td class="desc">
+    スケーラー（カウンター）は、入力されたデジタルパルスの回数をカウントするモジュールである。一定時間内のヒット数やトリガーレートを測定するために使用される。DAQとは独立してレート監視ができるため、ビーム調整や検出器動作確認に有用である。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> High-Voltage</td>
+  <td class="desc">
+    高電圧（High Voltage）モジュールは、PMTや一部のガス検出器に必要な高電圧（数百V〜数kV）を安定供給する装置である。電流制限機能や過電流保護機能を備えており、安全に検出器を動作させるために不可欠である。
+  </td>
+</tr>
+
+<tr>
+  <td class="cmd-cell"> Delay</td>
+  <td class="desc">
+    ディレイモジュールは、入力信号を一定時間遅延させて出力する装置である。複数検出器間のタイミング合わせや、トリガー信号とADCゲートの時間調整などに用いられる。可変遅延タイプではナノ秒単位で調整可能である。
+  </td>
+</tr>
 
   </table>
 </section>
