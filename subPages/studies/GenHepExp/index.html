@@ -109,6 +109,12 @@
   </table>
 
   <h3>端子</h3>
+  <p>
+  高エネルギー物理で扱う信号:: 数 mV ～ 数 V のアナログパルス /	数 ns ～ 数百 ps の高速信号 / 数百 V ～ 数 kV の高電圧 / GHz帯のRF信号
+  </p>
+  <p>
+  → インピーダンス整合（50Ω/75Ω） / 反射の抑制 / 高電圧安全性 / ノイズ対策
+  </p>
   <table class="cmd-table" border="1">
     <tr>
       <th>名称</th>
@@ -116,13 +122,15 @@
     </tr>
     <tr>
       <td class="cmd-cell"> BNC端子</td>
-      <td class="desc"> BNC(Bayonet Neill-Concelman)コネクタを持つケーブルをBNCケーブルと呼ぶ。半導体検出器や光電子増倍管からの信号を運ぶときによく用いる。LEMOケーブルより太い。
+      <td class="desc"> BNC(Bayonet Neill-Concelman)コネクタを持つケーブルをBNCケーブルと呼ぶ。半導体検出器や光電子増倍管からの信号を運ぶときによく用いる。LEMOケーブルより太い。<br>
+      (50Ω or 75Ω /	数百MHz程度まで, 用途::オシロスコープ/ NIM信号/ 低〜中電圧信号/ PMT信号読み出し, 運用電圧::数百V以下（高電圧用途には不向き）)
       <img alt="BNCConnector.png" src="BNCConnector.png" title="BNCConnector.png" style="width:12.5%;" class="clickable-image"/>
       </td>
     </tr>
     <tr>
       <td class="cmd-cell"> SHV端子</td>
-      <td class="desc"> SHV(Safe High Voltage)コネクタを持つケーブルをSHVケーブルと呼ぶ。光電子増倍管などに高電圧をかけたいときに用いる。見た目はBNCケーブルに似ているが、コネクタの形状が違うためSHVケーブルとBNCケーブルを間違って接続することはない。
+      <td class="desc"> SHV(Safe High Voltage)コネクタを持つケーブルをSHVケーブルと呼ぶ。光電子増倍管などに高電圧をかけたいときに用いる。見た目はBNCケーブルに似ているが、コネクタの形状が違うためSHVケーブルとBNCケーブルを間違って接続することはない。<br>
+      (～5kV程度/ 用途::PMT高圧 / SiPMバイアス / ガス検出器高電圧)
       <img alt="SHVConnector.png" src="SHVConnector.png" title="SHVConnector.png" style="width:12.5%;" class="clickable-image"/>
       </td>
     </tr>
@@ -136,7 +144,8 @@
       <td class="cmd-cell"> LEMO端子</td>
       <td class="desc"> LEMOとは会社の名前。
         LEMOケーブルの用途はBNCケーブルに似ているが、BNCケーブルよりも細くて便利。
-      コネクタの形状もBNCより小さい。NIMモジュールでロジック回路を作るときによく使う。
+      コネクタの形状もBNCより小さい。NIMモジュールでロジック回路を作るときによく使う。<br>
+      (用途:: クロック信号 / トリガー / 高速信号 / 精密機器)
       <img alt="LEMOConnector.png" src="LEMOConnector.png" title="LEMOConnector.png" style="width:12.5%;" class="clickable-image"/>
       </td>
     </tr>
@@ -249,8 +258,16 @@
   <li>テスター</li>
   <li>オシロスコープ</li>
   <li>Source meter/pulser</li>
+  <li>Thermometer</li>
+  <li>アルミホイル</li>
+
   </ul>
 </p>
+</section>
+
+<section class="sub-card-block mb-5"  id="noise">
+<h2> Beam Lines</h2>
+<a href="https://indico2.riken.jp/event/3884/contributions/17496/attachments/10747/15267/20211027_vist_ELPH.pdf">RARiS</a>
 </section>
 
     </main>
